@@ -20,11 +20,13 @@
         <div
           class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
         >
-          <font-awesome-icon
-            class="absolute text-primary dark:text-primary-dark hover:scale-110 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            icon="fa-solid fa-close"
-            @click="() => (openDialog = false)"
-          />
+          <ClientOnly>
+            <font-awesome-icon
+              class="absolute text-primary dark:text-primary-dark hover:scale-110 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+              icon="fa-solid fa-close"
+              @click="() => (openDialog = false)"
+            />
+          </ClientOnly>
           <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
             <div class="sm:flex sm:items-start">
               <div

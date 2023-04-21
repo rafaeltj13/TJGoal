@@ -1,9 +1,38 @@
 <template>
   <div
-    class="fixed top-16 left-0 h-screen w-16 flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg"
+    :class="{ 'w-48': openLeftSidebar, 'w-16': !openLeftSidebar }"
+    class="transition-all duration-150 ease-in-out fixed top-16 left-0 h-screen w-16 flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between"
   >
-    <hr
-      class="bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 rounded-full mx-2"
-    />
+    <div class="p-1">
+      <SidebarRouteOption
+        title="Ranking"
+        icon="fa-ranking-star"
+        to-route="/ranking"
+      />
+      <SidebarRouteOption
+        title="Niveis"
+        icon="fa-arrow-up-wide-short"
+        to-route="/levels"
+      />
+      <SidebarRouteOption title="Sobre" icon="fa-users" to-route="/about" />
+    </div>
+    <ClientOnly>
+      <font-awesome-icon
+        v-show="openLeftSidebar"
+        class="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        icon="fa-solid fa-angles-left"
+        @click="openLeftSidebar = !openLeftSidebar"
+      />
+      <font-awesome-icon
+        v-show="!openLeftSidebar"
+        class="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        icon="fa-solid fa-angles-right"
+        @click="openLeftSidebar = !openLeftSidebar"
+      />
+    </ClientOnly>
   </div>
 </template>
+
+<script setup lang="ts">
+const openLeftSidebar = useLeftSidebar();
+</script>

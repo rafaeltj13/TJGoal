@@ -1,10 +1,19 @@
 <template>
-  <div class="overflow-y-auto h-[100vh] px-8">
-    <h1 class="pt-4 text-tertiary dark:text-tertiary-dark">
-      Welcome to the homepage
+  <div class="overflow-y-auto p-8 max-w-[1366px] mx-auto">
+    <h1 class="text-center text-4xl text-primary dark:text-primary-dark mb-2">
+      Rodada 1 - Temporada 1
     </h1>
-    <NuxtLink to="/about" class="text-tertiary dark:text-tertiary-dark"
-      >About page</NuxtLink
-    >
+    <div class="flex justify-center">
+      <div
+        class="h-1 w-80 rounded-full bg-primary dark:bg-primary-dark mb-20"
+      ></div>
+    </div>
+    <ScorerCardList />
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: "PBGol - Home",
+});
+</script>

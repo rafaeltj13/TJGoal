@@ -18,6 +18,9 @@ export default {
       spacing: {
         88: "22rem",
       },
+      fontFamily: {
+        sans: ["Comfortaa", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [],
