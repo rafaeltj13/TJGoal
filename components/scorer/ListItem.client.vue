@@ -9,7 +9,11 @@
           :icon="`fa-solid fa-${getLevel()}`"
         />
       </div>
-      <p class="text-tertiary dark:text-tertiary-dark">Time</p>
+      <TeamTag
+        :color-primary="getRandomColor()"
+        :color-secondary="getRandomColor()"
+        :color-tertiary="getRandomColor()"
+      />
       <p class="ml-2 text-tertiary dark:text-tertiary-dark">LilTJ</p>
     </div>
     <p class="text-tertiary dark:text-tertiary-dark">
@@ -29,6 +33,20 @@ const getLevel = () => {
     "star",
     "hippo",
     "bolt",
+  ];
+  return levels[Math.floor(Math.random() * levels.length)];
+};
+
+const getRandomColor = () => {
+  const levels = [
+    "black",
+    "white",
+    "amber-700",
+    "lime-700",
+    "slate-700",
+    "teal-700",
+    "fuchsia-700",
+    "violet-700",
   ];
   return levels[Math.floor(Math.random() * levels.length)];
 };
