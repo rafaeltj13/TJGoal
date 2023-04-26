@@ -17,16 +17,16 @@
       <SidebarRouteOption title="Sobre" icon="fa-users" to-route="/about" />
     </div>
     <ClientOnly>
-      <font-awesome-icon
+      <TheIcon
         v-show="openLeftSidebar"
-        class="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
-        icon="fa-solid fa-angles-left"
+        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        faIcon="fa-solid fa-angles-left"
         @click="openLeftSidebar = !openLeftSidebar"
       />
-      <font-awesome-icon
+      <TheIcon
         v-show="!openLeftSidebar"
-        class="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
-        icon="fa-solid fa-angles-right"
+        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        faIcon="fa-solid fa-angles-right"
         @click="openLeftSidebar = !openLeftSidebar"
       />
     </ClientOnly>

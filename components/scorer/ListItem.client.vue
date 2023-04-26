@@ -4,9 +4,9 @@
       <div
         class="rounded-xl bg-gray-300 border-primary dark:border-primary-dark border-2 w-10 h-10 flex items-center justify-center mr-2"
       >
-        <font-awesome-icon
-          class="text-slate-400 text-2xl"
-          :icon="`fa-solid fa-${getLevel()}`"
+        <TheIcon
+          customClass="text-slate-400 text-2xl"
+          :faIcon="`fa-solid fa-${getLevel()}`"
         />
       </div>
       <TeamTag

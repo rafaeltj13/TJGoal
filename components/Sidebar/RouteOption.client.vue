@@ -4,12 +4,10 @@
     :class="{ '!justify-start': openLeftSidebar }"
     class="flex items-center justify-center hover:scale-110 transition-transform cursor-pointer relative group"
   >
-    <ClientOnly>
-      <font-awesome-icon
-        class="w-8 p-4 text-xl text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
-        :icon="`fa-solid ${props.icon}`"
-      />
-    </ClientOnly>
+    <TheIcon
+      customClass="w-8 p-4 text-xl text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
+      :faIcon="`fa-solid ${props.icon}`"
+    />
     <span
       v-if="!openLeftSidebar"
       class="absolute w-auto p-2 m-2 min-w-max left-14 rounded-xl shadow-xl text-secondary dark:text-secondary-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-left group-hover:scale-100"

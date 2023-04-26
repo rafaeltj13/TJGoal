@@ -20,13 +20,11 @@
         <div
           class="relative transform overflow-hidden rounded-2xl bg-secondary dark:bg-secondary-dark text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
         >
-          <ClientOnly>
-            <font-awesome-icon
-              class="absolute text-primary dark:text-primary-dark hover:scale-110 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-              icon="fa-solid fa-close"
-              @click="() => (openDialog = false)"
-            />
-          </ClientOnly>
+          <TheIcon
+            customClass="absolute text-primary dark:text-primary-dark hover:scale-110 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+            faIcon="fa-solid fa-close"
+            @click="() => (openDialog = false)"
+          />
           <div
             class="bg-secondary dark:bg-secondary-dark px-4 pb-4 pt-5 sm:p-6 sm:pb-4"
           >

@@ -9,56 +9,45 @@
     >
     <div class="flex gap-4 items-center">
       <ClientOnly>
-        <font-awesome-icon
+        <TheIcon
           v-if="!darkMode"
           key="dark-mode"
-          class="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
-          icon="fa-solid fa-moon"
+          customClass="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+          faIcon="fa-solid fa-moon"
           @click="darkMode = !darkMode"
         />
-        <font-awesome-icon
+        <TheIcon
           v-else
           key="light-mode"
-          class="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
-          icon="fa-solid fa-sun"
+          customClass="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+          faIcon="fa-solid fa-sun"
           @click="darkMode = false"
         />
+        <AuthSignInModal v-if="!(user && user.id)" />
+        <TheIcon
+          v-else
+          @click="signout"
+          fa-icon="fa-solid fa-right-from-bracket"
+          custom-class="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+        />
       </ClientOnly>
-      <TheModal>
-        <template #default>
-          <font-awesome-icon
-            class="pt-1 text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
-            icon="fa-solid fa-right-to-bracket"
-          />
-        </template>
-        <template #content>
-          <div class="flex flex-col items-center py-8">
-            <p
-              class="text-2xl text-primary dark:text-primary-dark font-bold mb-8"
-            >
-              Sign in
-            </p>
-            <TheInput v-model="login" placeholder="Email" class="mb-4" />
-            <TheInput
-              v-model="pass"
-              placeholder="Password"
-              type="password"
-              class="mb-8"
-            />
-            <div class="flex gap-4">
-              <TheButton content="Criar conta" type="outlined" />
-              <TheButton content="Entrar" />
-            </div>
-          </div>
-        </template>
-      </TheModal>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const darkMode = useDarkMode();
+import { User } from "@supabase/gotrue-js";
 
-const login = ref("");
-const pass = ref("");
+const darkMode = useDarkMode();
+const supabase = useSupabaseClient();
+
+const signout = async () => {
+  const { error } = await supabase.auth.signOut();
+};
+
+let user: Ref<User | null> = ref(null);
+
+supabase.auth.onAuthStateChange((event, session) => {
+  user.value = session?.user ?? null;
+});
 </script>

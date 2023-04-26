@@ -3,10 +3,10 @@
     <div
       class="flex items-center justify-center h-12 w-12 my-2 mx-auto bg-secondary hover:bg-primary dark:bg-secondary-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-secondary dark:hover:text-secondary-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
-      <font-awesome-icon
+      <TheIcon
         v-if="Math.random() > 0.5"
-        class="text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
-        icon="fa-solid fa-futbol"
+        customClass="text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
+        faIcon="fa-solid fa-futbol"
       />
       <p class="text-sm" v-else>3:42</p>
       <span
@@ -23,14 +23,12 @@
     <div
       class="flex items-center justify-center h-12 w-12 my-2 bg-secondary hover:bg-primary dark:bg-secondary-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-secondary dark:hover:text-secondary-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
-      <ClientOnly>
-        <font-awesome-icon
-          v-if="Math.random() > 0.5"
-          class="text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
-          icon="fa-solid fa-futbol"
-        />
-        <p class="text-sm" v-else>3:42</p>
-      </ClientOnly>
+      <TheIcon
+        v-if="Math.random() > 0.5"
+        customClass="text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
+        faIcon="fa-solid fa-futbol"
+      />
+      <p class="text-sm" v-else>3:42</p>
     </div>
   </div>
 </template>
