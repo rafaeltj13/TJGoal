@@ -16,8 +16,7 @@
       <hr
         class="bg-primary dark:bg-primary-dark border border-primary dark:border-primary-dark rounded-full"
       />
-      <SidebarMenuOption title="Chutar" />
-      <SidebarMenuOption title="Cobrar Pênalti" />
+      <ShootList />
       <hr
         class="bg-primary dark:bg-primary-dark border border-primary dark:border-primary-dark rounded-full"
       />
