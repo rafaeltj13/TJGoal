@@ -42,7 +42,7 @@ const darkMode = useDarkMode();
 const supabase = useSupabaseClient();
 
 const signout = async () => {
-  const { error } = await supabase.auth.signOut();
+  await supabase.auth.signOut();
 };
 
 let user: Ref<User | null> = ref(null);

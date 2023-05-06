@@ -38,6 +38,7 @@
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits(["shoot"]);
 const props = defineProps({
   title: {
     type: String,
@@ -47,7 +48,7 @@ const openRightSidebar = useRightSidebar();
 
 const shoot = ref(false);
 
-const TIME_LIMIT = 20;
+const TIME_LIMIT = 90;
 const timePassed = ref(0);
 const timerInterval: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);
@@ -69,6 +70,7 @@ const formattedTimeLeft = computed(() => {
 const onTimesUp = () => {
   shoot.value = true;
   clearInterval(timerInterval.value);
+  timerInterval.value = undefined;
 };
 
 const startTimer = () => {
@@ -78,7 +80,11 @@ const startTimer = () => {
 
 const tryToShoot = () => {
   if (!shoot.value) return;
-  console.log("shoot", props.title);
+
+  emit("shoot");
+  shoot.value = false;
+  timePassed.value = 0;
+  startTimer();
 };
 
 watch(

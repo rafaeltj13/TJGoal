@@ -8,10 +8,20 @@
       >
         Artilharia
       </h1>
-      <ScorerListItem v-for="e of array" :key="e" class="py-2" />
+      <ScorerListItem
+        v-for="(user, index) of props.ranking"
+        :user="user"
+        :key="user?.id || index"
+        class="py-2"
+      />
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+const props = defineProps({
+  ranking: {
+    type: Array,
+    default: () => [],
+  },
+});
 </script>

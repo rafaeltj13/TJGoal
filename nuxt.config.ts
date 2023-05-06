@@ -10,4 +10,10 @@ export default defineNuxtConfig({
       Comfortaa: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     },
   },
+  runtimeConfig: {
+    public: {
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_KEY: process.env.SUPABASE_KEY,
+    },
+  },
 });

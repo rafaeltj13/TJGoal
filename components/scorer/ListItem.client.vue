@@ -2,27 +2,34 @@
   <div class="flex items-center justify-between w-full">
     <div class="flex items-center">
       <div
-        class="rounded-xl bg-gray-300 border-primary dark:border-primary-dark border-2 w-10 h-10 flex items-center justify-center mr-2"
+        class="rounded-xl bg-gray-300 w-10 h-10 flex items-center justify-center mr-2"
       >
         <TheIcon
           customClass="text-slate-400 text-2xl"
           :faIcon="`fa-solid fa-${getLevel()}`"
         />
       </div>
-      <TeamTag
-        :color-primary="getRandomColor()"
-        :color-secondary="getRandomColor()"
-        :color-tertiary="getRandomColor()"
-      />
-      <p class="ml-2 text-tertiary dark:text-tertiary-dark">LilTJ</p>
+      <img class="w-8 h-8" :src="props.user.team.logo" alt="enemy-logo" />
+      <p class="ml-2 text-tertiary dark:text-tertiary-dark">
+        {{ props.user.username }}
+      </p>
     </div>
     <p class="text-tertiary dark:text-tertiary-dark">
-      {{ Math.floor(Math.random() * 20) }}
+      {{ props.user.goals }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
+const props = defineProps({
+  user: {
+    type: Object,
+    default: () => ({
+      name: "",
+      goals: 0,
+    }),
+  },
+});
 const getLevel = () => {
   const levels = [
     "viruses",
