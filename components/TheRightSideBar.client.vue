@@ -63,7 +63,7 @@
         <div>
           <img
             class="mt-2 w-12 h-12 hover:scale-110 transition-transform cursor-pointer"
-            :src="currentUser.team.logo"
+            :src="user.team?.logo || ''"
             alt="team-logo"
           />
           <p

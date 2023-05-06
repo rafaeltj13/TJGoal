@@ -1,5 +1,6 @@
+import { Database } from "./../lib/database.types";
 import { createClient } from "@supabase/supabase-js";
-import { Database } from "lib/database.types";
+import { User } from "~/lib/data.types";
 
 export const useAPI = () => {
   const config = useRuntimeConfig();
@@ -7,8 +8,10 @@ export const useAPI = () => {
   const supabaseKey = config.public.SUPABASE_KEY || "";
   const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
-  const getCurrentUser = async (userId: string | null) => {
-    if (!userId) return;
+  const getCurrentUser = async (
+    userId: string | null
+  ): Promise<User | null> => {
+    if (!userId) return null;
 
     const { data, error } = await supabase
       .from("users")
@@ -16,6 +19,7 @@ export const useAPI = () => {
         `
         *,
         team (
+          id,
           name,
           logo
         )
@@ -23,13 +27,15 @@ export const useAPI = () => {
       )
       .eq("id", userId);
 
-    if (error) return;
+    if (error) return null;
 
-    return data[0];
+    return data[0] as User;
   };
 
-  const getUserRank = async (userId: string | null) => {
-    if (!userId) return;
+  const getUserRank = async (
+    userId: string | null
+  ): Promise<Array<User> | []> => {
+    if (!userId) return [];
 
     const { data, error } = await supabase
       .from("users")
@@ -37,6 +43,7 @@ export const useAPI = () => {
         `
         *,
         team (
+          id,
           name,
           logo
         )
@@ -44,15 +51,15 @@ export const useAPI = () => {
       )
       .order("goals", { ascending: false });
 
-    if (error) return;
+    if (error) return [];
 
-    return data;
+    return data as User[];
   };
 
   const shoot = async (
     userId: string | null,
     currentGoalsNumber: number = 0
-  ) => {
+  ): Promise<void> => {
     if (!userId) return;
 
     const { data, error } = await supabase
@@ -61,8 +68,6 @@ export const useAPI = () => {
       .eq("id", userId);
 
     if (error) return;
-
-    return data;
   };
 
   return { getCurrentUser, getUserRank, shoot };
