@@ -1,10 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
+import { Database } from "lib/database.types";
 
 export const useAPI = () => {
   const config = useRuntimeConfig();
   const supabaseUrl = config.public.SUPABASE_URL || "";
   const supabaseKey = config.public.SUPABASE_KEY || "";
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
   const getCurrentUser = async (userId: string | null) => {
     if (!userId) return;
