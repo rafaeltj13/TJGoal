@@ -21,7 +21,7 @@
 const props = defineProps({
   ranking: {
     type: Array,
-    default: () => [],
+    required: true,
   },
 });
 </script>

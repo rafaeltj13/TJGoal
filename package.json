@@ -9,9 +9,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.4",
     "@nuxtjs/supabase": "^0.3.5",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@types/node": "^18",
+    "element-plus": "^2.3.4",
     "nuxt": "^3.4.1"
   },
   "dependencies": {

@@ -23,7 +23,7 @@
           faIcon="fa-solid fa-sun"
           @click="darkMode = false"
         />
-        <AuthSignInModal v-if="!(user && user.id)" />
+        <AuthModal v-if="!(currentUser && currentUser.id)" />
         <TheIcon
           v-else
           @click="signout"
@@ -31,23 +31,21 @@
           custom-class="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
         />
       </ClientOnly>
+      <p
+        v-if="currentUser && currentUser.username"
+        class="text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+      >
+        {{ currentUser.username }}
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { User } from "@supabase/gotrue-js";
-
 const darkMode = useDarkMode();
 const supabase = useSupabaseClient();
-
+const { currentUser } = useCurrentUser();
 const signout = async () => {
   await supabase.auth.signOut();
 };
-
-let user: Ref<User | null> = ref(null);
-
-supabase.auth.onAuthStateChange((event, session) => {
-  user.value = session?.user ?? null;
-});
 </script>

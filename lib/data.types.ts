@@ -19,3 +19,12 @@ export type Team = {
   secondary_color?: string;
   logo: string;
 };
+
+export type Level = {
+  id: number;
+  created_at?: string;
+  name: string;
+  min_goals: number;
+  max_goals: number;
+  icon: string;
+};

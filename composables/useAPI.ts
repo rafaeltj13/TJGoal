@@ -1,6 +1,6 @@
 import { Database } from "./../lib/database.types";
 import { createClient } from "@supabase/supabase-js";
-import { User } from "~/lib/data.types";
+import { User, Level } from "~/lib/data.types";
 
 export const useAPI = () => {
   const config = useRuntimeConfig();
@@ -25,18 +25,15 @@ export const useAPI = () => {
         )
       `
       )
-      .eq("id", userId);
+      .eq("id", userId)
+      .single();
 
     if (error) return null;
 
-    return data[0] as User;
+    return data as User;
   };
 
-  const getUserRank = async (
-    userId: string | null
-  ): Promise<Array<User> | []> => {
-    if (!userId) return [];
-
+  const getUserRank = async (): Promise<Array<User> | []> => {
     const { data, error } = await supabase
       .from("users")
       .select(
@@ -49,7 +46,9 @@ export const useAPI = () => {
         )
       `
       )
-      .order("goals", { ascending: false });
+      .filter("username", "neq", "")
+      .order("goals", { ascending: false })
+      .limit(10);
 
     if (error) return [];
 
@@ -62,7 +61,7 @@ export const useAPI = () => {
   ): Promise<void> => {
     if (!userId) return;
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("users")
       .update({ goals: currentGoalsNumber + 1 })
       .eq("id", userId);
@@ -70,5 +69,16 @@ export const useAPI = () => {
     if (error) return;
   };
 
-  return { getCurrentUser, getUserRank, shoot };
+  const getLevels = async (): Promise<Array<Level>> => {
+    const { data, error } = await supabase
+      .from("levels")
+      .select("*")
+      .order("min_goals", { ascending: false });
+
+    if (error) return [];
+
+    return data as Level[];
+  };
+
+  return { getCurrentUser, getUserRank, shoot, getLevels };
 };

@@ -6,9 +6,9 @@ export default {
       colors: {
         // Light theme
         primary: "#159895",
-        secondary: "#FEFCF3",
+        secondary: "#f1f3f5",
         tertiary: "#7AA874",
-        sidebar: "#EDE4E0",
+        sidebar: "#f0f1f3",
         //Dark Theme
         "primary-dark": "#6998AB",
         "secondary-dark": "#2B4865",

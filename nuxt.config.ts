@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxtjs/supabase"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/supabase",
+    "@element-plus/nuxt",
+  ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {
     families: {

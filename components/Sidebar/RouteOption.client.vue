@@ -5,7 +5,7 @@
     class="flex items-center justify-center hover:scale-110 transition-transform cursor-pointer relative group"
   >
     <TheIcon
-      customClass="w-8 p-4 text-xl text-primary dark:text-primary-dark group-hover:text-secondary dark:group-hover:text-secondary-dark cursor-pointer"
+      customClass="w-8 p-4 text-xl text-primary dark:text-primary-dark  cursor-pointer"
       :faIcon="`fa-solid ${props.icon}`"
     />
     <span
@@ -14,11 +14,9 @@
     >
       {{ props.title }}
     </span>
-    <span
-      v-else
-      class="pl-1 text-primary dark:text-primary-dark text-md group-hover:text-secondary dark:group-hover:text-secondary-dark"
-      >{{ props.title }}</span
-    >
+    <span v-else class="pl-1 text-primary dark:text-primary-dark text-md">{{
+      props.title
+    }}</span>
   </NuxtLink>
 </template>
 <script setup lang="ts">

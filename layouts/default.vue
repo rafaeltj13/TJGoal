@@ -2,7 +2,7 @@
   <div :class="{ dark: darkMode }">
     <TheHeader />
     <div
-      class="flex items-start justify-between bg-secondary dark:bg-secondary-dark pt-16 overflow-y-hidden"
+      class="flex items-start justify-between bg-secondary dark:bg-secondary-dark pt-16"
     >
       <TheLeftSideBar />
       <div
@@ -12,7 +12,7 @@
           'pl-16': !openLeftSidebar,
           'pl-48': openLeftSidebar,
         }"
-        class="w-full overflow-y-auto transition-all duration-150 ease-in-out"
+        class="w-full transition-all duration-150 ease-in-out"
       >
         <slot />
       </div>

@@ -25,6 +25,7 @@
       {{ props.title }}
     </span>
     <div
+      @click="tryToShoot()"
       class="flex items-center justify-center h-12 w-12 my-2 bg-secondary hover:bg-primary dark:bg-secondary-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-secondary dark:hover:text-secondary-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
       <p v-if="!shoot" class="text-sm">{{ formattedTimeLeft }}</p>
@@ -48,7 +49,7 @@ const openRightSidebar = useRightSidebar();
 
 const shoot = ref(false);
 
-const TIME_LIMIT = 90;
+const TIME_LIMIT = 10;
 const timePassed = ref(0);
 const timerInterval: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);

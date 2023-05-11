@@ -10,14 +10,7 @@
         :class="{ '!justify-center  ': !openRightSidebar }"
       >
         <div>
-          <div
-            class="rounded-xl bg-gray-300 w-10 h-10 flex items-center justify-center mb-2"
-          >
-            <TheIcon
-              customClass="text-slate-400 text-2xl"
-              faIcon="fa-solid fa-hammer"
-            />
-          </div>
+          <LevelIcon icon="fa-solid fa-hammer" class="mb-2" />
           <p class="text-tertiary dark:text-tertiary-dark text-center">
             {{ user.goals }}
           </p>
