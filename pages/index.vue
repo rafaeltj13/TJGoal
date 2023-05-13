@@ -14,6 +14,9 @@
 
 <script setup lang="ts">
 useHead({
-  title: "PBGol - Home",
+  title: "PBGol",
+});
+definePageMeta({
+  middleware: "registration",
 });
 </script>

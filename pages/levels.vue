@@ -25,11 +25,11 @@
       >
         <div class="flex items-center">
           <LevelIcon :icon="currentLevel.icon" class="mr-4" />
-          <p class="text-tertiary dark:text-tertiary-dark">
+          <p class="text-text dark:text-text-dark">
             {{ currentLevel.name }}
           </p>
         </div>
-        <p class="text-tertiary dark:text-tertiary-dark">
+        <p class="text-text dark:text-text-dark">
           {{ currentLevel.min_goals }}
         </p>
       </div>
@@ -38,6 +38,13 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: "PBGol - Níveis",
+});
+definePageMeta({
+  middleware: "registration",
+});
+
 import { Level } from "~/lib/data.types";
 const { getLevels } = useAPI();
 

@@ -9,6 +9,7 @@ export type User = {
   avatar_url: string;
   goals: number;
   team?: Team;
+  level?: Level;
 };
 
 export type Team = {
@@ -16,7 +17,7 @@ export type Team = {
   created_at?: string;
   name: string;
   primary_color?: string;
-  secondary_color?: string;
+  background_color?: string;
   logo: string;
 };
 
@@ -27,4 +28,5 @@ export type Level = {
   min_goals: number;
   max_goals: number;
   icon: string;
+  next_level?: Level;
 };

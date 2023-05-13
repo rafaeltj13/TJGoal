@@ -6,14 +6,18 @@ export default {
       colors: {
         // Light theme
         primary: "#159895",
-        secondary: "#f1f3f5",
-        tertiary: "#7AA874",
+        secondary: "#aed09e",
+        text: "#61B292",
+        background: "#f1f3f5",
         sidebar: "#f0f1f3",
+        accent: "#7e6752",
+
         //Dark Theme
-        "primary-dark": "#6998AB",
-        "secondary-dark": "#2B4865",
-        "tertiary-dark": "#0E8388",
-        "sidebar-dark": "#256D85",
+        "primary-dark": "#2E4F4F",
+        "secondary-dark": "#044343",
+        "text-dark": "#0E8388",
+        "background-dark": "#03001C",
+        "sidebar-dark": "#1B2430",
       },
       spacing: {
         88: "22rem",

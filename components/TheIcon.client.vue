@@ -10,7 +10,7 @@ const props = defineProps({
   },
   customClass: {
     type: String,
-    required: true,
+    default: () => "",
   },
 });
 </script>

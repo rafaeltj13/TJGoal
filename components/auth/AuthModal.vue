@@ -2,7 +2,7 @@
   <TheModal>
     <template #default>
       <TheIcon
-        customClass="pt-1 text-secondary dark:text-secondary-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+        customClass="pt-1 text-background dark:text-background-dark hover:scale-110 transition-transform cursor-pointer text-lg"
         faIcon="fa-solid fa-right-to-bracket"
       />
     </template>

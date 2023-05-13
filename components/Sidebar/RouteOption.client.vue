@@ -10,7 +10,7 @@
     />
     <span
       v-if="!openLeftSidebar"
-      class="absolute w-auto p-2 m-2 min-w-max left-14 rounded-xl shadow-xl text-secondary dark:text-secondary-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-left group-hover:scale-100"
+      class="absolute w-auto p-2 m-2 min-w-max left-14 rounded-xl shadow-xl text-background dark:text-background-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-left group-hover:scale-100"
     >
       {{ props.title }}
     </span>

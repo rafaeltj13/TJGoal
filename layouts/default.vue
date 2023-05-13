@@ -2,7 +2,7 @@
   <div :class="{ dark: darkMode }">
     <TheHeader />
     <div
-      class="flex items-start justify-between bg-secondary dark:bg-secondary-dark pt-16"
+      class="flex items-start justify-between bg-background dark:bg-background-dark pt-16"
     >
       <TheLeftSideBar />
       <div

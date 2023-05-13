@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-96 bg-secondary dark:bg-secondary-dark shadow-2xl rounded-xl p-4"
+    class="w-96 bg-background dark:bg-background-dark shadow-2xl rounded-xl p-4"
   >
     <div>
       <h1
@@ -9,18 +9,19 @@
         Artilharia
       </h1>
       <ScorerListItem
-        v-for="(user, index) of props.ranking"
+        v-for="user of props.ranking"
         :user="user"
-        :key="user?.id || index"
+        :key="user.id"
         class="py-2"
       />
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { User } from "~/lib/data.types";
 const props = defineProps({
   ranking: {
-    type: Array,
+    type: Array<User>,
     required: true,
   },
 });

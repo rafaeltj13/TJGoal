@@ -1,6 +1,6 @@
 import { Database } from "./../lib/database.types";
 import { createClient } from "@supabase/supabase-js";
-import { User, Level } from "~/lib/data.types";
+import { User, Level, Team } from "~/lib/data.types";
 
 export const useAPI = () => {
   const config = useRuntimeConfig();
@@ -22,6 +22,16 @@ export const useAPI = () => {
           id,
           name,
           logo
+        ),
+        level (
+          name,
+          icon,
+          max_goals,
+          min_goals,
+          next_level(
+            id,
+            icon
+          )
         )
       `
       )
@@ -43,6 +53,9 @@ export const useAPI = () => {
           id,
           name,
           logo
+        ),
+        level (
+          icon
         )
       `
       )
@@ -80,5 +93,49 @@ export const useAPI = () => {
     return data as Level[];
   };
 
-  return { getCurrentUser, getUserRank, shoot, getLevels };
+  const getTeams = async (): Promise<Array<Team>> => {
+    const { data, error } = await supabase.from("teams").select("*");
+
+    if (error) return [];
+
+    return data as Team[];
+  };
+
+  const updateUser = async (
+    userId: string | null,
+    username: string,
+    fullName: string,
+    team: string
+  ): Promise<void> => {
+    const { error } = await supabase
+      .from("users")
+      .update({ username, full_name: fullName, team, updated_at: new Date() })
+      .eq("id", userId);
+
+    if (error) return;
+  };
+
+  const handleNextLevel = async (
+    userId: string,
+    nextLevel: number | undefined
+  ): Promise<void> => {
+    if (!userId || !nextLevel) return;
+
+    const { error } = await supabase
+      .from("users")
+      .update({ level: nextLevel })
+      .eq("id", userId);
+
+    if (error) return;
+  };
+
+  return {
+    getCurrentUser,
+    getUserRank,
+    shoot,
+    getLevels,
+    getTeams,
+    updateUser,
+    handleNextLevel,
+  };
 };

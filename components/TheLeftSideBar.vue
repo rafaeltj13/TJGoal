@@ -19,13 +19,13 @@
     <ClientOnly>
       <TheIcon
         v-show="openLeftSidebar"
-        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-background cursor-pointer"
         faIcon="fa-solid fa-angles-left"
         @click="openLeftSidebar = !openLeftSidebar"
       />
       <TheIcon
         v-show="!openLeftSidebar"
-        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-secondary cursor-pointer"
+        customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-background cursor-pointer"
         faIcon="fa-solid fa-angles-right"
         @click="openLeftSidebar = !openLeftSidebar"
       />

@@ -1,17 +1,17 @@
 <template>
   <div class="flex items-center justify-between w-full">
     <div class="flex items-center">
-      <LevelIcon :icon="`fa-solid fa-${getLevel()}`" class="mr-2" />
+      <LevelIcon :icon="props.user.level.icon" class="mr-2" />
       <img
         class="w-8 h-8"
         :src="props.user.team?.logo || ''"
         alt="enemy-logo"
       />
-      <p class="ml-2 text-tertiary dark:text-tertiary-dark">
+      <p class="ml-2 text-text dark:text-text-dark">
         {{ props.user.username }}
       </p>
     </div>
-    <p class="text-tertiary dark:text-tertiary-dark">
+    <p class="text-text dark:text-text-dark">
       {{ props.user.goals }}
     </p>
   </div>
