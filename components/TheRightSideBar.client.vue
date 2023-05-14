@@ -11,7 +11,7 @@
       >
         <div>
           <LevelIcon :icon="user.level?.icon || ''" class="mb-2" />
-          <p class="text-text dark:text-text-dark text-center">
+          <p class="text-text dark:text-text-dark text-center font-bold">
             {{ user.goals }}
           </p>
         </div>
@@ -26,10 +26,8 @@
             class="w-full bg-background rounded-full h-2.5 dark:bg-background-dark"
           >
             <div
-              class="bg-primary h-2.5 rounded-full"
-              :style="`width:${Math.floor(
-                (user.goals / (user.level?.max_goals || 0)) * 100
-              )}%`"
+              class="bg-gradient-to-r from-secondary dark:from-secondary-dark to-primary dark:to-primary-dark h-2.5 rounded-full"
+              :style="`width: ${currentProgress}%`"
             ></div>
           </div>
         </div>
@@ -39,18 +37,18 @@
               :icon="user.level?.next_level?.icon || ''"
               class="mb-2"
             />
-            <p class="text-text dark:text-text-dark text-center">
-              {{ user.level.max_goals }}
+            <p class="text-text dark:text-text-dark text-center font-bold">
+              {{ user.level?.max_goals }}
             </p>
           </div>
         </div>
       </div>
       <hr
-        class="bg-primary dark:bg-primary-dark border border-primary dark:border-primary-dark rounded-full"
+        class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
       <ShootList />
       <hr
-        class="bg-primary dark:bg-primary-dark border border-primary dark:border-primary-dark rounded-full"
+        class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
       <div :class="{ 'flex items-center justify-between': openRightSidebar }">
         <div>
@@ -63,7 +61,9 @@
             13661
           </p>
         </div>
-        <p class="text-4xl text-text dark:text-text-dark text-center font-bold">
+        <p
+          class="text-4xl text-accent dark:text-accent-dark text-center font-bold"
+        >
           x
         </p>
         <div
@@ -82,13 +82,13 @@
     </div>
     <TheIcon
       v-if="!openRightSidebar"
-      customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-background cursor-pointer"
+      customClass="pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
       faIcon="fa-solid fa-angles-left"
       @click="openRightSidebar = !openRightSidebar"
     />
     <TheIcon
       v-else
-      customClass="pb-20 text-primary dark:text-primary-dark group-hover:text-background cursor-pointer"
+      customClass="pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
       faIcon="fa-solid fa-angles-right"
       @click="openRightSidebar = !openRightSidebar"
     />
@@ -96,6 +96,8 @@
 </template>
 
 <script setup lang="ts">
+import { max } from "lodash";
+
 const openRightSidebar = useRightSidebar();
 const supabase = useSupabaseClient();
 const { currentUser, setCurrentUser } = useCurrentUser();
@@ -112,5 +114,13 @@ supabase.auth.onAuthStateChange(async (event, session) => {
   if (userResponse && userResponse.id && !userResponse.team) {
     navigateTo("/register");
   }
+});
+
+const currentProgress = computed(() => {
+  const minGoals = user.value.level?.min_goals || 0;
+  const maxGoals = user.value.level?.max_goals || 0;
+  const currentGoals = user.value.goals;
+
+  return Math.floor(100 * ((currentGoals - minGoals) / (maxGoals - minGoals)));
 });
 </script>

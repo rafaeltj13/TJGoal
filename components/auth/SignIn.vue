@@ -1,8 +1,6 @@
 <template>
   <form @submit.prevent="emailSignIn()" class="flex flex-col items-center py-8">
-    <p class="text-2xl text-primary dark:text-primary-dark font-bold mb-8">
-      Sign in
-    </p>
+    <p class="text-2xl text-text dark:text-text-dark font-bold mb-8">Sign in</p>
     <TheInput v-model="login" placeholder="Email" class="mb-4" />
     <TheInput
       v-model="pass"
@@ -19,7 +17,7 @@
       <TheButton content="Entrar" type="submit" />
     </div>
     <div class="mt-8">
-      <h1 class="text-lg text-text dark:text-text-dark">Or sign in with</h1>
+      <h1 class="text-lg text-text dark:text-text-dark">ou entre com</h1>
       <div class="flex items-centes justify-center mt-4">
         <div
           @click="googleSignIn"
@@ -54,6 +52,7 @@ const emailSignIn = async () => {
       title: "Erro",
       message: error.message,
       type: "error",
+      position: "bottom-left",
     });
   }
 };

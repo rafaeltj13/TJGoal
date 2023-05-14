@@ -18,6 +18,7 @@ export default {
         "text-dark": "#0E8388",
         "background-dark": "#03001C",
         "sidebar-dark": "#1B2430",
+        "accent-dark": "#3C2A21",
       },
       spacing: {
         88: "22rem",

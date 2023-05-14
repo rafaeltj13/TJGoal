@@ -1,6 +1,8 @@
 <template>
   <div class="p-8 max-w-[1366px] mx-auto min-h-[100vh]">
-    <h1 class="text-center text-4xl text-primary dark:text-primary-dark mb-2">
+    <h1
+      class="text-center text-4xl text-primary dark:text-primary-dark mb-2 font-bold"
+    >
       Rodada 1 - Temporada 1
     </h1>
     <div class="flex justify-center">

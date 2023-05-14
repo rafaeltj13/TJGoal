@@ -129,6 +129,14 @@ export const useAPI = () => {
     if (error) return;
   };
 
+  const getTeamRank = async (): Promise<Array<Team> | []> => {
+    const { data, error } = await supabase.rpc("get_team_goals");
+
+    if (error) return [];
+
+    return data as Team[];
+  };
+
   return {
     getCurrentUser,
     getUserRank,
@@ -137,5 +145,6 @@ export const useAPI = () => {
     getTeams,
     updateUser,
     handleNextLevel,
+    getTeamRank,
   };
 };

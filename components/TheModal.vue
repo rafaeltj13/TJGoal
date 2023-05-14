@@ -38,4 +38,12 @@
 
 <script setup lang="ts">
 const openDialog = ref(false);
+
+onMounted(() => {
+  window.onkeydown = function (event) {
+    if (event.key === "Escape") {
+      openDialog.value = false;
+    }
+  };
+});
 </script>

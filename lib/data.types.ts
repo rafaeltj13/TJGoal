@@ -19,6 +19,7 @@ export type Team = {
   primary_color?: string;
   background_color?: string;
   logo: string;
+  team_goals?: number;
 };
 
 export type Level = {

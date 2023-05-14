@@ -42,6 +42,7 @@ const signup = async () => {
       title: "Erro",
       message: error.message,
       type: "error",
+      position: "bottom-left",
     });
   } else {
     emit("back");

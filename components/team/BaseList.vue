@@ -6,12 +6,12 @@
       <h1
         class="text-primary dark:text-primary-dark text-center text-2xl pb-4 font-bold"
       >
-        Artilharia
+        Times
       </h1>
-      <ScorerListItem
-        v-for="(user, index) of props.ranking"
-        :user="user"
-        :key="user.id"
+      <TeamListItem
+        v-for="(team, index) of props.ranking"
+        :team="team"
+        :key="team.id"
         class="py-2"
         :position="index + 1"
       />
@@ -19,10 +19,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { User } from "~/lib/data.types";
+import { Team } from "~/lib/data.types";
 const props = defineProps({
   ranking: {
-    type: Array<User>,
+    type: Array<Team>,
     required: true,
   },
 });
