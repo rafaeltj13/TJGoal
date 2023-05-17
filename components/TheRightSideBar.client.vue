@@ -6,7 +6,7 @@
   >
     <div class="p-4 px-2 w-full">
       <div
-        class="flex items-center justify-between"
+        class="flex items-center justify-between mb-2"
         :class="{ '!justify-center  ': !openRightSidebar }"
       >
         <div>
@@ -27,7 +27,7 @@
           >
             <div
               class="bg-gradient-to-r from-secondary dark:from-secondary-dark to-primary dark:to-primary-dark h-2.5 rounded-full"
-              :style="`width: ${currentProgress}%`"
+              :style="`width: ${currentProgress || 1}%`"
             ></div>
           </div>
         </div>
@@ -50,7 +50,10 @@
       <hr
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
-      <div :class="{ 'flex items-center justify-between': openRightSidebar }">
+      <div
+        class="mt-2"
+        :class="{ 'flex items-center justify-between': openRightSidebar }"
+      >
         <div>
           <img
             class="mt-2 w-12 h-12 hover:scale-110 transition-transform cursor-pointer"
@@ -96,22 +99,25 @@
 </template>
 
 <script setup lang="ts">
-import { max } from "lodash";
+import { useUserAPI } from "~/composables/api/useUserAPI";
 
 const openRightSidebar = useRightSidebar();
 const supabase = useSupabaseClient();
 const { currentUser, setCurrentUser } = useCurrentUser();
-const { getCurrentUser } = useAPI();
 
 let user = computed(() => currentUser.value);
 
+const { getUser } = useUserAPI();
+
 supabase.auth.onAuthStateChange(async (event, session) => {
   const userProfile = session?.user ?? null;
+  //todo salvar o id do user de alguma forma e aqui so atualizar esse id, provavelmente em cookies
+  // que ai eu pego o user as vezes so, ta fazendo essa request sempre que eu faço qualquer outra request
 
-  const userResponse = await getCurrentUser(userProfile?.id || null);
-  setCurrentUser(userResponse);
+  const loggeduser = await getUser(userProfile?.id);
+  setCurrentUser(loggeduser);
 
-  if (userResponse && userResponse.id && !userResponse.team) {
+  if (loggeduser && loggeduser.id && !loggeduser.team) {
     navigateTo("/register");
   }
 });

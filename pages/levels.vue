@@ -48,7 +48,6 @@ definePageMeta({
 });
 
 import { Level } from "~/lib/data.types";
-const { getLevels } = useAPI();
-
-const levels: Ref<Array<Level>> = ref(await getLevels());
+const { data } = await useFetch(`/api/level/levels`);
+const levels: Ref<Array<Level>> = ref(data.value as Level[]);
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between w-full h-[56px] cursor-pointer">
     <div class="flex items-center">
-      <p class="mr-2 text-lg text-primary dark:text-primary-dark w-8">
+      <p class="text-lg text-primary dark:text-primary-dark w-8">
         {{ props.position }} -
       </p>
       <img class="w-8 h-8" :src="props.team?.logo || ''" alt="enemy-logo" />

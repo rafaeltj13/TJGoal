@@ -20,8 +20,8 @@
       />
     </button>
     <div
-      v-if="openDropdown"
-      class="absolute w-full top-12 z-10 bg-background divide-y divide-gray-100 rounded-lg dark:bg-background-dark shadow-lg"
+      :class="{ '!scale-100': openDropdown }"
+      class="absolute w-full top-12 bg-background rounded-lg dark:bg-background-dark shadow-lg transition-all duration-200 scale-0 max-h-60 overflow-y-auto"
     >
       <ul class="py-2 text-sm text-text dark:text-gray-200">
         <li
@@ -29,6 +29,7 @@
           :key="index"
           @click="updateValue(option)"
         >
+          <!-- Meter slot aqui pra recerber img ou icon -->
           <button
             type="button"
             class="inline-flex w-full px-4 py-2 text-sm text-text hover:bg-secondary hover:text-background dark:text-text-dark dark:hover:bg-secondary-dark dark:hover:text-background-dark"

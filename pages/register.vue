@@ -10,7 +10,7 @@
     </div>
     <TheInput v-model="username" placeholder="Username" class="mb-4" />
     <TheInput v-model="fullName" placeholder="Nome completo" class="mb-4" />
-    <TheSelectDopdown
+    <TheSelectDropdown
       v-model="selectedTeam"
       :options="
         teamOptions.map((team) => ({ text: team.name, id: team.id } || []))
@@ -18,12 +18,13 @@
       class="mb-4"
     />
     <div class="flex items-center justify-center">
-      <TheButton content="Finalizar" @click="finishRegistration" />
+      <TheButton content="Finalizar" @click="finishUserRegistration()" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useUserAPI } from "~/composables/api/useUserAPI";
 import { Team } from "~/lib/data.types";
 
 useHead({
@@ -31,23 +32,25 @@ useHead({
 });
 
 const { currentUser, setCurrentUser } = useCurrentUser();
-const { getTeams, updateUser, getCurrentUser } = useAPI();
 
-const teamOptions: Ref<Array<Team>> = ref(await getTeams());
+const { data } = await useFetch(`/api/team/teams`);
+const teamOptions: Ref<Array<Team>> = ref(data.value as Team[]);
 
 const selectedTeam = ref({ text: "", id: "" });
 const username = ref("");
 const fullName = ref("");
 
-const finishRegistration = async () => {
-  await updateUser(
+const { finishRegistration, getUser } = useUserAPI();
+
+const finishUserRegistration = async () => {
+  await finishRegistration(
     currentUser.value.id,
     username.value,
     fullName.value,
     selectedTeam.value.id
   );
 
-  const userResponse = await getCurrentUser(currentUser.value.id);
+  const userResponse = await getUser(currentUser.value.id);
   setCurrentUser(userResponse);
 
   navigateTo("/");

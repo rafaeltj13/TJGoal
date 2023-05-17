@@ -3,11 +3,13 @@
   <ShootOption title="Cobrar Pênalti" @shoot="handleShoot" />
 </template>
 <script setup lang="ts">
-const { currentUser, setCurrentUser } = useCurrentUser();
-const { shoot, handleNextLevel, getCurrentUser } = useAPI();
+import { useShootAPI } from "~/composables/api/useShootAPI";
+import { useLevelAPI } from "~/composables/api/useLevelAPI";
+import { useUserAPI } from "~/composables/api/useUserAPI";
 
+const { currentUser, setCurrentUser } = useCurrentUser();
 const handleShoot = async () => {
-  await shoot(currentUser.value.id, currentUser.value.goals);
+  await useShootAPI().shoot(currentUser.value.id, currentUser.value.goals);
   currentUser.value.goals = currentUser.value.goals + 1;
 
   ElNotification({
@@ -21,12 +23,12 @@ const handleShoot = async () => {
     currentUser.value.level &&
     currentUser.value.goals >= currentUser.value.level?.max_goals
   ) {
-    await handleNextLevel(
+    await useLevelAPI().updateUserLevel(
       currentUser.value.id,
       currentUser.value.level.next_level?.id
     );
 
-    const userResponse = await getCurrentUser(currentUser.value.id);
+    const userResponse = await useUserAPI().getUser(currentUser.value.id);
     setCurrentUser(userResponse);
   }
 };
