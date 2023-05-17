@@ -8,7 +8,12 @@
       >
         Artilharia
       </h1>
-      <div v-if="pending">loading...</div>
+      <div v-if="pending">
+        <ScorerListItemLoading
+          v-for="e of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+          :key="e"
+        />
+      </div>
       <ScorerListItem
         v-else-if="data"
         v-for="(user, index) of currentRanking"

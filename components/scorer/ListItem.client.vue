@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between w-full">
     <div class="flex items-center">
-      <p class="text-lg text-primary dark:text-primary-dark w-8">
+      <p class="text-lg text-primary dark:text-primary-dark w-10">
         {{ props.position }} -
       </p>
       <LevelIcon :icon="props.user.level.icon" class="mr-2" />
