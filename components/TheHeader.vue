@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[100vw] h-16 bg-gradient-to-l from-primary dark:from-primary-dark to-secondary dark:to-secondary-dark p-4 flex justify-between items-center fixed z-50"
+    class="w-[100vw] h-16 bg-gradient-to-l from-primary dark:from-primary-dark to-secondary dark:to-secondary-dark py-4 px-6 flex justify-between items-center fixed z-50"
   >
     <NuxtLink
       class="text-background dark:text-background-dark text-3xl h-7 hover:scale-110 transition-transform cursor-pointer"

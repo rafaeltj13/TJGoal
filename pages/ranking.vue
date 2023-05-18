@@ -7,9 +7,7 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "PBGol - Artilharia",
-});
+useDefaultHead("PBGol - Artilharia");
 definePageMeta({
   middleware: "registration",
 });

@@ -27,9 +27,7 @@
 import { useUserAPI } from "~/composables/api/useUserAPI";
 import { Team } from "~/lib/data.types";
 
-useHead({
-  title: "Completar registro",
-});
+useDefaultHead("Completar registro");
 
 const { currentUser, setCurrentUser } = useCurrentUser();
 

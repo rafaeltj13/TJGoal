@@ -15,9 +15,7 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "PBGol",
-});
+useDefaultHead("PBGol");
 definePageMeta({
   middleware: "registration",
 });

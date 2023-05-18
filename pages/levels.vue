@@ -40,9 +40,7 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "PBGol - Níveis",
-});
+useDefaultHead("PBGol - Níveis");
 definePageMeta({
   middleware: "registration",
 });
