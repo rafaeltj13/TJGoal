@@ -30,6 +30,7 @@ const pass = ref("");
 // const confirmPass = ref("");
 
 const supabase = useSupabaseClient();
+const { setNotification } = useNotification();
 
 const signup = async () => {
   const { error } = await supabase.auth.signUp({
@@ -38,11 +39,10 @@ const signup = async () => {
   });
 
   if (error) {
-    ElNotification({
+    setNotification({
       title: "Erro",
-      message: error.message,
+      content: error.message,
       type: "error",
-      position: "bottom-left",
     });
   } else {
     emit("back");

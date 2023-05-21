@@ -15,7 +15,7 @@
         class="w-full transition-all duration-150 ease-in-out"
       >
         <slot />
-        {{ openRightSidebar }}
+        <TheNotification />
       </div>
       <TheRightSideBar />
     </div>

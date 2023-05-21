@@ -37,6 +37,7 @@
 const emit = defineEmits(["signup"]);
 
 const supabase = useSupabaseClient();
+const { setNotification } = useNotification();
 
 const login = ref("");
 const pass = ref("");
@@ -48,11 +49,10 @@ const emailSignIn = async () => {
   });
 
   if (error) {
-    ElNotification({
+    setNotification({
       title: "Erro",
-      message: error.message,
+      content: error.message,
       type: "error",
-      position: "bottom-left",
     });
   }
 };

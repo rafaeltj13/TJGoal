@@ -7,16 +7,16 @@ import { useShootAPI } from "~/composables/api/useShootAPI";
 import { useLevelAPI } from "~/composables/api/useLevelAPI";
 import { useUserAPI } from "~/composables/api/useUserAPI";
 
+const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
 const handleShoot = async () => {
   await useShootAPI().shoot(currentUser.value.id, currentUser.value.goals);
   currentUser.value.goals = currentUser.value.goals + 1;
 
-  ElNotification({
+  setNotification({
     title: "Chute.....",
-    message: "Golaço!!!!!",
+    content: "Golaço!!!!!",
     type: "success",
-    position: "bottom-left",
   });
 
   if (
