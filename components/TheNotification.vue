@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'translate-y-24 ': notification && notification.title }"
+    :class="{ 'translate-y-24 z-50': notification && notification.title }"
     class="w-[350px] absolute top-0 transition duration-300 left-0 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-lg"
   >
     <div class="flex items-center justify-between p-4">
