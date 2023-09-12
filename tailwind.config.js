@@ -7,7 +7,7 @@ export default {
         // Light theme
         primary: "#159895",
         secondary: "#aed09e",
-        text: "#61B292",
+        text: "#7DB9B6",
         background: "#f1f3f5",
         sidebar: "#f0f1f3",
         accent: "#7e6752",
