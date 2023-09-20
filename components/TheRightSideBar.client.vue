@@ -56,7 +56,7 @@
       >
         <div>
           <img
-            class="mt-2 w-12 h-12 hover:scale-110 transition-transform cursor-pointer"
+            class="mt-2 w-12 h-12 hover:scale-125 transition-transform cursor-pointer"
             :src="user.team?.logo || ''"
             alt="team-logo"
           />
@@ -76,7 +76,7 @@
             4829
           </p>
           <img
-            class="mt-2 w-12 h-12 hover:scale-110 transition-transform cursor-pointer"
+            class="mt-2 w-12 h-12 hover:scale-125 transition-transform cursor-pointer"
             src="https://s.sde.globo.com/media/organizations/2020/12/21/juventus-italia-svg.svg"
             alt="enemy-logo"
           />

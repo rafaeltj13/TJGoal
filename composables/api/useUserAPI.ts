@@ -73,9 +73,17 @@ export const useUserAPI = () => {
       .eq("id", userId);
   };
 
+  const updatePicture = async (userId: string, picture: string) => {
+    await useAPI()
+      .from("users")
+      .update({ picture, updated_at: new Date() })
+      .eq("id", userId);
+  };
+
   return {
     getUser,
     getUserRanking,
     finishRegistration,
+    updatePicture,
   };
 };

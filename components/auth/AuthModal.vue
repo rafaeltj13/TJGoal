@@ -1,8 +1,8 @@
 <template>
-  <TheModal>
+  <TheModal v-model="showModal">
     <template #default>
       <TheIcon
-        customClass="pt-1 text-accent dark:text-accent-dark hover:scale-110 transition-transform cursor-pointer text-lg"
+        customClass="pt-1 text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
         faIcon="fa-solid fa-right-to-bracket"
       />
     </template>
@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 const currentTab = ref("signin");
+const showModal = ref(false);
 </script>
 
 <style scoped>

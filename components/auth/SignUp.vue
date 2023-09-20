@@ -10,11 +10,11 @@
       type="password"
       class="mb-4"
     />
-    <!-- <TheInput
+    <TheInput
       v-model="confirmPass"
       placeholder="Confirm Password"
       type="password"
-    /> -->
+    />
     <div class="flex gap-4 mt-8">
       <TheButton content="Voltar" classType="outlined" @click="emit('back')" />
       <TheButton content="Registrar" @click="signup" />
@@ -27,12 +27,21 @@ const emit = defineEmits(["back"]);
 
 const email = ref("");
 const pass = ref("");
-// const confirmPass = ref("");
+const confirmPass = ref("");
 
 const supabase = useSupabaseClient();
 const { setNotification } = useNotification();
 
 const signup = async () => {
+  if (pass.value !== confirmPass.value) {
+    setNotification({
+      title: "Erro",
+      content: "Passwords diferentes",
+      type: "error",
+    });
+    return;
+  }
+
   const { error } = await supabase.auth.signUp({
     email: email.value,
     password: pass.value,

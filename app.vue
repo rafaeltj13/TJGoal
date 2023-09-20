@@ -1,8 +1,6 @@
 <template>
   <NuxtLayout>
-    <!-- TODO Check if this is still a bug -->
-    <!-- <NuxtPage /> -->
-    <NuxtPage :key="$route.fullPath" />
+    <NuxtPage :page-key="(route) => route.fullPath" />
   </NuxtLayout>
 </template>
 

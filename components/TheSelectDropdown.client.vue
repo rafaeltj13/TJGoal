@@ -6,7 +6,7 @@
       @click="openDropdown = !openDropdown"
     >
       <p class="mr-4 text-text dark:text-text-dark">
-        {{ props.modelValue?.text || "Selecionar" }}
+        {{ props.modelValue?.text || props.placeholder }}
       </p>
       <TheIcon
         v-if="!openDropdown"
@@ -21,7 +21,7 @@
     </button>
     <div
       :class="{ '!scale-100': openDropdown }"
-      class="absolute w-full top-12 bg-background rounded-lg dark:bg-background-dark shadow-lg transition-all duration-200 scale-0 max-h-60 overflow-y-auto"
+      class="absolute w-full top-12 bg-background rounded-xl dark:bg-background-dark shadow-lg dark:border-2 dark:border-secondary-dark transition-all duration-200 scale-0 max-h-60 overflow-y-auto"
     >
       <ul class="py-2 text-sm text-text dark:text-gray-200">
         <li
@@ -58,6 +58,10 @@ const props = defineProps({
   options: {
     type: Array<Option>,
     required: true,
+  },
+  placeholder: {
+    type: String,
+    default: "Selecionar",
   },
 });
 const emit = defineEmits(["update:modelValue"]);

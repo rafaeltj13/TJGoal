@@ -1,9 +1,12 @@
 <template>
   <div
     :class="{
-      'translate-y-24 opacity-100 z-20': notification && notification.title,
+      '-translate-x-52 opacity-100 ':
+        notification && notification.title && openRightSidebar,
+      '-translate-x-24 opacity-100':
+        notification && notification.title && !openRightSidebar,
     }"
-    class="w-[350px] fixed top-0 opacity-0 transition-all duration-300 left-0 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-lg"
+    class="z-50 w-[350px] fixed bottom-5 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-2xl"
   >
     <div class="flex items-center justify-between p-4">
       <div>
@@ -15,7 +18,7 @@
         </p>
       </div>
       <TheIcon
-        customClass="text-primary dark:text-primary-dark hover:scale-110 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+        customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
         faIcon="fa-solid fa-close"
         @click="() => setNotification(null)"
       />
@@ -26,6 +29,7 @@
 <script setup lang="ts">
 const { notification, setNotification } = useNotification();
 const displayNotification = ref(false);
+const openRightSidebar = useRightSidebar();
 
 watch(notification, () => {
   displayNotification.value = !!notification.value?.title;
