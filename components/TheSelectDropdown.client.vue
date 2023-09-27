@@ -1,7 +1,7 @@
 <template>
-  <div class="flex relative" :key="new Date().toISOString()">
+  <div class="flex relative" :key="placeholder + new Date().toISOString()">
     <button
-      class="w-full flex items-center justify-between flex-shrink-0 z-10 py-2.5 px-4 text-sm font-medium text-center text-text bg-gray-100 border border-secondary rounded-lg focus:ring-1 focus:outline-none focus:ring-secondary dark:bg-background-dark dark:hover:bg-sidebar-dark dark:focus:ring-secondary-dark dark:text-text-dark dark:border-secondary-dark"
+      class="w-full flex items-center justify-between flex-shrink-0 py-2.5 px-4 text-sm font-medium text-center text-text bg-gray-100 border border-secondary rounded-lg focus:ring-1 focus:outline-none focus:ring-secondary dark:bg-background-dark dark:hover:bg-sidebar-dark dark:focus:ring-secondary-dark dark:text-text-dark dark:border-secondary-dark"
       type="button"
       @click="openDropdown = !openDropdown"
     >
@@ -21,9 +21,9 @@
     </button>
     <div
       :class="{ '!scale-100': openDropdown }"
-      class="absolute w-full top-12 bg-background rounded-xl dark:bg-background-dark shadow-lg dark:border-2 dark:border-secondary-dark transition-all duration-200 scale-0 max-h-60 overflow-y-auto"
+      class="z-50 absolute w-full top-12 bg-background rounded-xl dark:bg-background-dark shadow-lg dark:border-2 dark:border-secondary-dark transition-all duration-200 scale-0 max-h-60 overflow-y-auto"
     >
-      <ul class="py-2 text-sm text-text dark:text-gray-200">
+      <ul class="py-2 text-sm text-text dark:text-gray-200 z-50">
         <li
           v-for="(option, index) of props.options"
           :key="index"

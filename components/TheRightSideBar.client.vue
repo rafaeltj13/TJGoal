@@ -111,7 +111,7 @@ const { getUser } = useUserAPI();
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   const userProfile = session?.user ?? null;
-  //todo salvar o id do user de alguma forma e aqui so atualizar esse id, provavelmente em cookies
+  //TODO salvar o id do user de alguma forma e aqui so atualizar esse id, provavelmente em cookies
   // que ai eu pego o user as vezes so, ta fazendo essa request sempre que eu faço qualquer outra request
 
   const loggeduser = await getUser(userProfile?.id);

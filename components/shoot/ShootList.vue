@@ -6,6 +6,7 @@
 import { useShootAPI } from "~/composables/api/useShootAPI";
 import { useLevelAPI } from "~/composables/api/useLevelAPI";
 import { useUserAPI } from "~/composables/api/useUserAPI";
+import { User } from "~/lib/data.types";
 
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();

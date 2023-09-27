@@ -6,7 +6,7 @@ export const useAPI = () => {
   const supabaseUrl = config.public.SUPABASE_URL || "";
   const supabaseKey = config.public.SUPABASE_KEY || "";
   const supabase = createClient<Database>(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false },
+    // auth: { persistSession: true },
   });
 
   return supabase;

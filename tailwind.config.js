@@ -1,12 +1,12 @@
 export default {
   content: ["./src/**/*.{js,jsx}", "./public/index.html"],
-  darkMode: "class", // class, 'media' or boolean
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         // Light theme
         primary: "#159895",
-        secondary: "#aed09e",
+        secondary: "#618264",
         text: "#7DB9B6",
         background: "#f1f3f5",
         sidebar: "#f0f1f3",

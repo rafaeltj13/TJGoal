@@ -10,7 +10,10 @@ export const useCurrentUser = () => {
     goals: 0,
   }));
 
-  const setCurrentUser = (user: User) => (currentUser.value = user);
+  const setCurrentUser = (user: User | null) => {
+    if (!user) return;
 
+    currentUser.value = user;
+  };
   return { currentUser, setCurrentUser };
 };

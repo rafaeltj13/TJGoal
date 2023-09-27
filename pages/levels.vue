@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("PBGol - Níveis");
+useDefaultHead("TJGoal - Níveis");
 definePageMeta({
   middleware: "registration",
 });

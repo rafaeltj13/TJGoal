@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("PBGol - Artilharia");
+useDefaultHead("TJGoal - Artilharia");
 definePageMeta({
   middleware: "registration",
 });

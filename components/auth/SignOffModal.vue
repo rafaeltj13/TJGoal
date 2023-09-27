@@ -27,7 +27,6 @@
 <script setup lang="ts">
 const supabase = useSupabaseClient();
 const showModal = ref(false);
-
 const signout = async () => {
   await supabase.auth.signOut();
   showModal.value = false;

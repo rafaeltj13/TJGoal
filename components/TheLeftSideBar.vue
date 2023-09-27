@@ -14,6 +14,7 @@
         icon="fa-arrow-up-wide-short"
         to-route="/levels"
       />
+      <SidebarRouteOption title="Loja" icon="fa-store" to-route="/store" />
       <SidebarRouteOption title="Sobre" icon="fa-users" to-route="/about" />
     </div>
     <ClientOnly>

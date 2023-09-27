@@ -17,10 +17,10 @@ export default defineNuxtConfig({
     },
   },
   supabase: {
-    client: {
-      auth: {
-        persistSession: false, //or true
-      },
+    redirectOptions: {
+      login: "/",
+      callback: "/",
+      exclude: ["/*"],
     },
   },
 });

@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-background dark:bg-background-dark h-[100vh] px-8">
-    <h1 class="pt-4 text-text dark:text-text-dark">Welcome to the about</h1>
+  <div class="p-8 max-w-[800px] mx-auto min-h-[100vh]">
+    <ThePageTitle title="Sobre" />
   </div>
 </template>
 
 <script setup lang="ts">
-useDefaultHead("PBGol - Sobre");
+useDefaultHead("TJGoal - Sobre");
 definePageMeta({
   middleware: "registration",
 });

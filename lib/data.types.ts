@@ -1,6 +1,3 @@
-// import type { Database } from "~/lib/database.types";
-
-// export type User = Database["public"]["Tables"]["users"]["row"];
 export type User = {
   id: string;
   updated_at: string;
@@ -10,6 +7,7 @@ export type User = {
   goals: number;
   team?: Team;
   level?: Level;
+  greens: number;
 };
 
 export type Team = {

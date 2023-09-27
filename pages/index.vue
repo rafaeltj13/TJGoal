@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("PBGol");
+useDefaultHead("TJGoal");
 definePageMeta({
   middleware: "registration",
 });
