@@ -4,7 +4,7 @@
     @input="updateValue"
     :type="type"
     :placeholder="props.placeholder"
-    class="bg-background dark:bg-background-dark placeholder:text-text dark:placeholder:text-text-dark text-text dark:text-text-dark block mb-2 text-sm font-medium w-full rounded-lg p-3 h-10 border border-secondary dark:border-secondary-dark focus:ring-1 focus:outline-none focus:ring-primary dark:focus:ring-primary-dark"
+    class="bg-background dark:bg-background-dark placeholder:text-text dark:placeholder:text-text-dark text-text dark:text-text-dark block mb-2 text-sm font-medium w-full rounded-lg p-3 h-10 border border-secondary dark:border-secondary-dark focus:ring-1 focus:outline-none focus:ring-primary dark:focus:ring-primary-dark shadow-md hover:bg-secondary hover:dark:bg-secondary-dark"
   />
 </template>
 

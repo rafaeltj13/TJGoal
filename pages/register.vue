@@ -14,7 +14,7 @@
       Informações
     </h1>
     <div class="flex w-full">
-      <Avatar
+      <TheAvatar
         v-model:path="avatarPath"
         :username="username"
         @upload="updateProfile"
@@ -22,7 +22,7 @@
       <div class="w-full">
         <TheInput v-model="username" placeholder="Username" class="mb-4" />
         <TheInput v-model="fullName" placeholder="Nome completo" class="mb-4" />
-        <TheSelectDropdown
+        <TheListBox
           v-model="selectedPosition"
           placeholder="Selecionar a posição"
           :options="
@@ -32,7 +32,7 @@
           "
           class="mb-4"
         />
-        <TheSelectDropdown
+        <TheListBox
           v-model="selectedTeam"
           placeholder="Selecionar o time"
           :options="

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between pt-20">
+  <div class="flex items-center justify-between pt-12">
     <StoreOfferItem
       icon="fa-solid fa-coins"
       description="50 verdinhos"

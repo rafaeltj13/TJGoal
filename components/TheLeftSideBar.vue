@@ -5,14 +5,19 @@
   >
     <div class="p-1">
       <SidebarRouteOption
-        title="Artilharia"
-        icon="fa-ranking-star"
-        to-route="/ranking"
+        title="Classificação"
+        icon="fa-bars"
+        to-route="/standings"
       />
       <SidebarRouteOption
         title="Niveis"
         icon="fa-arrow-up-wide-short"
         to-route="/levels"
+      />
+      <SidebarRouteOption
+        title="Artilharia"
+        icon="fa-ranking-star"
+        to-route="/ranking"
       />
       <SidebarRouteOption title="Loja" icon="fa-store" to-route="/store" />
       <SidebarRouteOption title="Sobre" icon="fa-users" to-route="/about" />

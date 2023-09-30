@@ -1,15 +1,6 @@
 <template>
   <div class="p-8 max-w-[800px] mx-auto min-h-[100vh]">
-    <h1
-      class="text-center text-4xl text-primary dark:text-primary-dark mb-2 font-bold"
-    >
-      Loja
-    </h1>
-    <div class="flex justify-center">
-      <div
-        class="h-0.5 w-12 rounded-full bg-primary dark:bg-primary-dark mb-12"
-      ></div>
-    </div>
+    <ThePageTitle title="Loja" />
     <p class="text-secondary dark:text-secondary-dark text-lg">
       Procurando por um verdinho? Você está no lugar certo...
     </p>

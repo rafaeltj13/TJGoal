@@ -23,10 +23,10 @@
             {{ user.level?.name || "" }}
           </p>
           <div
-            class="w-full bg-background rounded-full h-3.5 dark:bg-background-dark border border-primary dark:border-primary-dark flex items-center"
+            class="w-full bg-background rounded-full h-2 dark:bg-background-dark border border-primary dark:border-primary-dark flex items-center"
           >
             <div
-              class="bg-gradient-to-r from-secondary dark:from-secondary-dark to-primary dark:to-primary-dark h-3 rounded-full"
+              class="bg-gradient-to-r from-secondary dark:from-secondary-dark to-primary dark:to-primary-dark h-2 rounded-full"
               :style="`width: ${currentProgress || 1}%`"
             ></div>
           </div>

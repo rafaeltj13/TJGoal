@@ -1,5 +1,7 @@
 <template>
-  <div class="flex items-center justify-between w-full h-[56px] cursor-pointer">
+  <div
+    class="flex items-center justify-between w-full h-[56px] hover:scale-105 transition-transform cursor-pointer"
+  >
     <div class="flex items-center">
       <p class="text-lg text-primary dark:text-primary-dark w-10">
         {{ props.position }} -

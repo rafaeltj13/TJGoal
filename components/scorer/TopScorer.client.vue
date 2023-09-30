@@ -6,7 +6,7 @@
       <h1
         class="text-primary dark:text-primary-dark text-center text-2xl pb-4 font-bold"
       >
-        Artilharia
+        Temporada
       </h1>
       <div v-if="pending">
         <ScorerListItemLoading

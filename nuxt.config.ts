@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxtjs/supabase"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/supabase",
+    "nuxt-headlessui",
+  ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {
     families: {
@@ -22,5 +27,8 @@ export default defineNuxtConfig({
       callback: "/",
       exclude: ["/*"],
     },
+  },
+  headlessui: {
+    prefix: "Headless",
   },
 });
