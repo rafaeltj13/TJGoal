@@ -21,7 +21,7 @@
         :key="user.id"
         class="py-2"
         :position="index + 1"
-      />
+      />/goals
     </div>
   </div>
 </template>
@@ -29,6 +29,9 @@
 <script setup lang="ts">
 import { User } from "~/lib/data.types";
 
-const { data, pending } = await useFetch(`/api/user/ranking`);
-const currentRanking = computed<Array<User>>(() => data.value as User[]);
+// const { data, pending } = await useFetch(`/api/user/ranking`);
+// const currentRanking = computed<Array<User>>(() => data.value as User[]);
+
+const { data, pending } = await useFetch(`/api/goal/hourly`);
+console.log({ data: data.value });
 </script>

@@ -20,12 +20,6 @@
     <p class="mb-6">
       Estou extremamente grato por você se juntar a mim nesta jornada. TJGoal é
       um projeto de amor, criado por um único desenvolvedor com uma missão:
-      criar um jogo de futebol que una gerações e inspire novas rivalidades
-      amigáveis.
-    </p>
-    <p class="mb-6">
-      Estou extremamente grato por você se juntar a mim nesta jornada. TJGoal é
-      um projeto de amor, criado por um único desenvolvedor com uma missão:
       criar um jogo de futebol que una gerações e inspire novas rivalidades.
     </p>
     <p class="mb-6">
