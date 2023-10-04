@@ -6,7 +6,7 @@
       <h1
         class="text-primary dark:text-primary-dark text-center text-2xl pb-4 font-bold"
       >
-        Temporada
+        Hora
       </h1>
       <div v-if="pending">
         <ScorerListItemLoading
@@ -16,22 +16,22 @@
       </div>
       <ScorerListItem
         v-else-if="data"
-        v-for="(user, index) of currentRanking"
-        :user="user"
-        :key="user.id"
+        v-for="(item, index) of currentRanking"
+        :item="item"
+        :key="item.userId"
         class="py-2"
         :position="index + 1"
-      />/goals
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { User } from "~/lib/data.types";
-
-// const { data, pending } = await useFetch(`/api/user/ranking`);
-// const currentRanking = computed<Array<User>>(() => data.value as User[]);
+import { HourlyItem } from "~/lib/data.types";
 
 const { data, pending } = await useFetch(`/api/goal/hourly`);
 console.log({ data: data.value });
+const currentRanking = computed<Array<HourlyItem>>(
+  () => data.value as HourlyItem[]
+);
 </script>

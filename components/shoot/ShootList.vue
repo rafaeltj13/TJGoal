@@ -11,11 +11,7 @@ import { User } from "~/lib/data.types";
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
 const handleShoot = async () => {
-  await useShootAPI().shoot(
-    currentUser.value.id,
-    currentUser.value.goals,
-    currentUser.value.team?.id
-  );
+  await useShootAPI().shoot(currentUser.value.id, currentUser.value.team?.id);
   currentUser.value.goals = currentUser.value.goals + 1;
 
   setNotification({

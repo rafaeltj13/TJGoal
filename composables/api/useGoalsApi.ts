@@ -1,19 +1,16 @@
+import { HourlyItem } from "./../../lib/data.types";
 import { useAPI } from "~/composables/api/useAPI";
 
 export const useGoalAPI = () => {
-  const getHourlyRanking = async () => {
-    console.log("oi");
-
+  const getHourlyItem = async () => {
     let { data, error } = await useAPI().rpc("hourly_ranking");
 
-    if (error) console.error(error);
-    else {
-      console.log(data);
-      // return data;
-    }
+    if (error) return [];
+
+    return data as HourlyItem[];
   };
 
   return {
-    getHourlyRanking,
+    getHourlyItem,
   };
 };

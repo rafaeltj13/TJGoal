@@ -1,7 +1,8 @@
+import { HourlyItem } from "~/lib/data.types";
 import { useGoalAPI } from "../../../composables/api/useGoalsApi";
 
 export default defineEventHandler(async (event) => {
-  const data = await useGoalAPI().getHourlyRanking();
+  const data = await useGoalAPI().getHourlyItem();
 
-  return data;
+  return data as HourlyItem[];
 });

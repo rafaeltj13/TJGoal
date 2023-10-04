@@ -29,3 +29,12 @@ export type Level = {
   icon: string;
   next_level?: Level;
 };
+
+export type HourlyItem = {
+  goalcount: number;
+  userId: string;
+  username: string;
+  teamId: number;
+  logo: string;
+  icon: string;
+};

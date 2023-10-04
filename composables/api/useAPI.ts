@@ -1,7 +1,7 @@
 import { Database } from "../../lib/database.types";
-import { createClient } from "@supabase/supabase-js";
+import { SupabaseClient, createClient } from "@supabase/supabase-js";
 
-export const useAPI = () => {
+export const useAPI = (): SupabaseClient => {
   const config = useRuntimeConfig();
   const supabaseUrl = config.public.SUPABASE_URL || "";
   const supabaseKey = config.public.SUPABASE_KEY || "";
