@@ -46,4 +46,8 @@ const fetchCurrentRanking = async () => {
 };
 
 fetchCurrentRanking();
+
+setInterval(() => {
+  fetchCurrentRanking();
+}, 60000);
 </script>
