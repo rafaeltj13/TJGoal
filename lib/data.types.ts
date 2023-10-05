@@ -38,3 +38,10 @@ export type HourlyItem = {
   logo: string;
   icon: string;
 };
+
+export type Goal = {
+  id: string;
+  created_at: string;
+  userId: string;
+  teamId: string;
+};

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import useAPI from "~/composables/api/useAPI";
-import { HourlyItem } from "~/lib/data.types";
+import { Goal, HourlyItem } from "~/lib/data.types";
 const currentRanking = ref<Array<HourlyItem>>([]);
 
 const { data, pending } = await useFetch(`/api/goal/hourly`);
