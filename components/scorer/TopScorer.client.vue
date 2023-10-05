@@ -27,11 +27,18 @@
 </template>
 
 <script setup lang="ts">
+import useAPI from "~/composables/api/useAPI";
 import { HourlyItem } from "~/lib/data.types";
+const currentRanking = ref<Array<HourlyItem>>([]);
 
 const { data, pending } = await useFetch(`/api/goal/hourly`);
-console.log({ data: data.value });
-const currentRanking = computed<Array<HourlyItem>>(
-  () => data.value as HourlyItem[]
-);
+currentRanking.value = data.value as HourlyItem[];
+
+const handleInserts = (payload) => {
+  console.log("Change received!", payload);
+};
+
+onMounted(async () => {
+  await useAPI().from("goals").on("INSERT", handleInserts).subscribe();
+});
 </script>

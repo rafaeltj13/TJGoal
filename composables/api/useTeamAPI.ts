@@ -1,4 +1,4 @@
-import { useAPI } from "~/composables/api/useAPI";
+import useAPI from "~/composables/api/useAPI";
 import { Team } from "~/lib/data.types";
 
 export const useTeamAPI = () => {

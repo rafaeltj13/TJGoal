@@ -1,4 +1,4 @@
-import { useAPI } from "~/composables/api/useAPI";
+import useAPI from "~/composables/api/useAPI";
 
 export const useShootAPI = () => {
   const shoot = async (userId: string, teamId?: number) => {

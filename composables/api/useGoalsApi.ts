@@ -1,5 +1,5 @@
 import { HourlyItem } from "./../../lib/data.types";
-import { useAPI } from "~/composables/api/useAPI";
+import useAPI from "~/composables/api/useAPI";
 
 export const useGoalAPI = () => {
   const getHourlyItem = async () => {
