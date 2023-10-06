@@ -1,12 +1,12 @@
 <template>
   <div
     :class="{
-      '-translate-x-52 opacity-100 ':
+      '-translate-x-52 opacity-100 z-50':
         notification && notification.title && openRightSidebar,
       '-translate-x-24 opacity-100':
         notification && notification.title && !openRightSidebar,
     }"
-    class="z-50 w-[350px] fixed bottom-5 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-2xl"
+    class="w-[350px] fixed bottom-5 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-2xl"
   >
     <div class="flex items-center justify-between p-4">
       <div>

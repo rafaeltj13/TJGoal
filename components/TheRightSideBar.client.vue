@@ -85,7 +85,7 @@
     </div>
     <TheIcon
       v-if="!openRightSidebar"
-      customClass="pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
+      customClass="w-8 h-8 pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
       faIcon="fa-solid fa-angles-left"
       @click="openRightSidebar = !openRightSidebar"
     />
@@ -111,8 +111,11 @@ const { getUser } = useUserAPI();
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   const userProfile = session?.user ?? null;
-  //TODO salvar o id do user de alguma forma e aqui so atualizar esse id, provavelmente em cookies
-  // que ai eu pego o user as vezes so, ta fazendo essa request sempre que eu faço qualquer outra request
+
+  if (!userProfile) {
+    setCurrentUser(null);
+    return;
+  }
 
   const loggeduser = await getUser(userProfile?.id);
   setCurrentUser(loggeduser);

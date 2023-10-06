@@ -1,43 +1,47 @@
 <template>
-  <div @click="toggle(true)">
+  <div @click="openModal">
     <slot />
   </div>
-  <div
-    v-show="openDialog"
-    class="relative z-10"
-    aria-labelledby="modal-title"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div
-      class="fixed inset-0 bg-gray-900 bg-opacity-80 transition-opacity"
-    ></div>
-
-    <div class="fixed inset-0 z-10 overflow-y-auto">
-      <div
-        :class="{
-          '!opacity-100 !scale-100': displayModal,
-        }"
-        class="transition-all opacity-0 scale-0 duration-300 flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+  <HeadlessTransitionRoot appear :show="isOpen" as="template">
+    <HeadlessDialog as="div" @close="closeModal" class="relative z-10">
+      <HeadlessTransitionChild
+        as="template"
+        enter="duration-500 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-400 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
       >
+        <div class="fixed inset-0 bg-black bg-opacity-25" />
+      </HeadlessTransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
         <div
-          class="relative overflow-hidden rounded-3xl bg-background dark:bg-background-dark shadow-xl sm:my-8 sm:w-full sm:max-w-xl dark:border-2 dark:border-primary-dark"
+          class="flex min-h-full items-center justify-center p-4 text-center"
         >
-          <TheIcon
-            customClass="absolute text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-close"
-            @click="() => toggle(false)"
-          />
-          <div class="bg-background dark:bg-background-dark p-10">
-            <slot name="content"></slot>
-          </div>
+          <HeadlessTransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <HeadlessDialogPanel
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-background dark:bg-background-dark p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <slot name="content"></slot>
+            </HeadlessDialogPanel>
+          </HeadlessTransitionChild>
         </div>
       </div>
-    </div>
-  </div>
+    </HeadlessDialog>
+  </HeadlessTransitionRoot>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -45,31 +49,22 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["update:modelValue"]);
-const openDialog = ref(false);
-const displayModal = ref(props.modelValue || false);
 
-const toggle = (value: boolean) => {
-  openDialog.value = value;
+const isOpen = ref(props.modelValue || false);
 
-  setTimeout(() => {
-    displayModal.value = value;
-    emit("update:modelValue", value);
-  }, 100);
+const closeModal = () => {
+  isOpen.value = false;
+  emit("update:modelValue", isOpen.value);
 };
-
-onMounted(() => {
-  window.onkeydown = function (event) {
-    if (event.key === "Escape") {
-      toggle(false);
-    }
-  };
-});
+const openModal = () => {
+  isOpen.value = true;
+  emit("update:modelValue", isOpen.value);
+};
 
 watch(
   () => props.modelValue,
   (value) => {
-    displayModal.value = value;
-    openDialog.value = value;
+    isOpen.value = value;
   }
 );
 </script>

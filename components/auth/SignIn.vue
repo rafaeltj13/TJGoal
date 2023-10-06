@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="emailSignIn()" class="flex flex-col items-center py-8">
+  <form @submit.prevent="emailSignIn()" class="flex flex-col items-center py-2">
     <p class="text-2xl text-text dark:text-text-dark font-bold mb-8">Sign in</p>
     <TheInput v-model="login" placeholder="Email" class="mb-4" />
     <TheInput
@@ -25,7 +25,7 @@
         >
           <TheIcon
             fa-icon="fa-brands fa-google"
-            custom-class="w-8 h-8 text-xl text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
+            custom-class="text-xl text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
           />
         </div>
       </div>

@@ -7,30 +7,41 @@
       to="/"
       >TJGOAL</NuxtLink
     >
-    <div class="flex gap-4 items-center">
-      <p
+    <!-- <p
         v-if="currentUser && currentUser.username"
         class="text-background dark:text-background-dark hover:scale-125 transition-transform cursor-pointer text-lg"
       >
         {{ currentUser.username }}
-      </p>
-      <ClientOnly>
-        <TheIcon
+      </p> -->
+    <div class="flex items-center">
+      <ClientOnly class="flex items-center">
+        <!-- <TheIcon
           v-if="!darkMode"
           key="dark-mode"
           customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
           faIcon="fa-solid fa-moon"
           @click="darkMode = !darkMode"
-        />
-        <TheIcon
+        /> -->
+        <!-- <TheIcon
           v-else
           key="light-mode"
           customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
           faIcon="fa-solid fa-sun"
           @click="darkMode = false"
-        />
+        /> -->
         <AuthModal v-if="!(currentUser && currentUser.id)" />
-        <AuthSignOffModal v-else />
+        <ThePopover v-else>
+          <template #default>
+            <div class="w-6 h-6">
+              <TheIcon
+                fa-icon="fa-solid fa-ellipsis-vertical"
+                custom-class="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
+              />
+            </div>
+          </template>
+          <template #content> <div class="text-sm">asdasd</div></template>
+        </ThePopover>
+        <!-- <AuthSignOffModal v-else /> -->
       </ClientOnly>
     </div>
   </div>

@@ -8,6 +8,7 @@ export const useCurrentUser = () => {
     full_name: "",
     avatar_url: "",
     goals: 0,
+    greens: 0,
   }));
 
   const setCurrentUser = (user: User | null) => {

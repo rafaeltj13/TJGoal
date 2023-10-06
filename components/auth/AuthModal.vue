@@ -2,7 +2,7 @@
   <TheModal v-model="showModal">
     <template #default>
       <TheIcon
-        customClass="pt-1 text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
+        customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
         faIcon="fa-solid fa-right-to-bracket"
       />
     </template>

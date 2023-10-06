@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-col items-center py-8">
+  <form class="flex flex-col items-center py-2">
     <p class="text-2xl text-primary dark:text-primary-dark font-bold mb-8">
       Sign up
     </p>
