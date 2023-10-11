@@ -6,7 +6,7 @@
       <p class="text-lg text-primary dark:text-primary-dark w-10">
         {{ props.position }} -
       </p>
-      <img class="w-8 h-8" :src="props.team?.logo || ''" alt="enemy-logo" />
+      <TeamLogo :logo="props.team?.logo" />
       <p class="ml-2 text-text dark:text-text-dark">
         {{ props.team.name }}
       </p>

@@ -6,7 +6,7 @@
       '-translate-x-24 opacity-100':
         notification && notification.title && !openRightSidebar,
     }"
-    class="w-[350px] fixed bottom-5 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark border border-primary dark:border-primary shadow-xl rounded-2xl"
+    class="w-[350px] fixed bottom-5 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark dark:border dark:border-primary-dark shadow-2xl rounded-2xl"
   >
     <div class="flex items-center justify-between p-4">
       <div>

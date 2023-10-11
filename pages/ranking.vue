@@ -11,12 +11,8 @@
           {{ index + 1 }} -
         </p>
         <LevelIcon :icon="currentUser.level?.icon" class="mr-4" />
-        <img
-          class="w-8 h-8 mr-4"
-          :src="currentUser.team?.logo || ''"
-          alt="enemy-logo"
-        />
-        <p class="text-text dark:text-text-dark">
+        <TeamLogo :logo="currentUser.team.logo" />
+        <p class="text-text dark:text-text-dark ml-3">
           {{ currentUser.username }}
         </p>
       </div>

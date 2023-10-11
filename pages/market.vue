@@ -17,7 +17,7 @@
       <p class="">Meus verdinhos:</p>
       <p class="ml-4">750</p>
     </div>
-    <StoreOffers />
+    <MarketOffers />
   </div>
 </template>
 

@@ -14,7 +14,7 @@
         classType="outlined"
         @click="emit('signup')"
       />
-      <TheButton content="Entrar" type="submit" />
+      <TheButton content="Entrar" type="submit" @click.once="emailSignIn()" />
     </div>
     <div class="mt-8">
       <h1 class="text-lg text-text dark:text-text-dark">ou entre com</h1>

@@ -29,7 +29,7 @@
           <p class="text-lg text-primary dark:text-primary-dark w-10">
             {{ index + 1 }} -
           </p>
-          <img class="w-8 h-8" :src="team?.logo || ''" alt="enemy-logo" />
+          <TeamLogo :logo="team.logo" />
           <p class="ml-2 text-primary dark:text-primary-dark">
             {{ team.name }}
           </p>

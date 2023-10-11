@@ -7,7 +7,7 @@
         {{ props.position }} -
       </p>
       <LevelIcon :icon="props.item.icon" class="mr-2" />
-      <img class="w-8 h-8" :src="props.item.logo" alt="enemy-logo" />
+      <TeamLogo :logo="props.item?.logo" />
       <p class="ml-2 text-text dark:text-text-dark">
         {{ props.item.username }}
       </p>

@@ -13,8 +13,8 @@
     <div class="flex justify-center mt-4">
       <TheButton
         v-if="!uploaded"
-        class="button"
         classType="outlined"
+        class="!m-0"
         for="single"
         :content="uploading ? 'Uploading ...' : 'Upload'"
       />

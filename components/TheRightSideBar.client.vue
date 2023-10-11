@@ -54,12 +54,8 @@
         class="mt-2"
         :class="{ 'flex items-center justify-between': openRightSidebar }"
       >
-        <div>
-          <img
-            class="mt-2 w-12 h-12 hover:scale-125 transition-transform cursor-pointer"
-            :src="user.team?.logo || ''"
-            alt="team-logo"
-          />
+        <div class="flex flex-col items-center">
+          <TeamLogo :logo="user.team.logo" />
           <p class="text- lg text-text dark:text-text-dark text-center mt-1">
             13661
           </p>
@@ -71,15 +67,12 @@
         </p>
         <div
           :class="{ 'flex items-center flex-col-reverse': openRightSidebar }"
+          class="flex flex-col items-center"
         >
           <p class="text- lg text-text dark:text-text-dark text-center mt-1">
             4829
           </p>
-          <img
-            class="mt-2 w-12 h-12 hover:scale-125 transition-transform cursor-pointer"
-            src="https://s.sde.globo.com/media/organizations/2020/12/21/juventus-italia-svg.svg"
-            alt="enemy-logo"
-          />
+          <TeamLogo logo="juve" />
         </div>
       </div>
     </div>
@@ -99,31 +92,10 @@
 </template>
 
 <script setup lang="ts">
-import { useUserAPI } from "~/composables/api/useUserAPI";
-
 const openRightSidebar = useRightSidebar();
-const supabase = useSupabaseClient();
-const { currentUser, setCurrentUser } = useCurrentUser();
+const { currentUser } = useCurrentUser();
 
 let user = computed(() => currentUser.value);
-
-const { getUser } = useUserAPI();
-
-supabase.auth.onAuthStateChange(async (event, session) => {
-  const userProfile = session?.user ?? null;
-
-  if (!userProfile) {
-    setCurrentUser(null);
-    return;
-  }
-
-  const loggeduser = await getUser(userProfile?.id);
-  setCurrentUser(loggeduser);
-
-  if (loggeduser && loggeduser.id && !loggeduser.team) {
-    navigateTo("/register");
-  }
-});
 
 const currentProgress = computed(() => {
   const minGoals = user.value.level?.min_goals || 0;
