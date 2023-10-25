@@ -17,8 +17,8 @@ export const useUserAPI = () => {
             logo
           ),
           level (
+            id,
             name,
-            icon,
             max_goals,
             min_goals,
             next_level(
@@ -48,7 +48,7 @@ export const useUserAPI = () => {
           logo
         ),
         level (
-          icon
+          id
         )
       `
       )

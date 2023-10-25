@@ -26,7 +26,6 @@ export type Level = {
   name: string;
   min_goals: number;
   max_goals: number;
-  icon: string;
   next_level?: Level;
 };
 
@@ -36,7 +35,7 @@ export type HourlyItem = {
   username: string;
   teamId: number;
   logo: string;
-  icon: string;
+  level: string;
 };
 
 export type Goal = {

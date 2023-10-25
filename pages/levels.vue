@@ -16,7 +16,7 @@
       :key="currentLevel.id"
     >
       <div class="flex items-center">
-        <LevelIcon :icon="currentLevel.icon" class="mr-4" />
+        <LevelIcon :current-level="currentLevel.id" class="mr-4" />
         <p class="text-text dark:text-text-dark">
           {{ currentLevel.name }}
         </p>

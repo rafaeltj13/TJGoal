@@ -10,8 +10,8 @@
         <p class="text-lg text-primary dark:text-primary-dark w-10">
           {{ index + 1 }} -
         </p>
-        <LevelIcon :icon="currentUser.level?.icon" class="mr-4" />
-        <TeamLogo :logo="currentUser.team.logo" />
+        <LevelIcon :current-level="currentUser.level?.id || 1" class="mr-4" />
+        <TeamLogo :logo="currentUser.team?.logo || ''" />
         <p class="text-text dark:text-text-dark ml-3">
           {{ currentUser.username }}
         </p>

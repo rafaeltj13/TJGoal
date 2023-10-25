@@ -6,7 +6,7 @@
       <p class="text-lg text-primary dark:text-primary-dark w-10">
         {{ props.position }} -
       </p>
-      <LevelIcon :icon="props.item.icon" class="mr-2" />
+      <LevelIcon :current-level="props.item.level" class="mr-2" />
       <TeamLogo :logo="props.item?.logo" />
       <p class="ml-2 text-text dark:text-text-dark">
         {{ props.item.username }}

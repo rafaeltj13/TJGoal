@@ -10,7 +10,7 @@
         :class="{ '!justify-center  ': !openRightSidebar }"
       >
         <div>
-          <LevelIcon :icon="user.level?.icon || ''" class="mb-2" />
+          <LevelIcon :current-level="user.level?.id|| 1" class="mb-2" />
           <p class="text-text dark:text-text-dark text-center font-bold">
             {{ user.goals }}
           </p>
@@ -34,7 +34,7 @@
         <div v-if="openRightSidebar">
           <div>
             <LevelIcon
-              :icon="user.level?.next_level?.icon || ''"
+              :current-level="user.level?.next_level?.id || 1"
               class="mb-2"
             />
             <p class="text-text dark:text-text-dark text-center font-bold">

@@ -3,18 +3,22 @@ twi
   <div
     class="rounded-xl bg-gray-300 w-10 h-10 flex items-center justify-center"
     :class="{
-      'shadow-[0px_0px_10px_0px] shadow-primary': Math.random() >= 0.5,
+      'shadow-[0px_0px_10px_0px] shadow-primary': Math.random() >= 0.9,
     }"
   >
-    <TheIcon custom-class="text-slate-400 text-2xl" :fa-icon="props.icon || ''" />
+    <img
+        class="w-10 h-10 rounded-lg"
+        :src="`/levels/${props.currentLevel}.png`"
+        :alt="`${$props.currentLevel}-level-icon`"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  icon: {
-    type: String,
-    default: "",
+  currentLevel: {
+    type: Number,
+    required: true,
   },
 });
 </script>

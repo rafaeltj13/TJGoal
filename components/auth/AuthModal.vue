@@ -1,7 +1,7 @@
 <template>
   <TheModal v-model="showModal">
     <template #default>
-      <div class="flex items-center w-8 h-8">
+      <div class="flex items-center w-8 h-8 justify-center">
         <TheIcon
           customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
           faIcon="fa-solid fa-right-to-bracket"
