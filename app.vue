@@ -1,11 +1,13 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage :page-key="(route) => route.fullPath" />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout name="default">
+      <NuxtPage :page-key="(route) => route.fullPath" />
+    </NuxtLayout>
+  </div>
 </template>
 
-<style>
-.page-enter-active,
+<style scoped>
+/* .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
 }
@@ -13,5 +15,5 @@
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
-}
+} */
 </style>

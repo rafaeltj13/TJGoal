@@ -1,4 +1,4 @@
-import { HourlyItem } from "~/lib/data.types";
+import type { HourlyItem } from "~/lib/data.types";
 import { useGoalAPI } from "../../../composables/api/useGoalsApi";
 
 export default defineEventHandler(async (event) => {

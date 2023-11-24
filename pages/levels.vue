@@ -29,12 +29,10 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("TJGoal - Níveis");
-definePageMeta({
-  middleware: "registration",
-});
+import type { Level } from "~/lib/data.types";
 
-import { Level } from "~/lib/data.types";
+useDefaultHead("TJGoal - Níveis");
+
 const { data } = await useFetch(`/api/level/levels`);
 const levels: Ref<Array<Level>> = ref(data.value as Level[]);
 </script>

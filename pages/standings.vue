@@ -43,12 +43,9 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("TJGoal - Classifição");
-definePageMeta({
-  middleware: "registration",
-});
+import type { Team } from "~/lib/data.types";
 
-import { Team } from "~/lib/data.types";
+useDefaultHead("TJGoal - Classifição");
 
 const { data, pending } = await useFetch("/api/team/ranking");
 const currentRanking = computed<Array<Team>>(() => data.value as Team[]);

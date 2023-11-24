@@ -80,7 +80,6 @@ const uploadAvatar = async (evt) => {
   } catch (error) {
     alert(error.message);
   } finally {
-    console.log("oi");
     uploading.value = false;
     uploaded.value = true;
   }

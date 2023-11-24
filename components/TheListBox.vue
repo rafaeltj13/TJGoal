@@ -4,7 +4,7 @@
       <HeadlessListbox @update:model-value="updateValue">
         <div class="relative mt-1">
           <HeadlessListboxButton
-            class="relative w-full hover:bg-secondary hover:text-background dark:hover:bg-secondary-dark dark:hover:text-background-dark cursor-´pointer rounded-lg bg-background dark:bg-background-dark border-[1px] border-secondary dark:border-secondary-dark py-2 pl-3 pr-10 text-left shadow-md"
+            class="relative w-full cursor-´pointer rounded-lg bg-background dark:bg-background-dark border-[1px] border-secondary dark:border-secondary-dark py-2 pl-3 pr-10 text-left shadow-md"
           >
             <span class="text-text dark:text-text-dark text-sm">
               {{ props.modelValue?.text || props.placeholder }}

@@ -10,3 +10,5 @@
     </div>
   </div>
 </template>
+
+// refactor this and make a sekeleton component reusable

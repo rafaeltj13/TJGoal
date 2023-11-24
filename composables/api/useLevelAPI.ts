@@ -1,5 +1,5 @@
-import useAPI from "~/composables/api/useAPI";
-import { Level } from "~/lib/data.types";
+import { useApi } from "~/composables/api/useApi";
+import type { Level } from "~/lib/data.types";
 
 export const useLevelAPI = () => {
   const updateUserLevel = async (
@@ -8,13 +8,13 @@ export const useLevelAPI = () => {
   ) => {
     if (!userId || !nextLevel) return;
 
-    await useAPI().from("users").update({ level: nextLevel }).eq("id", userId);
+    await useApi().from("users").update({ level: nextLevel }).eq("id", userId);
 
     return { userId, nextLevel };
   };
 
   const getLevels = async () => {
-    const { data, error } = await useAPI()
+    const { data, error } = await useApi()
       .from("levels")
       .select("*")
       .order("min_goals", { ascending: false });

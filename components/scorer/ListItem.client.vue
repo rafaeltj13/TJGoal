@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { HourlyItem } from "~/lib/data.types";
+import type { HourlyItem } from "~/lib/data.types";
 
 const props = defineProps({
   item: {

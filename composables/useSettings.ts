@@ -1,8 +1,9 @@
-import { WatchCallback, watch } from "vue";
-import { CookieOptions, CookieRef } from "#app";
+import { watch } from "vue";
 import { useCookie, useState } from "#imports";
+import type { CookieOptions, CookieRef } from "nuxt/app";
+import type { WatchCallback } from "nuxt/dist/app/compat/capi";
 
-export function useStatefulCookie<T = boolean | null>(
+export function useStatefulCookie<T = boolean | string | null>(
   name: string,
   options?: CookieOptions<T>
 ): CookieRef<T> {
@@ -26,4 +27,7 @@ export const useLeftSidebar = () => {
 };
 export const useDarkMode = () => {
   return useStatefulCookie("darkMode");
+};
+export const useAuthCookie = () => {
+  return useStatefulCookie("auth", { sameSite: "strict" });
 };

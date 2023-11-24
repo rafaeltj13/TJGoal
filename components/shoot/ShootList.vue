@@ -5,8 +5,7 @@
 <script setup lang="ts">
 import { useShootAPI } from "~/composables/api/useShootAPI";
 import { useLevelAPI } from "~/composables/api/useLevelAPI";
-import { useUserAPI } from "~/composables/api/useUserAPI";
-import { User } from "~/lib/data.types";
+import { useUserApi } from "~/composables/api/useUserApi";
 
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
@@ -29,8 +28,9 @@ const handleShoot = async () => {
       currentUser.value.level.next_level?.id
     );
 
-    const userResponse = await useUserAPI().getUser(currentUser.value.id);
+    const userResponse = await useUserApi().getUser(currentUser.value.id);
     setCurrentUser(userResponse);
   }
 };
 </script>
+~/composables/api/useUserApi

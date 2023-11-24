@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { Team } from "~/lib/data.types";
+import type { Team } from "~/lib/data.types";
 
 const currentRanking = ref<Array<Team>>([]);
 const isLoading = ref(false);

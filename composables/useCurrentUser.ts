@@ -1,4 +1,4 @@
-import { User } from "~/lib/data.types";
+import type { User } from "~/lib/data.types";
 
 const DEFAULT_USER = {
   id: "",
@@ -21,5 +21,6 @@ export const useCurrentUser = () => {
 
     currentUser.value = user;
   };
+
   return { currentUser, setCurrentUser };
 };

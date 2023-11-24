@@ -34,7 +34,8 @@
 </template>
 
 <script setup lang="ts">
-import { HourlyItem } from "~/lib/data.types";
+import type { HourlyItem } from "~/lib/data.types";
+
 const currentRanking = ref<Array<HourlyItem>>([]);
 const isLoading = ref(false);
 

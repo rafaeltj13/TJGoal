@@ -23,33 +23,44 @@
 </template>
 
 <script setup lang="ts">
-import { useUserAPI } from "~/composables/api/useUserAPI";
+import { useUserApi } from "~/composables/api/useUserApi";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const darkMode = useDarkMode();
 const openRightSidebar = useRightSidebar();
 const openLeftSidebar = useLeftSidebar();
+const auth = useAuthCookie();
 
 const supabase = useSupabaseClient();
 const { currentUser, setCurrentUser } = useCurrentUser();
-
-const { getUser } = useUserAPI();
-
-supabase.auth.onAuthStateChange(async (event, session) => {
-  const userProfile = session?.user ?? null;
-  if (!userProfile) {
-    setCurrentUser(null);
-    return;
-  }
-
-  const loggeduser = await getUser(userProfile?.id);
-  setCurrentUser(loggeduser);
-
-  if (loggeduser && loggeduser.id && !loggeduser.team) {
-    navigateTo("/register");
-  }
-});
-
 const uniqueKey = computed(
   () => new Date().toISOString() + currentUser.value.id
 );
+
+const handleSignOut = () => {
+  setCurrentUser(null);
+  auth.value = "";
+};
+
+supabase.auth.onAuthStateChange(async (event, session) => {
+  if (event === "INITIAL_SESSION" && !session) return;
+  if (event === "SIGNED_IN" && auth.value === session?.access_token) return;
+  if (event === "SIGNED_OUT") {
+    handleSignOut();
+    return;
+  }
+  const userProfile = session?.user || null;
+  if (!userProfile) {
+    handleSignOut();
+    return;
+  }
+  auth.value = session?.access_token || "";
+  // const loggeduser = await useUserApi().getUser(userProfile?.id);
+  // setCurrentUser(loggeduser);
+  // if (loggeduser && loggeduser.id && !loggeduser.team) {
+  //   if (route && route.path !== "register") navigateTo("/register");
+  // }
+});
 </script>
+~/composables/api/useUserApi

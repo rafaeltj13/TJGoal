@@ -1,4 +1,3 @@
-twi
 <template>
   <div
     class="rounded-xl bg-gray-300 w-10 h-10 flex items-center justify-center"
@@ -7,9 +6,9 @@ twi
     }"
   >
     <img
-        class="w-10 h-10 rounded-lg"
-        :src="`/levels/${props.currentLevel}.png`"
-        :alt="`${$props.currentLevel}-level-icon`"
+      class="w-10 h-10 rounded-lg"
+      :src="`/levels/${props.currentLevel}.png`"
+      :alt="`${$props.currentLevel}-level-icon`"
     />
   </div>
 </template>
@@ -17,7 +16,7 @@ twi
 <script setup lang="ts">
 const props = defineProps({
   currentLevel: {
-    type: Number,
+    type: [Number, String],
     required: true,
   },
 });

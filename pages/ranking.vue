@@ -24,12 +24,9 @@
 </template>
 
 <script setup lang="ts">
-useDefaultHead("TJGoal - Artilharia");
-definePageMeta({
-  middleware: "registration",
-});
+import type { User } from "~/lib/data.types";
 
-import { User } from "~/lib/data.types";
+useDefaultHead("TJGoal - Artilharia");
 
 const { data, pending } = await useFetch(`/api/user/ranking`);
 const currentRanking = computed<Array<User>>(() => data.value as User[]);

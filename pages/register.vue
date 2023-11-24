@@ -45,7 +45,7 @@
     <h1
       class="text-center py-8 text-xl text-primary dark:text-primary-dark font-bold"
     >
-      Attributos
+      Atributos
     </h1>
     <div class="flex items-center justify-between pt-4 gap-4">
       <div class="flex flex-col justify-center items-center">
@@ -149,15 +149,15 @@
       <TheButton
         class="w-[200px] h-12"
         content="Finalizar"
-        @click="finishUserRegistration()"
+        @click="() => finishUserRegistration()"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useUserAPI } from "~/composables/api/useUserAPI";
-import { Team, User } from "~/lib/data.types";
+import { useUserApi } from "~/composables/api/useUserApi";
+import type { Team, User } from "~/lib/data.types";
 
 useDefaultHead("Completar registro");
 
@@ -178,14 +178,13 @@ const positionOptions: Ref<Array<{ name: string; id: string }>> = ref([
   { name: "LD", id: "1348" },
   { name: "ZAG", id: "3318" },
 ]);
-
 const selectedTeam = ref({ text: "", id: "" });
 const selectedPosition = ref({ text: "", id: "" });
 const username = ref("");
 const fullName = ref("");
 const avatarPath = ref("");
 
-const { finishRegistration, getUser, updatePicture } = useUserAPI();
+const { finishRegistration, getUser, updatePicture } = useUserApi();
 
 const finishUserRegistration = async () => {
   await finishRegistration(
@@ -205,3 +204,4 @@ async function updateProfile() {
   await updatePicture(currentUser.value.id, avatarPath.value);
 }
 </script>
+~/composables/api/useUserApi

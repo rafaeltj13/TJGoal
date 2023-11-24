@@ -37,7 +37,4 @@
 
 <script setup lang="ts">
 useDefaultHead("TJGoal - Sobre");
-definePageMeta({
-  middleware: "registration",
-});
 </script>
