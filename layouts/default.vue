@@ -24,7 +24,6 @@
 
 <script setup lang="ts">
 import { useUserApi } from "~/composables/api/useUserApi";
-import { useRoute } from "vue-router";
 
 const route = useRoute();
 const darkMode = useDarkMode();
@@ -43,24 +42,30 @@ const handleSignOut = () => {
   auth.value = "";
 };
 
-supabase.auth.onAuthStateChange(async (event, session) => {
-  if (event === "INITIAL_SESSION" && !session) return;
-  if (event === "SIGNED_IN" && auth.value === session?.access_token) return;
-  if (event === "SIGNED_OUT") {
-    handleSignOut();
-    return;
-  }
-  const userProfile = session?.user || null;
-  if (!userProfile) {
-    handleSignOut();
-    return;
-  }
-  auth.value = session?.access_token || "";
-  // const loggeduser = await useUserApi().getUser(userProfile?.id);
-  // setCurrentUser(loggeduser);
-  // if (loggeduser && loggeduser.id && !loggeduser.team) {
-  //   if (route && route.path !== "register") navigateTo("/register");
-  // }
+onMounted(() => {
+  supabase.auth.onAuthStateChange(async (event, session) => {
+    if (event === "INITIAL_SESSION" && !session) return;
+    if (event === "SIGNED_IN" && auth.value === session?.access_token) return;
+    if (event === "SIGNED_OUT") {
+      handleSignOut();
+      return;
+    }
+    const userProfile = session?.user || null;
+    if (!userProfile) {
+      handleSignOut();
+      return;
+    }
+    auth.value = session?.access_token || "";
+    const loggeduser = await useUserApi().getUser(userProfile?.id);
+    setCurrentUser(loggeduser);
+
+    if (
+      !!currentUser.value.id &&
+      !currentUser.value.team &&
+      route.path !== "register"
+    ) {
+      await navigateTo("/register");
+    }
+  });
 });
 </script>
-~/composables/api/useUserApi

@@ -13,19 +13,27 @@
 
 <script setup>
 const supabase = useSupabaseClient();
+const darkMode = useDarkMode();
 
 const signout = async () => {
   await supabase.auth.signOut();
-  navigateTo("/");
+  await navigateTo("/");
 };
 
-const sections = ref([
+const sections = computed(() => [
   [
     { icon: "fa-solid fa-id-badge", text: "Meu perfil", onClick: () => ({}) },
     { icon: "fa-solid fa-people-group", text: "Meu time", onClick: () => ({}) },
   ],
   [
-    { icon: "fa-solid fa-sun", text: "Modo claro", onClick: () => ({}) },
+    // TODO VER PQ NÃO ATUALIZA O NOME
+    {
+      icon: `fa-solid fa-${!darkMode ? "sun" : "moon"}`,
+      text: `Modo ${!darkMode ? "claro" : "escuro"}`,
+      onClick: () => {
+        darkMode.value = !darkMode.value;
+      },
+    },
     { icon: "fa-solid fa-globe", text: "Idioma", onClick: () => ({}) },
   ],
   [

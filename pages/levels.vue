@@ -29,6 +29,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: "registered",
+});
+
 import type { Level } from "~/lib/data.types";
 
 useDefaultHead("TJGoal - Níveis");

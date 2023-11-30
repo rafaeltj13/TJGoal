@@ -60,11 +60,32 @@ export const useUserApi = () => {
     userId: string,
     username: string,
     fullName: string,
-    team: string
+    team: string,
+    avatar: string,
+    pace: number,
+    shooting: number,
+    passing: number,
+    dribbling: number,
+    defending: number,
+    physical: number,
+    points: number
   ) => {
     await useApi()
       .from("users")
-      .update({ username, full_name: fullName, team, updated_at: new Date() })
+      .update({
+        username,
+        full_name: fullName,
+        team,
+        pace,
+        shooting,
+        passing,
+        dribbling,
+        defending,
+        physical,
+        points,
+        avatar_url: avatar,
+        updated_at: new Date(),
+      })
       .eq("id", userId);
   };
   const updatePicture = async (userId: string, picture: string) => {

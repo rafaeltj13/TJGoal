@@ -9,20 +9,7 @@
     >
     <div class="flex items-center">
       <ClientOnly class="flex items-center">
-        <!-- <TheIcon
-          v-if="!darkMode"
-          key="dark-mode"
-          customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
-          faIcon="fa-solid fa-moon"
-          @click="darkMode = !darkMode"
-        /> -->
-        <!-- <TheIcon
-          v-else
-          key="light-mode"
-          customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-lg"
-          faIcon="fa-solid fa-sun"
-          @click="darkMode = false"
-        /> -->
+        <!-- TODO COLOCAR OS GREENS AQUI -->
         <AuthModal v-if="!(currentUser && currentUser.id)" />
         <HeaderConfig v-else />
       </ClientOnly>
@@ -31,6 +18,5 @@
 </template>
 
 <script setup lang="ts">
-const darkMode = useDarkMode();
 const { currentUser } = useCurrentUser();
 </script>

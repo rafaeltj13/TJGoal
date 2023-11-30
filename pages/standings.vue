@@ -43,6 +43,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: "registered",
+});
+
 import type { Team } from "~/lib/data.types";
 
 useDefaultHead("TJGoal - Classifição");

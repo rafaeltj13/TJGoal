@@ -42,109 +42,7 @@
         />
       </div>
     </div>
-    <h1
-      class="text-center py-8 text-xl text-primary dark:text-primary-dark font-bold"
-    >
-      Atributos
-    </h1>
-    <div class="flex items-center justify-between pt-4 gap-4">
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">PAC</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">SHO</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">PAS</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">DRI</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">DEF</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col justify-center items-center">
-        <p class="text-accent dark:text-accent-dark text-lg">PHY</p>
-        <div class="flex items-center">
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-minus"
-            @click="() => {}"
-          />
-          <p class="text-secondary dark:text-secondary-dark text-lg mx-2">99</p>
-          <TheIcon
-            customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-            faIcon="fa-solid fa-plus"
-            @click="() => {}"
-          />
-        </div>
-      </div>
-    </div>
+    <AttributesAttributeBuilder v-model="userAttributes" isEdit />
     <div class="flex items-center justify-center mt-8">
       <TheButton
         class="w-[200px] h-12"
@@ -156,15 +54,18 @@
 </template>
 
 <script setup lang="ts">
+useDefaultHead("Completar o registro");
+
 import { useUserApi } from "~/composables/api/useUserApi";
 import type { Team, User } from "~/lib/data.types";
 
-useDefaultHead("Completar registro");
-
 const { currentUser, setCurrentUser } = useCurrentUser();
+
+if (!!currentUser.value.id && currentUser.value.team) await navigateTo("/");
 
 const { data } = await useFetch(`/api/team/teams`);
 const teamOptions: Ref<Array<Team>> = ref(data.value as Team[]);
+//TODO Criar table no supabase pra isso
 const positionOptions: Ref<Array<{ name: string; id: string }>> = ref([
   { name: "PE", id: "1" },
   { name: "ATA", id: "2" },
@@ -184,6 +85,16 @@ const username = ref("");
 const fullName = ref("");
 const avatarPath = ref("");
 
+const userAttributes = ref({
+  pace: currentUser.value.pace,
+  shooting: currentUser.value.shooting,
+  passing: currentUser.value.passing,
+  dribbling: currentUser.value.dribbling,
+  defending: currentUser.value.defending,
+  physical: currentUser.value.physical,
+  points: currentUser.value.points,
+});
+
 const { finishRegistration, getUser, updatePicture } = useUserApi();
 
 const finishUserRegistration = async () => {
@@ -191,17 +102,24 @@ const finishUserRegistration = async () => {
     currentUser.value.id,
     username.value,
     fullName.value,
-    selectedTeam.value.id
+    selectedTeam.value.id,
+    avatarPath.value,
+    userAttributes.value.pace,
+    userAttributes.value.shooting,
+    userAttributes.value.passing,
+    userAttributes.value.dribbling,
+    userAttributes.value.physical,
+    userAttributes.value.physical,
+    userAttributes.value.points
   );
 
   const userResponse = await getUser(currentUser.value.id);
   setCurrentUser(userResponse as User);
 
-  navigateTo("/");
+  await navigateTo("/");
 };
 
 async function updateProfile() {
   await updatePicture(currentUser.value.id, avatarPath.value);
 }
 </script>
-~/composables/api/useUserApi

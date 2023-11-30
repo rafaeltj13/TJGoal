@@ -7,4 +7,7 @@
 
 <script setup lang="ts">
 useDefaultHead("TJGoal");
+definePageMeta({
+  middleware: "registered",
+});
 </script>

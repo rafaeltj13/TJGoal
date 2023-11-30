@@ -24,6 +24,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: "registered",
+});
+
 import type { User } from "~/lib/data.types";
 
 useDefaultHead("TJGoal - Artilharia");

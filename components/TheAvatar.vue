@@ -3,9 +3,9 @@
     <img v-if="src" :src="src" alt="Avatar" class="rounded-full w-28 h-28" />
     <div
       v-else
-      class="flex items-center justify-center rounded-full w-28 h-28 bg-secondary dark:bg-secondary-dark"
+      class="flex items-center justify-center rounded-full w-28 h-28 bg-accent dark:bg-accent-dark shadow-xl"
     >
-      <p class="text-2xl text-accent dark:text-accent-dark">
+      <p class="text-2xl text-text dark:text-text-dark">
         {{ props.username ? props.username.charAt(0).toUpperCase() : "?" }}
       </p>
     </div>

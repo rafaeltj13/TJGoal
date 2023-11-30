@@ -7,7 +7,7 @@ export function useStatefulCookie<T = boolean | string | null>(
   name: string,
   options?: CookieOptions<T>
 ): CookieRef<T> {
-  const cookie = useCookie(name, options);
+  const cookie = useCookie(name, { ...options, sameSite: "strict" });
   const state = useState(name, () => cookie.value);
 
   const callback: WatchCallback<T, T> = () => {
@@ -29,5 +29,5 @@ export const useDarkMode = () => {
   return useStatefulCookie("darkMode");
 };
 export const useAuthCookie = () => {
-  return useStatefulCookie("auth", { sameSite: "strict" });
+  return useStatefulCookie("auth");
 };

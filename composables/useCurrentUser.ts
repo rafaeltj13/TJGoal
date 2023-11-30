@@ -1,6 +1,6 @@
 import type { User } from "~/lib/data.types";
 
-const DEFAULT_USER = {
+const DEFAULT_USER: User = {
   id: "",
   updated_at: "",
   username: "",
@@ -8,6 +8,13 @@ const DEFAULT_USER = {
   avatar_url: "",
   goals: 0,
   greens: 0,
+  pace: 1,
+  shooting: 1,
+  passing: 1,
+  dribbling: 1,
+  defending: 1,
+  physical: 1,
+  points: 0,
 };
 
 export const useCurrentUser = () => {

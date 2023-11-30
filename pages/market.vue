@@ -22,5 +22,8 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: "registered",
+});
 useDefaultHead("TJGoal - Loja");
 </script>

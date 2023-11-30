@@ -8,6 +8,13 @@ export type User = {
   team?: Team;
   level?: Level;
   greens: number;
+  pace: number;
+  shooting: number;
+  passing: number;
+  dribbling: number;
+  defending: number;
+  physical: number;
+  points: number;
 };
 
 export type Team = {
