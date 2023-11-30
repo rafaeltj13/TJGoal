@@ -103,7 +103,6 @@ const finishUserRegistration = async () => {
     username.value,
     fullName.value,
     selectedTeam.value.id,
-    avatarPath.value,
     userAttributes.value.pace,
     userAttributes.value.shooting,
     userAttributes.value.passing,

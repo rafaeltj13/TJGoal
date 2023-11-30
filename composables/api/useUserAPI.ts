@@ -56,12 +56,12 @@ export const useUserApi = () => {
     if (error) return [];
     return data as User[];
   };
+
   const finishRegistration = async (
     userId: string,
     username: string,
     fullName: string,
     team: string,
-    avatar: string,
     pace: number,
     shooting: number,
     passing: number,
@@ -83,7 +83,6 @@ export const useUserApi = () => {
         defending,
         physical,
         points,
-        avatar_url: avatar,
         updated_at: new Date(),
       })
       .eq("id", userId);

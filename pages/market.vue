@@ -15,7 +15,7 @@
         faIcon="fa-solid fa-money-bill"
       />
       <p class="">Meus verdinhos:</p>
-      <p class="ml-4">750</p>
+      <p class="ml-4">{{ currentUser.greens }}</p>
     </div>
     <MarketOffers />
   </div>
@@ -26,4 +26,6 @@ definePageMeta({
   middleware: "registered",
 });
 useDefaultHead("TJGoal - Loja");
+
+const { currentUser } = useCurrentUser();
 </script>

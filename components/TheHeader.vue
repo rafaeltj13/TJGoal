@@ -10,8 +10,20 @@
     <div class="flex items-center">
       <ClientOnly class="flex items-center">
         <!-- TODO COLOCAR OS GREENS AQUI -->
-        <AuthModal v-if="!(currentUser && currentUser.id)" />
-        <HeaderConfig v-else />
+        <AuthModal v-if="!currentUser.id" />
+        <div v-else class="flex items-center gap-2">
+          <div class="flex items-center">
+            <p class="text-accent dark:text-accent-dark font-bold mr-2 text-xl">
+              {{ currentUser.greens }}
+            </p>
+            <TheIcon
+              customClass="text-accent dark:text-accent-dark hover:scale-125 transition-transform cursor-pointer text-xl"
+              faIcon="fa-solid fa-money-bill"
+              @click="navigateTo('/market')"
+            />
+          </div>
+          <HeaderConfig />
+        </div>
       </ClientOnly>
     </div>
   </div>

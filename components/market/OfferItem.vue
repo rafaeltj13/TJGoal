@@ -6,11 +6,11 @@
       customClass="text-green-600 text-[58px] mb-4"
       :faIcon="props.icon"
     />
-    <p class="mt-2 text-center text-secondary dark:text-secondary-dark text-xl">
-      {{ props.price }}
-    </p>
-    <p class="text-center text-primary dark:text-primary-dark text-lg">
+    <p class="text-center text-primary dark:text-primary-dark text-xl">
       {{ props.description }}
+    </p>
+    <p class="mt-2 text-center text-secondary dark:text-secondary-dark text-md">
+      {{ props.price }}
     </p>
   </div>
 </template>
