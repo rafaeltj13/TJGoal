@@ -15,6 +15,8 @@
 const supabase = useSupabaseClient();
 const darkMode = useDarkMode();
 
+const { currentUser } = useCurrentUser();
+
 const signout = async () => {
   await supabase.auth.signOut();
   await navigateTo("/");
@@ -22,7 +24,11 @@ const signout = async () => {
 
 const sections = computed(() => [
   [
-    { icon: "fa-solid fa-id-badge", text: "Meu perfil", onClick: () => ({}) },
+    {
+      icon: "fa-solid fa-id-badge",
+      text: "Meu perfil",
+      onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
+    },
     { icon: "fa-solid fa-people-group", text: "Meu time", onClick: () => ({}) },
   ],
   [
