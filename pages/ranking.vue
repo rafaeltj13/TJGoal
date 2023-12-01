@@ -5,6 +5,7 @@
       class="bg-background dark:bg-background-dark flex items-center justify-between p-2 hover:scale-105 transition-transform cursor-pointer dark:border-primary-dark"
       v-for="(currentUser, index) of currentRanking"
       :key="currentUser.id"
+      @click="() => navigateTo(`profile/${currentUser.id}`)"
     >
       <div class="flex items-center">
         <p class="text-lg text-primary dark:text-primary-dark w-10">

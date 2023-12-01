@@ -1,16 +1,19 @@
 <template>
   <h1
-    class="text-center py-8 text-2xl text-primary dark:text-primary-dark font-bold"
+    class="text-center py-4 text-2xl text-primary dark:text-primary-dark font-bold"
   >
     Attributos
   </h1>
-  <h4 class="py-2 text-lg text-secondary dark:text-secondary-dark font-bold">
+  <h4
+    v-if="isEdit"
+    class="py-4 text-lg text-secondary dark:text-secondary-dark font-bold"
+  >
     Pontos de atributo restantes:
     <span class="font-bold text-primary dark:text-primary-dark">{{
       props.modelValue.points
     }}</span>
   </h4>
-  <div class="flex items-center justify-between pt-4 gap-8">
+  <div class="flex items-center justify-between pt-2 gap-8">
     <div class="flex flex-col justify-center items-center gap-2 select-none">
       <p class="text-accent dark:text-accent-dark text-lg">PAC</p>
       <div v-if="props.isEdit" class="flex items-center">

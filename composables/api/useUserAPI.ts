@@ -1,3 +1,4 @@
+import type { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { useApi } from "~/composables/api/useApi";
 import type { User } from "~/lib/data.types";
 
@@ -28,12 +29,15 @@ export const useUserApi = () => {
         )
         .eq("id", userId)
         .single();
+
       if (error) throw error;
+
       return data as User;
     } catch {
       return null;
     }
   };
+
   const getUserRanking = async () => {
     const { data, error } = await useApi()
       .from("users")
