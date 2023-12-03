@@ -32,10 +32,10 @@
         />
         <p class="text-xl">{{ user?.level?.name }}</p>
       </div>
-      <div class="flex items-start gap-4">
-        <div class="flex flex-col items-center justify-center w-20">
+      <div class="flex items-start gap-2">
+        <div class="flex flex-col items-center justify-center w-20 mr-2">
           <h1 class="text-5xl">{{ user?.goals }}</h1>
-          <p class="text-center text-xs">Gols</p>
+          <p class="text-center text-sm">Gols</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
           <h1 class="text-4xl">{{ user?.goals / 4 }}</h1>
@@ -93,8 +93,6 @@ const user = await getUser((route.params?.id as string) || "");
 if (!user) navigateTo("/");
 
 useDefaultHead(`TJ-Goal - ${user?.username}`);
-
-console.log({ user });
 
 const userAttributes = ref({
   pace: user?.pace || 0,
