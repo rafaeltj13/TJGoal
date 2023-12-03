@@ -2,13 +2,25 @@
   <div
     class="p-8 max-w-[800px] mx-auto min-h-[100vh] text-primary dark:text-primary-dark"
   >
-    <div class="flex items-center gap-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <!-- <TheAvatar
+          v-model:path="user?.avatar_url"
+          :username="user?.username"
+          @upload="() => {}"
+        /> -->
+        <p class="text-[46px]">{{ user?.username }}</p>
+        <img
+          class="w-12 h-12 rounded-lg"
+          src="https://s.sde.globo.com/media/organizations/2019/07/16/Brasil_rgYHF6Z.svg"
+          :alt="`nacional-flag`"
+        />
+      </div>
       <img
-        class="w-12 h-12 rounded-lg"
-        src="https://s.sde.globo.com/media/organizations/2019/07/16/Brasil_rgYHF6Z.svg"
-        :alt="`nacional-flag`"
+        class="w-16 h-16 rounded-lg"
+        :src="`/emblems/${user?.team?.logo}.png`"
+        :alt="`${user?.team?.logo}-team-logo`"
       />
-      <p class="text-[46px]">{{ user?.username }}</p>
     </div>
     <div class="h-[1px] w-full bg-accent dark:bg-accent-dark my-8"></div>
     <div class="flex items-center justify-between">
@@ -22,7 +34,7 @@
       </div>
       <div class="flex items-start gap-4">
         <div class="flex flex-col items-center justify-center w-20">
-          <h1 class="text-4xl">{{ user?.goals }}</h1>
+          <h1 class="text-5xl">{{ user?.goals }}</h1>
           <p class="text-center text-xs">Gols</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
@@ -43,7 +55,8 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center justify-between py-16">
+    <!-- <p class="pt-12">Rodada Atual:</p>
+    <div class="flex items-center justify-between pt-8 pb-16">
       <div class="flex items-center justify-end gap-4 w-[35%]">
         <p class="text-xl">{{ user?.team?.name }}</p>
         <img
@@ -65,7 +78,7 @@
         />
         <p class="text-xl">Juventus</p>
       </div>
-    </div>
+    </div> -->
     <AttributesAttributeBuilder v-model="userAttributes" />
   </div>
 </template>

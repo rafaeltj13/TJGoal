@@ -1,12 +1,11 @@
-import type { PostgrestSingleResponse } from "@supabase/supabase-js";
-import { useApi } from "~/composables/api/useApi";
+import { useSupabase } from "~/composables/api/useSupabase";
 import type { User } from "~/lib/data.types";
 
 export const useUserApi = () => {
   const getUser = async (userId: string | undefined) => {
     if (!userId) return null;
     try {
-      const { data, error } = await useApi()
+      const { data, error } = await useSupabase()
         .from("users")
         .select(
           `
@@ -39,7 +38,7 @@ export const useUserApi = () => {
   };
 
   const getUserRanking = async () => {
-    const { data, error } = await useApi()
+    const { data, error } = await useSupabase()
       .from("users")
       .select(
         `
@@ -74,7 +73,7 @@ export const useUserApi = () => {
     physical: number,
     points: number
   ) => {
-    await useApi()
+    await useSupabase()
       .from("users")
       .update({
         username,
@@ -92,7 +91,7 @@ export const useUserApi = () => {
       .eq("id", userId);
   };
   const updatePicture = async (userId: string, picture: string) => {
-    await useApi()
+    await useSupabase()
       .from("users")
       .update({ picture, updated_at: new Date() })
       .eq("id", userId);

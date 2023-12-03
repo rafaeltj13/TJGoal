@@ -1,9 +1,9 @@
-import { useApi } from "~/composables/api/useApi";
+import { useSupabase } from "~/composables/api/useSupabase";
 import type { HourlyItem } from "~/lib/data.types";
 
 export const useGoalApi = () => {
   const getHourlyItem = async () => {
-    let { data, error } = await useApi().rpc("hourly_ranking");
+    let { data, error } = await useSupabase().rpc("hourly_ranking");
 
     if (error) return [];
 

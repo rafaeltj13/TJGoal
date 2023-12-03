@@ -1,9 +1,9 @@
-import { useApi } from "~/composables/api/useApi";
+import { useSupabase } from "~/composables/api/useSupabase";
 import type { Team } from "~/lib/data.types";
 
 export const useTeamAPI = () => {
   const getTeamRanking = async () => {
-    const { data, error } = await useApi().rpc("get_team_goals");
+    const { data, error } = await useSupabase().rpc("get_team_goals");
 
     if (error) return [];
 
@@ -11,7 +11,7 @@ export const useTeamAPI = () => {
   };
 
   const getTeams = async () => {
-    const { data, error } = await useApi().from("teams").select("*");
+    const { data, error } = await useSupabase().from("teams").select("*");
 
     if (error) return [];
 
