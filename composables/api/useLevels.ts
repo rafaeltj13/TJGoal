@@ -1,7 +1,7 @@
 import { useApi } from "~/composables/api/useApi";
 import type { Level } from "~/lib/data.types";
 
-export const useLevelAPI = () => {
+export const useLevelApi = () => {
   const updateUserLevel = async (
     userId: string | undefined,
     nextLevel: number | undefined

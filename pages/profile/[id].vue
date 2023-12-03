@@ -70,7 +70,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useUserApi } from "~/composables/api/useUserApi";
+import { useUserApi } from "~/composables/api/useUser";
 
 const { getUser } = useUserApi();
 const route = useRoute();
@@ -93,3 +93,4 @@ const userAttributes = ref({
   points: user?.points || 0,
 });
 </script>
+~/composables/api/useUser

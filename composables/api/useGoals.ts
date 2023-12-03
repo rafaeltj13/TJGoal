@@ -1,7 +1,7 @@
 import { useApi } from "~/composables/api/useApi";
 import type { HourlyItem } from "~/lib/data.types";
 
-export const useGoalAPI = () => {
+export const useGoalApi = () => {
   const getHourlyItem = async () => {
     let { data, error } = await useApi().rpc("hourly_ranking");
 

@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { useUserApi } from "~/composables/api/useUserApi";
+import { useUserApi } from "~/composables/api/useUser";
 
 const route = useRoute();
 const darkMode = useDarkMode();
@@ -69,3 +69,4 @@ onMounted(() => {
   });
 });
 </script>
+~/composables/api/useUser

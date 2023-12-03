@@ -56,7 +56,7 @@
 <script setup lang="ts">
 useDefaultHead("Completar o registro");
 
-import { useUserApi } from "~/composables/api/useUserApi";
+import { useUserApi } from "~/composables/api/useUser";
 import type { Team, User } from "~/lib/data.types";
 
 const { currentUser, setCurrentUser } = useCurrentUser();
@@ -122,3 +122,4 @@ async function updateProfile() {
   await updatePicture(currentUser.value.id, avatarPath.value);
 }
 </script>
+~/composables/api/useUser

@@ -1,6 +1,6 @@
 import { useApi } from "~/composables/api/useApi";
 
-export const useShootAPI = () => {
+export const useShootApi = () => {
   const shoot = async (userId: string, teamId?: number) => {
     try {
       await useApi().from("goals").insert({
