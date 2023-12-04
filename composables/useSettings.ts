@@ -20,13 +20,15 @@ export function useStatefulCookie<T = boolean | string | null>(
 }
 
 export const useRightSidebar = () => {
-  return useStatefulCookie("openRightSidebar");
+  return useStatefulCookie<boolean>("openRightSidebar", {
+    default: () => true,
+  });
 };
 export const useLeftSidebar = () => {
-  return useStatefulCookie("openLeftSidebar");
+  return useStatefulCookie<boolean>("openLeftSidebar", { default: () => true });
 };
 export const useDarkMode = () => {
-  return useStatefulCookie("darkMode");
+  return useStatefulCookie<boolean>("darkMode");
 };
 export const useAuthCookie = () => {
   return useStatefulCookie("auth");

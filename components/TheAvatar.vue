@@ -1,6 +1,6 @@
 <template>
-  <div class="mr-5 w-60 flex flex-col justify-center items-center">
-    <img v-if="src" :src="src" alt="Avatar" class="rounded-full w-28 h-28" />
+  <div class="flex flex-col justify-center items-center">
+    <img v-if="src" :src="src" alt="Avatar" class="rounded-full w-20 h-20" />
     <div
       v-else
       class="flex items-center justify-center rounded-full w-28 h-28 bg-accent dark:bg-accent-dark shadow-xl"
@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div class="flex justify-center mt-4">
+    <div v-if="isEdit" class="flex justify-center mt-4">
       <TheButton
         v-if="!uploaded"
         classType="outlined"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["path", "username"]);
+const props = defineProps(["path", "username", "isEdit"]);
 const { path } = toRefs(props);
 
 const emit = defineEmits(["update:path", "upload"]);

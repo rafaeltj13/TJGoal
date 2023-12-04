@@ -4,11 +4,14 @@
   >
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <!-- <TheAvatar
-          v-model:path="user?.avatar_url"
-          :username="user?.username"
-          @upload="() => {}"
-        /> -->
+        <div>
+          <TheAvatar
+            v-model:path="userAvatar"
+            :username="user?.username"
+            @upload="() => {}"
+            :is-edit="false"
+          />
+        </div>
         <p class="text-[46px]">{{ user?.username }}</p>
         <img
           class="w-12 h-12 rounded-lg"
@@ -22,8 +25,8 @@
         :alt="`${user?.team?.logo}-team-logo`"
       />
     </div>
-    <div class="h-[1px] w-full bg-accent dark:bg-accent-dark my-8"></div>
-    <div class="flex items-center justify-between">
+    <div class="h-[0.5px] w-full bg-accent dark:bg-accent-dark my-6"></div>
+    <div class="flex items-center justify-between py-4">
       <div class="flex items-center gap-4">
         <img
           class="w-16 h-16 rounded-lg"
@@ -34,23 +37,23 @@
       </div>
       <div class="flex items-start gap-2">
         <div class="flex flex-col items-center justify-center w-20 mr-2">
-          <h1 class="text-5xl">{{ user?.goals }}</h1>
-          <p class="text-center text-sm">Gols</p>
+          <h1 class="text-3xl font-bold">{{ user?.goals }}</h1>
+          <p class="text-center text-sm font-bold">Gols</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
-          <h1 class="text-4xl">{{ user?.goals / 4 }}</h1>
+          <p class="text-2xl">{{ user?.goals / 4 }}</p>
           <p class="text-center text-xs">Chute</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
-          <h1 class="text-4xl">{{ user?.goals / 4 }}</h1>
+          <p class="text-2xl">{{ user?.goals / 4 }}</p>
           <p class="text-center text-xs">Penalti</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
-          <h1 class="text-4xl">{{ user?.goals / 4 }}</h1>
+          <p class="text-2xl">{{ user?.goals / 4 }}</p>
           <p class="text-center text-xs">Contra Ataque</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20">
-          <h1 class="text-4xl">{{ user?.goals / 4 }}</h1>
+          <p class="text-2xl">{{ user?.goals / 4 }}</p>
           <p class="text-center text-xs">Jogada Ensaiada</p>
         </div>
       </div>
@@ -103,5 +106,7 @@ const userAttributes = ref({
   physical: user?.physical || 0,
   points: user?.points || 0,
 });
+
+const userAvatar = ref(user?.avatar_url);
 </script>
 ~/composables/api/useUser

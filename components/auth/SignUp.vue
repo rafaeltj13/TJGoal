@@ -23,13 +23,15 @@
 </template>
 
 <script setup lang="ts">
+import { useSupabase } from "~/composables/api/useSupabase";
+
 const emit = defineEmits(["back"]);
 
 const email = ref("");
 const pass = ref("");
 const confirmPass = ref("");
 
-const supabase = useSupabaseClient();
+const supabase = useSupabase();
 const { setNotification } = useNotification();
 
 const signup = async () => {

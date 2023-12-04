@@ -18,6 +18,8 @@
         v-model:path="avatarPath"
         :username="username"
         @upload="updateProfile"
+        class="mr-8"
+        is-edit
       />
       <div class="w-full">
         <TheInput v-model="username" placeholder="Username" class="mb-4" />

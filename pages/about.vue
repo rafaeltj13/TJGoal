@@ -36,6 +36,7 @@
 </template>
 
 <script setup lang="ts">
+//TODO: MUDAR PARA FAQ
 useDefaultHead("TJGoal - Sobre");
 definePageMeta({
   middleware: "registered",
