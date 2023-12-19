@@ -9,7 +9,6 @@
     >
     <div class="flex items-center">
       <ClientOnly class="flex items-center">
-        <!-- TODO COLOCAR OS GREENS AQUI -->
         <AuthModal v-if="!currentUser.id" />
         <div v-else class="flex items-center gap-2">
           <div class="flex items-center">

@@ -8,15 +8,18 @@
       customClass="w-8 p-3 text-md text-primary dark:text-primary-dark  cursor-pointer"
       :faIcon="`fa-solid ${props.icon}`"
     />
-    <span
+    <p
       v-if="!openLeftSidebar"
       class="absolute w-auto p-2 m-2 min-w-max left-14 rounded-xl shadow-xl text-background dark:text-background-dark dark:bg-primary-dark bg-primary text-[9px] font-bold transition-all duration-100 scale-0 origin-left group-hover:scale-100"
     >
       {{ props.title }}
-    </span>
-    <span v-else class="pl-1 text-primary dark:text-primary-dark text-xs">{{
-      props.title
-    }}</span>
+    </p>
+    <p
+      v-else
+      class="pl-1 text-primary dark:text-primary-dark text-xs font-bold"
+    >
+      {{ props.title }}
+    </p>
   </NuxtLink>
 </template>
 <script setup lang="ts">

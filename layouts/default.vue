@@ -12,7 +12,7 @@
           'pl-16': !openLeftSidebar,
           'pl-48': openLeftSidebar,
         }"
-        class="w-full transition-all duration-150 ease-in-out"
+        class="transition-all duration-150 ease-in-out overflow-y-auto h-[calc(100vh-64px)] w-full"
       >
         <slot />
         <TheNotification />

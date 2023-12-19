@@ -2,7 +2,7 @@
   <div
     v-if="user && user.id && user.team"
     :class="{ 'w-48': openRightSidebar, 'w-16': !openRightSidebar }"
-    class="transition-all duration-150 ease-in-out fixed top-16 right-0 h-full flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between items-center"
+    class="transition-all h-[calc(100vh-64px)] duration-150 ease-in-out flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between items-center"
   >
     <div class="p-4 px-2 w-full">
       <div
@@ -10,7 +10,7 @@
         :class="{ '!justify-center  ': !openRightSidebar }"
       >
         <div>
-          <LevelIcon :current-level="user.level?.id|| 1" class="mb-2" />
+          <LevelIcon :current-level="user.level?.id || 1" class="mb-2" />
           <p class="text-text dark:text-text-dark text-center font-bold">
             {{ user.goals }}
           </p>
@@ -78,13 +78,13 @@
     </div>
     <TheIcon
       v-if="!openRightSidebar"
-      customClass="w-8 h-8 pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
+      customClass="w-8 h-8 pb-4 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
       faIcon="fa-solid fa-angles-left"
       @click="openRightSidebar = !openRightSidebar"
     />
     <TheIcon
       v-else
-      customClass="pb-20 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
+      customClass="pb-4 text-accent dark:text-accent-dark group-hover:text-background cursor-pointer"
       faIcon="fa-solid fa-angles-right"
       @click="openRightSidebar = !openRightSidebar"
     />
