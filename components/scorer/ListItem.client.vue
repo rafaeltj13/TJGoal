@@ -1,5 +1,6 @@
 <template>
   <div
+    @click="() => navigateTo(`profile/${item.userid}`)"
     class="flex items-center justify-between w-full hover:scale-105 transition-transform cursor-pointer"
   >
     <div class="flex items-center">

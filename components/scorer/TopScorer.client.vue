@@ -25,7 +25,7 @@
         v-else-if="currentRanking"
         v-for="(item, index) of currentRanking"
         :item="item"
-        :key="item.userId"
+        :key="item.userid"
         class="py-2"
         :position="index + 1"
       />

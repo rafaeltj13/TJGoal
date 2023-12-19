@@ -1,6 +1,7 @@
 <template>
   <div
-    class="shadow-xl w-[100vw] h-16 bg-gradient-to-t from-primary dark:from-primary-dark to-secondary dark:to-secondary-dark py-4 px-6 flex justify-between items-center fixed z-20"
+    :class="{ 'opacity-90': !isScrollAtTop }"
+    class="transition-opacity shadow-xl w-[100vw] h-16 bg-gradient-to-t from-primary dark:from-primary-dark to-secondary dark:to-secondary-dark py-4 px-6 flex justify-between items-center fixed z-20"
   >
     <NuxtLink
       class="text-background dark:text-background-dark text-3xl h-7 hover:scale-125 transition-transform cursor-pointer"
@@ -30,4 +31,17 @@
 
 <script setup lang="ts">
 const { currentUser } = useCurrentUser();
+const isScrollAtTop = ref(true);
+
+const handleScroll = () => {
+  isScrollAtTop.value = window.scrollY === 0;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>

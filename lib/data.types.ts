@@ -38,9 +38,9 @@ export type Level = {
 
 export type HourlyItem = {
   goalcount: number;
-  userId: string;
+  userid: string;
   username: string;
-  teamId: number;
+  teamid: number;
   logo: string;
   level: string;
 };
