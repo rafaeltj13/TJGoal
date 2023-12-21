@@ -10,7 +10,12 @@
         class="h-0.5 w-[800px] rounded-full bg-primary dark:bg-primary-dark mb-2"
       ></div>
     </div>
-    <div v-for="(team, index) of currentRanking" :team="team" :key="team.id">
+    <div
+      v-for="(team, index) of currentRanking"
+      :team="team"
+      :key="team.id"
+      @click="() => navigateTo(`team/${team.id}`)"
+    >
       <div
         class="p-2 flex items-center justify-between w-full h-[56px] cursor-pointer hover:scale-105 transition-transform bg-background dark:bg-background-dark"
         :class="{

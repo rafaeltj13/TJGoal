@@ -10,7 +10,7 @@
       <p v-if="!shoot" class="text-sm">{{ formattedTimeLeft }}</p>
       <TheIcon
         v-else
-        customClass="text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
+        customClass="animate-bounce text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
         faIcon="fa-solid fa-futbol"
       />
       <span
@@ -31,7 +31,7 @@
       <p v-if="!shoot" class="text-sm">{{ formattedTimeLeft }}</p>
       <TheIcon
         v-else
-        customClass="text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
+        customClass="animate-bounce text-primary dark:text-primary-dark group-hover:text-background dark:group-hover:text-background-dark cursor-pointer"
         faIcon="fa-solid fa-futbol"
       />
     </div>

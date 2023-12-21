@@ -1,6 +1,7 @@
 <template>
-  <ShootOption title="Chutar" @shoot="handleShoot" />
-  <ShootOption title="Cobrar Pênalti" @shoot="handleShoot" />
+  <ShootOption title="Chute" @shoot="handleShoot" />
+  <ShootOption title="Pênalti" @shoot="handleShoot" />
+  <ShootOption title="Falta" @shoot="handleShoot" />
 </template>
 <script setup lang="ts">
 import { useLevelApi } from "~/composables/api/useLevels";

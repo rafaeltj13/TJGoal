@@ -29,7 +29,11 @@ const sections = computed(() => [
       text: "Meu perfil",
       onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
     },
-    { icon: "fa-solid fa-people-group", text: "Meu time", onClick: () => ({}) },
+    {
+      icon: "fa-solid fa-people-group",
+      text: "Meu time",
+      onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
+    },
   ],
   [
     // TODO VER PQ NÃO ATUALIZA O NOME

@@ -1,5 +1,6 @@
 <template>
   <div
+    @click="() => navigateTo(`team/${team.id}`)"
     class="flex items-center justify-between w-full h-[56px] hover:scale-105 transition-transform cursor-pointer"
   >
     <div class="flex items-center">

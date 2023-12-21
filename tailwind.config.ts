@@ -1,5 +1,13 @@
 export default {
+  mode: "jit",
   content: ["./src/**/*.{js,jsx}", "./public/index.html"],
+  safelist: [
+    "translate-y-[-86px]",
+    "translate-y-[-172px]",
+    "translate-y-[-258px]",
+    "translate-y-[-344px]",
+    "translate-y-[-430px]",
+  ],
   darkMode: "class",
   theme: {
     extend: {

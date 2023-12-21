@@ -1,7 +1,10 @@
 <template>
   <div
-    :class="{ 'w-48': openLeftSidebar, 'w-16': !openLeftSidebar }"
-    class="transition-all h-[calc(100vh-64px)] duration-150 ease-in-out min-w-16 flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between"
+    :class="{
+      'w-56': openLeftSidebar,
+      'w-16': !openLeftSidebar,
+    }"
+    class="transition-all h-[calc(100vh-64px)] duration-300 ease-in-out min-w-16 flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between"
   >
     <div class="p-1">
       <SidebarRouteOption

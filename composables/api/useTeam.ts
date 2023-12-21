@@ -18,8 +18,21 @@ export const useTeamAPI = () => {
     return data as Team[];
   };
 
+  const getTeam = async (teamId: string) => {
+    const { data, error } = await useSupabase()
+      .from("teams")
+      .select("*")
+      .eq("id", teamId)
+      .single();
+
+    if (error) return null;
+
+    return data as Team;
+  };
+
   return {
     getTeamRanking,
     getTeams,
+    getTeam,
   };
 };

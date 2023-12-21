@@ -6,12 +6,6 @@
     >
       <TheLeftSideBar />
       <div
-        :class="{
-          'pr-16': !openRightSidebar,
-          'pr-48': openRightSidebar,
-          'pl-16': !openLeftSidebar,
-          'pl-48': openLeftSidebar,
-        }"
         class="transition-all duration-150 ease-in-out overflow-y-auto h-[calc(100vh-64px)] w-full"
       >
         <slot />

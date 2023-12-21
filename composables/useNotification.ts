@@ -1,28 +1,34 @@
-type Notification = {
+export type Notification = {
   title: string;
   content: string;
   type: "success" | "error" | "warning";
 };
 
 export const useNotification = () => {
-  const notification: Ref<Notification | null> = useState("notification");
-  let timeOut: Ref<NodeJS.Timeout | undefined> = ref(undefined);
+  const notifications: Ref<Notification[]> = useState("notification", () => []);
+  const timeouts: Ref<NodeJS.Timeout[]> = ref([]);
 
-  const setNotification = (newNotification: Notification | null) => {
-    if (notification.value && notification.value.title) {
-      notification.value = null;
-      clearTimeout(timeOut.value);
+  //  TODO: Implement function to remove notification clicking on X
+  const setNotification = (newNotification: Notification) => {
+    const timeout = setTimeout(() => {
+      removeNotification(timeout);
+    }, 3000);
+
+    notifications.value = [...notifications.value, newNotification];
+    timeouts.value.push(timeout);
+  };
+
+  const removeNotification = (timeout: NodeJS.Timeout) => {
+    const index = timeouts.value.indexOf(timeout);
+    if (index !== -1) {
+      notifications.value.splice(index, 1);
+      timeouts.value.splice(index, 1);
+      clearTimeout(timeout);
     }
-
-    notification.value = newNotification;
-
-    timeOut.value = setTimeout(() => {
-      notification.value = null;
-    }, 2000);
   };
 
   return {
-    notification,
+    notifications,
     setNotification,
   };
 };

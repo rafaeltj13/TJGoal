@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="user && user.id && user.team"
-    :class="{ 'w-48': openRightSidebar, 'w-16': !openRightSidebar }"
-    class="transition-all h-[calc(100vh-64px)] duration-150 ease-in-out flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between items-center"
+    :class="{ 'w-56': openRightSidebar, 'w-16': !openRightSidebar }"
+    class="transition-all h-[calc(100vh-64px)] duration-300 ease-in-out flex flex-col bg-sidebar dark:bg-sidebar-dark shadow-lg justify-between items-center"
   >
     <div class="p-4 px-2 w-full">
       <div
@@ -55,7 +55,11 @@
         :class="{ 'flex items-center justify-between': openRightSidebar }"
       >
         <div class="flex flex-col items-center">
-          <TeamLogo :logo="user.team.logo" />
+          <TeamLogo
+            @click="() => navigateTo(`/team/${user.team?.id}`)"
+            :logo="user.team.logo"
+            class="hover:scale-125 transition-transform cursor-pointer"
+          />
           <p class="text- lg text-text dark:text-text-dark text-center mt-1">
             13661
           </p>
@@ -72,7 +76,11 @@
           <p class="text- lg text-text dark:text-text-dark text-center mt-1">
             4829
           </p>
-          <TeamLogo logo="juve" />
+          <TeamLogo
+            @click="() => navigateTo(`/team/${user.team?.id}`)"
+            logo="juve"
+            class="hover:scale-125 transition-transform cursor-pointer"
+          />
         </div>
       </div>
     </div>

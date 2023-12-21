@@ -1,37 +1,38 @@
 <template>
-  <div
-    :class="{
-      '-translate-x-52 opacity-100 z-50':
-        notification && notification.title && openRightSidebar,
-      '-translate-x-24 opacity-100':
-        notification && notification.title && !openRightSidebar,
-    }"
-    class="w-[350px] fixed bottom-10 opacity-0 transition-all duration-300 right-0 mx-auto bg-sidebar dark:bg-sidebar-dark dark:border dark:border-primary-dark shadow-2xl rounded-2xl"
-  >
-    <div class="flex items-center justify-between p-4">
-      <div>
-        <p class="text-primary dark:text-primary-dark">
-          {{ notification?.title }}
-        </p>
-        <p class="text-text dark:text-text-dark">
-          {{ notification?.content }}
-        </p>
+  <div class="fixed bottom-12 right-20 flex flex-col items-center gap-2">
+    <transition-group name="list">
+      <div
+        v-for="(notification, index) in notifications"
+        :key="index + notification.title"
+        class="w-[350px] translate-y-[12px] transition-transform duration-300 ease-in-out mx-auto bg-sidebar dark:bg-sidebar-dark dark:border dark:border-primary-dark shadow-lg rounded-2xl"
+      >
+        <div class="flex items-center justify-between p-4">
+          <div>
+            <p class="text-primary dark:text-primary-dark">
+              {{ notification?.title }}
+            </p>
+            <p class="text-text dark:text-text-dark">
+              {{ notification?.content }}
+            </p>
+          </div>
+        </div>
       </div>
-      <TheIcon
-        customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
-        faIcon="fa-solid fa-close"
-        @click="() => setNotification(null)"
-      />
-    </div>
+    </transition-group>
   </div>
 </template>
 
 <script setup lang="ts">
-const { notification, setNotification } = useNotification();
-const displayNotification = ref(false);
-const openRightSidebar = useRightSidebar();
-
-watch(notification, () => {
-  displayNotification.value = !!notification.value?.title;
-});
+const { notifications } = useNotification();
 </script>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
