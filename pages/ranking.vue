@@ -42,6 +42,6 @@ import type { User } from "~/lib/data.types";
 
 useDefaultHead("TJGoal - Artilharia");
 
-const { data, pending } = await useFetch(`/api/user/ranking`);
+const { data } = await useFetch(`/api/user/ranking`);
 const currentRanking = computed<Array<User>>(() => data.value as User[]);
 </script>

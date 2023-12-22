@@ -46,7 +46,7 @@
       <hr
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
-      <ShootList />
+      <ShootContainer />
       <hr
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />

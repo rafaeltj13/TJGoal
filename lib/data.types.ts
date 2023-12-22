@@ -36,7 +36,7 @@ export type Level = {
   next_level?: Level;
 };
 
-export type HourlyItem = {
+export type PlayerScoreDetails = {
   goalcount: number;
   userid: string;
   username: string;
@@ -50,4 +50,5 @@ export type Goal = {
   created_at: string;
   userId: string;
   teamId: string;
+  type: "default" | "penalty" | "fault" | "counterAttack";
 };

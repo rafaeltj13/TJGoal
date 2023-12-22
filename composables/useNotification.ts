@@ -1,6 +1,6 @@
 export type Notification = {
   title: string;
-  content: string;
+  content?: string;
   type: "success" | "error" | "warning";
 };
 

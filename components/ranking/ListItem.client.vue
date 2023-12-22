@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import type { HourlyItem } from "~/lib/data.types";
+import type { PlayerScoreDetails } from "~/lib/data.types";
 
 const props = defineProps({
   item: {
-    type: Object as PropType<HourlyItem>,
+    type: Object as PropType<PlayerScoreDetails>,
     required: true,
   },
   position: {

@@ -3,7 +3,7 @@
     <h1 class="text-center text-4xl text-primary dark:text-primary-dark mb-2">
       Completar o registro
     </h1>
-    <div class="flex justify-center">
+    <div class="flex justify-between">
       <div
         class="h-0.5 w-80 rounded-full bg-primary dark:bg-primary-dark mb-20"
       ></div>
@@ -97,14 +97,18 @@ const userAttributes = ref({
   points: currentUser.value.points,
 });
 
-const { finishRegistration, getUser, updatePicture } = useUserApi();
+const { finishRegistration, getUser, updatePicture, updateAttributes } =
+  useUserApi();
 
 const finishUserRegistration = async () => {
   await finishRegistration(
     currentUser.value.id,
     username.value,
     fullName.value,
-    selectedTeam.value.id,
+    selectedTeam.value.id
+  );
+  await updateAttributes(
+    currentUser.value.id,
     userAttributes.value.pace,
     userAttributes.value.shooting,
     userAttributes.value.passing,

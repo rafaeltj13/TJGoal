@@ -51,33 +51,57 @@
           <p class="text-center text-sm font-bold">Gols</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
-          <p class="text-2xl">{{ user?.goals }}</p>
+          <p class="text-2xl">{{ goalsByCategory.default }}</p>
           <p class="text-center text-xs">Chute</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
-          <p class="text-2xl">{{ user?.goals }}</p>
+          <p class="text-2xl">{{ goalsByCategory.penalty }}</p>
           <p class="text-center text-xs">Penalti</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
-          <p class="text-2xl">{{ user?.goals }}</p>
-          <p class="text-center text-xs">Contra Ataque</p>
+          <p class="text-2xl">{{ goalsByCategory.fault }}</p>
+          <p class="text-center text-xs">Bola Parada</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
-          <p class="text-2xl">{{ user?.goals }}</p>
-          <p class="text-center text-xs">Jogada Ensaiada</p>
+          <p class="text-2xl">{{ goalsByCategory.counterAttack }}</p>
+          <p class="text-center text-xs">Contra Ataque</p>
         </div>
       </div>
     </div>
-    <AttributesAttributeBuilder v-model="userAttributes" />
+    <AttributesAttributeBuilder
+      v-model="userAttributes"
+      :is-edit="editMode"
+      @save="handleSave"
+    />
+    <div class="flex justify-center items-center pt-8">
+      <TheButton
+        v-if="ownProfile && !editMode"
+        classType="outlined"
+        content="Editar Atributos"
+        @click="editMode = true"
+      />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import { useUserApi } from "~/composables/api/useUser";
+import { useGoalApi } from "~/composables/api/useGoals"; // Import the getGoalsByUser function
 
-const { getUser } = useUserApi();
+const { getUser, updateAttributes } = useUserApi();
+const { getGoalsByUser } = useGoalApi();
+const { currentUser } = useCurrentUser();
 const route = useRoute();
+const editMode = ref(false);
 
 const user = await getUser((route.params?.id as string) || "");
+const ownProfile = user?.id === currentUser?.value.id;
+
+const goalsByCategory: {
+  default: number;
+  penalty: number;
+  fault: number;
+  counterAttack: number;
+} = await getGoalsByUser((route.params?.id as string) || "");
 
 if (!user) navigateTo("/");
 
@@ -94,4 +118,18 @@ const userAttributes = ref({
 });
 
 const userAvatar = ref(user?.avatar_url);
+
+const handleSave = () => {
+  updateAttributes(
+    currentUser.value.id,
+    userAttributes.value.pace,
+    userAttributes.value.shooting,
+    userAttributes.value.passing,
+    userAttributes.value.dribbling,
+    userAttributes.value.defending,
+    userAttributes.value.physical,
+    userAttributes.value.points
+  );
+  editMode.value = false;
+};
 </script>

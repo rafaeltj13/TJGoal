@@ -72,8 +72,8 @@
     <div
       class="flex items-center justify-center md:justify-between gap-4 flex-wrap md:flex-nowrap"
     >
-      <ScorerTopScorer />
-      <ScorerTopScorer />
+      <RankingHourly />
+      <RankingHourly />
     </div>
   </div>
 </template>

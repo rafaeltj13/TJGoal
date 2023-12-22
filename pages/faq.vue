@@ -2,7 +2,7 @@
   <div
     class="p-8 max-w-[800px] mx-auto min-h-[100vh] text-primary dark:text-primary-dark"
   >
-    <ThePageTitle title="Sobre" />
+    <ThePageTitle title="FAQ" />
     <p class="mb-6">Bem-vindo ao universo empolgante de TJGoal!</p>
     <p class="mb-6">
       Sou Rafael Maciel, o criador e único desenvolvedor por trás desta jornada
@@ -36,8 +36,7 @@
 </template>
 
 <script setup lang="ts">
-//TODO: MUDAR PARA FAQ
-useDefaultHead("TJGoal - Sobre");
+useDefaultHead("TJGoal - FAQ");
 definePageMeta({
   middleware: "registered",
 });

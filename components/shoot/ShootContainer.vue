@@ -1,7 +1,8 @@
 <template>
-  <ShootOption title="Chute" @shoot="handleShoot" />
-  <ShootOption title="Pênalti" @shoot="handleShoot" />
-  <ShootOption title="Falta" @shoot="handleShoot" />
+  <ShootOption type="default" @shoot="handleShoot" />
+  <ShootOption type="penalty" @shoot="handleShoot" />
+  <ShootOption type="fault" @shoot="handleShoot" />
+  <ShootOption type="counterAttack" @shoot="handleShoot" />
 </template>
 <script setup lang="ts">
 import { useLevelApi } from "~/composables/api/useLevels";
@@ -10,13 +11,18 @@ import { useUserApi } from "~/composables/api/useUser";
 
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
-const handleShoot = async () => {
-  await useShootApi().shoot(currentUser.value.id, currentUser.value.team?.id);
+
+const handleShoot = async (type: string) => {
+  await useShootApi().shoot(
+    currentUser.value.id,
+    type,
+    currentUser.value.team?.id
+  );
+  await useUserApi().shoot(currentUser.value.id, currentUser.value.goals + 1);
   currentUser.value.goals = currentUser.value.goals + 1;
 
   setNotification({
-    title: "Chute.....",
-    content: "Golaço!!!!!",
+    title: "GOOOOOOOOOOOOL !!!",
     type: "success",
   });
 
@@ -31,8 +37,11 @@ const handleShoot = async () => {
 
     const userResponse = await useUserApi().getUser(currentUser.value.id);
     setCurrentUser(userResponse);
+
+    setNotification({
+      title: "LVL UP!",
+      type: "success",
+    });
   }
 };
 </script>
-~/composables/api/useUserApi ~/composables/api/useLevels
-~/composables/api/useShoot~/composables/api/useUser

@@ -64,7 +64,35 @@ export const useUserApi = () => {
     userId: string,
     username: string,
     fullName: string,
-    team: string,
+    team: string
+  ) => {
+    await useSupabase()
+      .from("users")
+      .update({
+        username,
+        full_name: fullName,
+        team,
+        updated_at: new Date(),
+      })
+      .eq("id", userId);
+  };
+
+  const updatePicture = async (userId: string, picture: string) => {
+    await useSupabase()
+      .from("users")
+      .update({ picture, updated_at: new Date() })
+      .eq("id", userId);
+  };
+
+  const shoot = async (userId: string, goalsNumber: number) => {
+    await useSupabase()
+      .from("users")
+      .update({ goals: goalsNumber, updated_at: new Date() })
+      .eq("id", userId);
+  };
+
+  const updateAttributes = async (
+    userId: string,
     pace: number,
     shooting: number,
     passing: number,
@@ -76,9 +104,6 @@ export const useUserApi = () => {
     await useSupabase()
       .from("users")
       .update({
-        username,
-        full_name: fullName,
-        team,
         pace,
         shooting,
         passing,
@@ -90,16 +115,13 @@ export const useUserApi = () => {
       })
       .eq("id", userId);
   };
-  const updatePicture = async (userId: string, picture: string) => {
-    await useSupabase()
-      .from("users")
-      .update({ picture, updated_at: new Date() })
-      .eq("id", userId);
-  };
+
   return {
     getUser,
     getUserRanking,
     finishRegistration,
     updatePicture,
+    shoot,
+    updateAttributes,
   };
 };

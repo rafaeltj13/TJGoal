@@ -19,12 +19,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('pace', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('pace', -1)"
         />
@@ -32,13 +32,13 @@
           {{ props.modelValue.pace }}
         </p>
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('pace', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('pace', 10)"
         />
@@ -52,12 +52,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('shooting', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('shooting', -1)"
         />
@@ -65,13 +65,13 @@
           {{ props.modelValue.shooting }}
         </p>
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('shooting', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('shooting', 10)"
         />
@@ -85,12 +85,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('passing', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('passing', -1)"
         />
@@ -98,13 +98,13 @@
           {{ props.modelValue.passing }}
         </p>
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('passing', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('passing', 10)"
         />
@@ -118,12 +118,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('dribbling', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('dribbling', -1)"
         />
@@ -131,13 +131,13 @@
           {{ props.modelValue.dribbling }}
         </p>
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('dribbling', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('dribbling', 10)"
         />
@@ -151,12 +151,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('defending', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('defending', -1)"
         />
@@ -164,13 +164,13 @@
           {{ props.modelValue.defending }}
         </p>
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('defending', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('defending', 10)"
         />
@@ -184,12 +184,12 @@
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-left"
           @click="() => updateAttribute('physical', -10)"
         />
         <TheIcon
-          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('physical', -1)"
         />
@@ -198,13 +198,13 @@
         </p>
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angle-right"
           @click="() => updateAttribute('physical', 1)"
         />
         <TheIcon
           customClass="text-primary dark:text-primary-dark
-          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-5 w-5"
+          hover:scale-125 transition-transform cursor-pointer top-5 right-5 h-3 w-3"
           faIcon="fa-solid fa-angles-right"
           @click="() => updateAttribute('physical', 10)"
         />
@@ -213,6 +213,14 @@
         {{ props.modelValue.physical }}
       </p>
     </div>
+  </div>
+  <div class="flex justify-center items-center pt-8">
+    <TheButton
+      v-if="props.isEdit"
+      classType="default"
+      content="Salvar"
+      @click="() => emit('save')"
+    />
   </div>
 </template>
 
@@ -227,7 +235,7 @@ type Attributes = {
   points: number;
 };
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "save"]);
 const props = defineProps({
   modelValue: {
     type: Object as PropType<Attributes>,

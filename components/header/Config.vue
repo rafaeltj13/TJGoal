@@ -22,36 +22,39 @@ const signout = async () => {
   await navigateTo("/");
 };
 
-const sections = computed(() => [
-  [
-    {
-      icon: "fa-solid fa-id-badge",
-      text: "Meu perfil",
-      onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
-    },
-    {
-      icon: "fa-solid fa-people-group",
-      text: "Meu time",
-      onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
-    },
-  ],
-  [
-    // TODO VER PQ NÃO ATUALIZA O NOME
-    {
-      icon: `fa-solid fa-${!darkMode ? "sun" : "moon"}`,
-      text: `Modo ${!darkMode ? "claro" : "escuro"}`,
-      onClick: () => {
-        darkMode.value = !darkMode.value;
+const sections = computed(
+  () => [
+    [
+      {
+        icon: "fa-solid fa-id-badge",
+        text: "Meu perfil",
+        onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
       },
-    },
-    { icon: "fa-solid fa-globe", text: "Idioma", onClick: () => ({}) },
+      {
+        icon: "fa-solid fa-people-group",
+        text: "Meu time",
+        onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
+      },
+    ],
+    [
+      // TODO VER PQ NÃO ATUALIZA O NOME
+      {
+        icon: `fa-solid fa-${!darkMode ? "sun" : "moon"}`,
+        text: `Modo ${!darkMode ? "claro" : "escuro"}`,
+        onClick: () => {
+          darkMode.value = !darkMode.value;
+        },
+      },
+      { icon: "fa-solid fa-globe", text: "Idioma", onClick: () => ({}) },
+    ],
+    [
+      {
+        icon: "fa-solid fa-right-from-bracket",
+        text: "Sair",
+        onClick: signout,
+      },
+    ],
   ],
-  [
-    {
-      icon: "fa-solid fa-right-from-bracket",
-      text: "Sair",
-      onClick: signout,
-    },
-  ],
-]);
+  { deep: true }
+);
 </script>

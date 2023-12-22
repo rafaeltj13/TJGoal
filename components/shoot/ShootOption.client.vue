@@ -5,6 +5,9 @@
     @click="tryToShoot()"
   >
     <div
+      :class="{
+        ' !shadow-primary dark:shadow-primary-dark drop-shadow-sm': shoot,
+      }"
       class="flex items-center justify-center h-12 w-12 my-2 mx-auto bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
       <p v-if="!shoot" class="text-sm">{{ formattedTimeLeft }}</p>
@@ -16,15 +19,18 @@
       <span
         class="absolute w-auto p-2 m-2 min-w-max right-14 rounded-xl shadow-md text-background dark:text-background-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-right group-hover:scale-100"
       >
-        {{ props.title }}
+        {{ title }}
       </span>
     </div>
   </div>
   <div v-else class="flex items-center justify-between">
     <span class="text-primary dark:text-primary-dark text-xs font-bold">
-      {{ props.title }}
+      {{ title }}
     </span>
     <div
+      :class="{
+        ' !shadow-primary dark:shadow-primary-dark drop-shadow-sm': shoot,
+      }"
       @click="tryToShoot()"
       class="flex items-center justify-center h-12 w-12 my-2 bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
@@ -41,13 +47,26 @@
 <script setup lang="ts">
 const emit = defineEmits(["shoot"]);
 const props = defineProps({
-  title: {
-    type: String,
+  type: {
+    type: String as PropType<"default" | "penalty" | "fault" | "counterAttack">,
+    required: true,
   },
 });
 const openRightSidebar = useRightSidebar();
 
 const shoot = ref(false);
+const title = computed(() => {
+  switch (props.type) {
+    case "penalty":
+      return "Pênalti";
+    case "fault":
+      return "Bola Parada";
+    case "counterAttack":
+      return "Contra Ataque";
+    default:
+      return "Chute";
+  }
+});
 
 const TIME_LIMIT = 10;
 const timePassed = ref(0);
@@ -82,7 +101,7 @@ const startTimer = () => {
 const tryToShoot = () => {
   if (!shoot.value) return;
 
-  emit("shoot");
+  emit("shoot", props.type);
   shoot.value = false;
   timePassed.value = 0;
   startTimer();

@@ -23,7 +23,7 @@
         to-route="/ranking"
       />
       <SidebarRouteOption title="Loja" icon="fa-store" to-route="/market" />
-      <SidebarRouteOption title="Sobre" icon="fa-users" to-route="/about" />
+      <SidebarRouteOption title="FAQ" icon="fa-users" to-route="/faq" />
     </div>
     <ClientOnly>
       <TheIcon
