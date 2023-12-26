@@ -8,9 +8,7 @@ const PAYLINK_TO_VALUE = {
 };
 
 export default defineEventHandler(async (event) => {
-  const stripe_api = process.env.SRIPE_API as string;
-
-  const stripe = new Stripe(stripe_api);
+  const stripe = new Stripe(process.env.SRIPE_SECRET_KEY as string);
   const headers = event.node.req.headers;
 
   const body = await readRawBody(event);
@@ -21,7 +19,7 @@ export default defineEventHandler(async (event) => {
     hookEvent = stripe.webhooks.constructEvent(
       body as string,
       sig as string,
-      stripe_api
+      process.env.SRIPE_ENDPOINT_SECRET as string
     );
   } catch (err) {
     console.log({ err });
