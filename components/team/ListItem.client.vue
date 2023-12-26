@@ -1,18 +1,18 @@
 <template>
   <div
     @click="() => navigateTo(`team/${team.id}`)"
-    class="flex items-center justify-between w-full h-[56px] hover:scale-105 transition-transform cursor-pointer"
+    class="flex items-center justify-between w-full h-[50px] hover:scale-105 transition-transform cursor-pointer"
   >
     <div class="flex items-center">
-      <p class="text-lg text-primary dark:text-primary-dark w-10">
+      <p class="text-mg text-primary dark:text-primary-dark w-10 font-bold">
         {{ props.position }} -
       </p>
       <TeamLogo :logo="props.team?.logo" />
-      <p class="ml-2 text-text dark:text-text-dark">
+      <p class="ml-2 text-text dark:text-text-dark font-bold">
         {{ props.team.name }}
       </p>
     </div>
-    <p class="text-text dark:text-text-dark">
+    <p class="text-text dark:text-text-dark font-bold">
       {{ props.team.team_goals }}
     </p>
   </div>

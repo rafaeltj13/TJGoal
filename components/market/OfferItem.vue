@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-48 md:w-48 md:h-48 cursor-pointer bg-background border-background dark:bg-background-dark shadow-lg hover:scale-125 hover:shadow-2xl transition-all border-2 dark:border-primary-dark rounded-xl flex flex-col items-center justify-center"
+    class="w-full h-48 md:w-52 md:h-52 cursor-pointer bg-background border-background dark:bg-background-dark shadow-lg hover:scale-125 hover:shadow-2xl transition-all border-2 dark:border-primary-dark rounded-xl flex flex-col items-center justify-center"
   >
     <TheIcon
       customClass="text-green-600 text-[58px] mb-4"

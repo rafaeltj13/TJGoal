@@ -13,17 +13,17 @@
         to-route="/standings"
       />
       <SidebarRouteOption
-        title="Niveis"
-        icon="fa-arrow-up-wide-short"
-        to-route="/levels"
-      />
-      <SidebarRouteOption
         title="Artilharia"
         icon="fa-ranking-star"
         to-route="/ranking"
       />
+      <SidebarRouteOption
+        title="Niveis"
+        icon="fa-arrow-up-wide-short"
+        to-route="/levels"
+      />
       <SidebarRouteOption title="Loja" icon="fa-store" to-route="/market" />
-      <SidebarRouteOption title="FAQ" icon="fa-users" to-route="/faq" />
+      <SidebarRouteOption title="FAQ" icon="fa-comments" to-route="/faq" />
     </div>
     <ClientOnly>
       <TheIcon

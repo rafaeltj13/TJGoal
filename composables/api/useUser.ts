@@ -116,6 +116,25 @@ export const useUserApi = () => {
       .eq("id", userId);
   };
 
+  const updateGreens = async (userId: string, greensToBeAdded: number) => {
+    const user = await getUser(userId);
+    const currentGreens = user?.greens || 0;
+
+    const { data, error } = await useSupabase()
+      .from("users")
+      .update({
+        greens: currentGreens + greensToBeAdded,
+        updated_at: new Date(),
+      })
+      .eq("id", userId);
+
+    if (error) {
+      return null;
+    }
+
+    return data;
+  };
+
   return {
     getUser,
     getUserRanking,
@@ -123,5 +142,6 @@ export const useUserApi = () => {
     updatePicture,
     shoot,
     updateAttributes,
+    updateGreens,
   };
 };

@@ -1,6 +1,6 @@
 <template>
   <img
-    class="w-10 h-10 rounded-lg"
+    class="w-8 h-8 rounded-lg"
     :src="`/emblems/${props.logo}.png`"
     :alt="`${$props.logo}-team-logo`"
   />

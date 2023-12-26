@@ -11,7 +11,9 @@
       >
         <div>
           <LevelIcon :current-level="user.level?.id || 1" class="mb-2" />
-          <p class="text-text dark:text-text-dark text-center font-bold">
+          <p
+            class="text-text dark:text-text-dark text-center font-bold text-sm"
+          >
             {{ user.goals }}
           </p>
         </div>
@@ -37,7 +39,9 @@
               :current-level="user.level?.next_level?.id || 1"
               class="mb-2"
             />
-            <p class="text-text dark:text-text-dark text-center font-bold">
+            <p
+              class="text-text dark:text-text-dark text-center font-bold text-sm"
+            >
               {{ user.level?.max_goals }}
             </p>
           </div>

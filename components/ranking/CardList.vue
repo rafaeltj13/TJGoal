@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center gap-20 flex-wrap">
+  <div class="flex justify-center gap-12 flex-wrap">
     <RankingHourly />
     <RankingDaily />
     <RankingGeneral />

@@ -1,19 +1,19 @@
 <template>
   <div
     @click="() => navigateTo(`profile/${item.userid}`)"
-    class="flex items-center justify-between w-full hover:scale-105 transition-transform cursor-pointer"
+    class="flex items-center justify-between w-full h-[50px] hover:scale-105 transition-transform cursor-pointer"
   >
     <div class="flex items-center">
-      <p class="text-lg text-primary dark:text-primary-dark w-10">
+      <p class="text-md text-primary dark:text-primary-dark w-10 font-bold">
         {{ props.position }} -
       </p>
       <LevelIcon :current-level="props.item.level" class="mr-2" />
       <TeamLogo :logo="props.item?.logo" />
-      <p class="ml-2 text-text dark:text-text-dark">
+      <p class="ml-2 text-text dark:text-text-dark font-bold">
         {{ props.item.username }}
       </p>
     </div>
-    <p class="text-text dark:text-text-dark">
+    <p class="text-text dark:text-text-dark font-bold">
       {{ props.item.goalcount }}
     </p>
   </div>
