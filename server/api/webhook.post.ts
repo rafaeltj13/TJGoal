@@ -8,7 +8,10 @@ const PAYLINK_TO_VALUE = {
 };
 
 export default defineEventHandler(async (event) => {
-  const stripe = new Stripe(process.env.SRIPE_SECRET_KEY as string);
+  const stripe = new Stripe(process.env.SRIPE_SECRET_KEY as string, {
+    // @ts-ignore
+    apiVersion: "2022-11-15",
+  });
   const headers = event.node.req.headers;
 
   const body = await readRawBody(event);
