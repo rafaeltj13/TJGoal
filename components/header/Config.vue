@@ -45,7 +45,7 @@ const sections = computed(
           darkMode.value = !darkMode.value;
         },
       },
-      { icon: "fa-solid fa-globe", text: "Idioma", onClick: () => ({}) },
+      { icon: "fa-solid fa-cog", text: "Configurações", onClick: () => ({}) },
     ],
     [
       {

@@ -8,20 +8,20 @@ const PAYLINK_TO_VALUE = {
 };
 
 export default defineEventHandler(async (event) => {
-  const stripe = new Stripe(process.env.SRIPE_SECRET_KEY as string, {
-    // @ts-ignore
-    apiVersion: "2022-11-15",
-  });
-  const headers = event.node.req.headers;
+  const stripe = new Stripe(process.env.SRIPE_SECRET_KEY as string);
 
   const body = await readRawBody(event);
-  const sig = headers["stripe-signature"];
+  const header = stripe.webhooks.generateTestHeaderString({
+    payload: body || "",
+    secret: process.env.SRIPE_ENDPOINT_SECRET as string,
+  });
+
   let hookEvent: Stripe.Event;
 
   try {
     hookEvent = stripe.webhooks.constructEvent(
       body as string,
-      sig as string,
+      header,
       process.env.SRIPE_ENDPOINT_SECRET as string
     );
   } catch (err) {
@@ -32,7 +32,6 @@ export default defineEventHandler(async (event) => {
   switch (hookEvent.type) {
     case "checkout.session.completed":
       const userId = hookEvent.data.object.client_reference_id as string;
-      console.log(hookEvent.data.object.payment_link);
       const greens =
         PAYLINK_TO_VALUE[
           `${hookEvent.data.object.payment_link}` as keyof typeof PAYLINK_TO_VALUE
