@@ -11,7 +11,7 @@
     <div class="flex items-center">
       <ClientOnly class="flex items-center">
         <AuthModal v-if="!currentUser.id" />
-        <div v-else class="flex items-center gap-2">
+        <div v-else class="flex items-center mx-2">
           <div class="flex items-center">
             <p class="text-accent dark:text-accent-dark font-bold mr-2 text-xl">
               {{ currentUser.greens }}
@@ -22,8 +22,9 @@
               @click="navigateTo('/market')"
             />
           </div>
-          <HeaderConfig />
         </div>
+        <!-- TODO Colocar o dropdown mesmo deslogado e so mostrar configuracoes -->
+        <HeaderConfig />
       </ClientOnly>
     </div>
   </div>

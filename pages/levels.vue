@@ -17,11 +17,11 @@
     >
       <div class="flex items-center">
         <LevelIcon :current-level="currentLevel.id" class="mr-4" />
-        <p class="text-text dark:text-text-dark">
+        <p class="text-text dark:text-text-dark font-bold">
           {{ currentLevel.name }}
         </p>
       </div>
-      <p class="text-text dark:text-text-dark">
+      <p class="text-text dark:text-text-dark font-bold">
         {{ currentLevel.min_goals }}
       </p>
     </div>
