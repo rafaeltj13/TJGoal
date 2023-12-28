@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-12 mb-4">
+    <!-- <div class="mt-12 mb-4">
       <h1 class="text-3xl font-bold text-center">Rodada Atual</h1>
     </div>
     <div class="flex items-center justify-between pt-8 pb-16 w-full">
@@ -68,7 +68,7 @@
         />
         <p class="text-xl md:flex hidden">Juventus</p>
       </div>
-    </div>
+    </div> -->
     <div
       class="flex items-center justify-center md:justify-between gap-4 flex-wrap md:flex-nowrap"
     >

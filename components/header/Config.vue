@@ -9,11 +9,12 @@
       </div>
     </template>
   </TheMenu>
+  <HeaderSettingsModal v-model="showSettings" />
 </template>
 
 <script setup>
 const supabase = useSupabaseClient();
-const darkMode = useDarkMode();
+const showSettings = ref(false);
 
 const { currentUser } = useCurrentUser();
 
@@ -22,39 +23,41 @@ const signout = async () => {
   await navigateTo("/");
 };
 
-const sections = computed(
-  () => [
-    [
-      {
-        icon: "fa-solid fa-id-badge",
-        text: "Meu perfil",
-        onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
-      },
-      {
-        icon: "fa-solid fa-people-group",
-        text: "Meu time",
-        onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
-      },
-    ],
-    [
-      // TODO VER PQ NÃO ATUALIZA O NOME
-      {
-        icon: `fa-solid fa-${!darkMode ? "sun" : "moon"}`,
-        text: `Modo ${!darkMode ? "claro" : "escuro"}`,
-        onClick: () => {
-          darkMode.value = !darkMode.value;
-        },
-      },
-      { icon: "fa-solid fa-cog", text: "Configurações", onClick: () => ({}) },
-    ],
-    [
-      {
-        icon: "fa-solid fa-right-from-bracket",
-        text: "Sair",
-        onClick: signout,
-      },
-    ],
-  ],
-  { deep: true }
-);
+const playerOptions = computed(() => [
+  {
+    icon: "fa-solid fa-id-badge",
+    text: "Meu Perfil",
+    onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
+  },
+  {
+    icon: "fa-solid fa-people-group",
+    text: "Meu Time",
+    onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
+  },
+]);
+const gameOptions = computed(() => [
+  {
+    icon: "fa-solid fa-cog",
+    text: "Configurações",
+    onClick: () => (showSettings.value = true),
+  },
+]);
+const signOutOption = computed(() => [
+  {
+    icon: "fa-solid fa-right-from-bracket",
+    text: "Sair",
+    onClick: signout,
+  },
+]);
+
+const sections = computed(() => {
+  const sections = [gameOptions.value];
+
+  if (currentUser.value.id) {
+    sections.push(playerOptions.value);
+    sections.push(signOutOption.value);
+  }
+
+  return sections;
+});
 </script>

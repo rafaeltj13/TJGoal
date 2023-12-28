@@ -51,7 +51,7 @@
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
       <ShootContainer />
-      <hr
+      <!-- <hr
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
       <div
@@ -86,7 +86,7 @@
             class="hover:scale-125 transition-transform cursor-pointer"
           />
         </div>
-      </div>
+      </div> -->
     </div>
     <TheIcon
       v-if="!openRightSidebar"
