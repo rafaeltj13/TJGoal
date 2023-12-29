@@ -21,7 +21,7 @@
           v-if="openRightSidebar"
           class="flex flex-col items-center w-20 pb-4"
         >
-          <p class="text-text dark:text-text-dark text-xs mb-2">
+          <p class="text-text dark:text-text-dark text-xs mb-2 text-center">
             {{ user.level?.name || "" }}
           </p>
           <div

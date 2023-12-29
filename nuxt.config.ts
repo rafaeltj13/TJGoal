@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxtjs/supabase",
     "nuxt-headlessui",
+    "@nuxtjs/i18n",
   ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {
@@ -30,5 +31,8 @@ export default defineNuxtConfig({
   },
   headlessui: {
     prefix: "Headless",
+  },
+  i18n: {
+    vueI18n: "./i18n.config.ts",
   },
 });

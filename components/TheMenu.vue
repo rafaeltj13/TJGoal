@@ -1,5 +1,9 @@
 <template>
-  <HeadlessMenu as="div" class="relative inline-block text-left">
+  <HeadlessMenu
+    as="div"
+    :class="{ dark: darkMode }"
+    class="relative inline-block text-left"
+  >
     <HeadlessMenuButton> <slot /> </HeadlessMenuButton>
 
     <transition
@@ -11,6 +15,7 @@
       leave-to-class="transform scale-95 opacity-0"
     >
       <HeadlessMenuItems
+        :class="{ dark: darkMode }"
         class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-accent rounded-lg bg-background shadow-xl dark:border dark:border-primary-dark ring-1 ring-black ring-opacity-5 focus:outline-none"
       >
         <div v-for="section of props.sections" class="px-1 py-1">
@@ -38,6 +43,7 @@ type Option = {
   onClick: () => void;
 };
 
+const darkMode = useDarkMode();
 const props = defineProps({
   sections: {
     type: Array<Array<Option>>,

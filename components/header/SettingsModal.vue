@@ -1,31 +1,57 @@
 <template>
   <TheModal v-model="showModal">
     <template #content>
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center px-2">
         <h1 class="text-primary dark:text-primary-dark text-xl font-bold mb-10">
           Configurações
         </h1>
-        <div class="flex items-center justify-between w-full">
+        <div class="flex items-center justify-between w-full mb-6">
           <p class="text-md text-text dark:text-text-dark">Tema</p>
           <div class="flex items-center gap-4">
             <TheIcon
               fa-icon="fa-solid fa-sun"
-              custom-class="text-accent dark:text-accent-dark"
+              custom-class="text-secondary dark:text-secondary-dark"
             />
             <TheToggle v-model="darkMode" />
             <TheIcon
               fa-icon="fa-solid fa-moon"
-              custom-class="text-accent dark:text-accent-dark"
+              custom-class="text-secondary dark:text-secondary-dark"
             />
           </div>
         </div>
+        <div class="flex items-center justify-between w-full mb-6">
+          <p class="text-md text-text dark:text-text-dark">Língua</p>
+          <div class="flex items-center gap-4">
+            <p
+              class="text-sm text-secondary dark:text-secondary-dark font-bold"
+            >
+              PT-BR
+            </p>
+            <TheToggle v-model="isEnglish" />
+            <p
+              class="text-sm text-secondary dark:text-secondary-dark font-bold w-3"
+            >
+              EN
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between w-full">
+          <p class="text-md text-text dark:text-text-dark">Som</p>
+          <div class="flex items-center pr-7">
+            <TheToggle v-model="enableSound" />
+          </div>
+        </div>
+        {{ $t("welcome") }}
       </div>
     </template>
   </TheModal>
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n();
 const darkMode = useDarkMode();
+const isEnglish = useEnglish();
+const enableSound = ref(true);
 
 const props = defineProps({
   modelValue: {
@@ -50,6 +76,10 @@ watch(
 
 watch(showModal, (value) => {
   updateValue(value);
+});
+
+watch(isEnglish, (value) => {
+  locale.value = value ? "en" : "pt";
 });
 </script>
 

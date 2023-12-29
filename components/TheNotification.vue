@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-12 right-20 flex flex-col items-center gap-2">
+  <div class="fixed bottom-12 right-20 flex flex-col items-center gap-2 z-50">
     <transition-group name="list">
       <div
         v-for="(notification, index) in notifications"

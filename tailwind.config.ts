@@ -21,8 +21,8 @@ export default {
         accent: "#7e6752",
 
         //Dark Theme
-        "primary-dark": "#2E4F4F",
-        "secondary-dark": "#044343",
+        "primary-dark": "#044343",
+        "secondary-dark": "#2E4F4F",
         "text-dark": "#0E8388",
         "background-dark": "#03001C",
         "sidebar-dark": "#1B2430",

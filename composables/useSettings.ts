@@ -5,9 +5,9 @@ import type { WatchCallback } from "nuxt/dist/app/compat/capi";
 
 export function useStatefulCookie<T = boolean | string | null>(
   name: string,
-  options?: CookieOptions<T>
+  options?: CookieOptions<T> & { readonly?: false | undefined }
 ): CookieRef<T> {
-  const cookie = useCookie(name, { ...options, sameSite: "strict" });
+  const cookie = useCookie(name, options);
   const state = useState(name, () => cookie.value);
 
   const callback: WatchCallback<T, T> = () => {
@@ -29,6 +29,9 @@ export const useLeftSidebar = () => {
 };
 export const useDarkMode = () => {
   return useStatefulCookie<boolean>("darkMode");
+};
+export const useEnglish = () => {
+  return useStatefulCookie<boolean>("isEnglish", { default: () => true });
 };
 export const useAuthCookie = () => {
   return useStatefulCookie("auth");

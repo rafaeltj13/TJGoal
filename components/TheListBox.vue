@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto">
     <div class="w-full">
-      <HeadlessListbox @update:model-value="updateValue">
+      <HeadlessListbox @update:model-value="updateValue" as="div">
         <div class="relative mt-1">
           <HeadlessListboxButton
             class="relative w-full cursor-´pointer rounded-lg bg-background dark:bg-background-dark border-[1px] border-secondary dark:border-secondary-dark py-2 pl-3 pr-10 text-left shadow-md"

@@ -3,7 +3,12 @@
     <slot />
   </div>
   <HeadlessTransitionRoot appear :show="isOpen" as="template">
-    <HeadlessDialog as="div" @close="closeModal" class="relative z-10">
+    <HeadlessDialog
+      as="div"
+      @close="closeModal"
+      :class="{ dark: darkMode }"
+      class="relative z-10"
+    >
       <HeadlessTransitionChild
         as="template"
         enter="duration-500 ease-out"
@@ -30,7 +35,7 @@
             leave-to="opacity-0 scale-95"
           >
             <HeadlessDialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-background dark:bg-background-dark p-6 text-left align-middle shadow-xl transition-all"
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-background dark:bg-background-dark dark:border dark:border-primary-dark p-6 text-left align-middle shadow-xl transition-all"
             >
               <slot name="content"></slot>
             </HeadlessDialogPanel>
@@ -42,6 +47,7 @@
 </template>
 
 <script setup>
+const darkMode = useDarkMode();
 const props = defineProps({
   modelValue: {
     type: Boolean,
