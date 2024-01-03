@@ -7,7 +7,11 @@ export function useStatefulCookie<T = boolean | string | null>(
   name: string,
   options?: CookieOptions<T> & { readonly?: false | undefined }
 ): CookieRef<T> {
-  const cookie = useCookie(name, options);
+  const cookie = useCookie(name, {
+    ...options,
+    sameSite: "none",
+    secure: true,
+  });
   const state = useState(name, () => cookie.value);
 
   const callback: WatchCallback<T, T> = () => {

@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-const supabase = useSupabaseClient();
 const showSettings = ref(false);
+const { t } = useI18n();
 
 const { currentUser } = useCurrentUser();
 
@@ -26,26 +26,26 @@ const signout = async () => {
 const playerOptions = computed(() => [
   {
     icon: "fa-solid fa-id-badge",
-    text: "Meu Perfil",
+    text: t("config.profile"),
     onClick: () => navigateTo(`/profile/${currentUser.value.id}`),
   },
   {
     icon: "fa-solid fa-people-group",
-    text: "Meu Time",
+    text: t("config.team"),
     onClick: () => navigateTo(`/team/${currentUser.value.team.id}`),
   },
 ]);
 const gameOptions = computed(() => [
   {
     icon: "fa-solid fa-cog",
-    text: "Configurações",
+    text: t("config.settings"),
     onClick: () => (showSettings.value = true),
   },
 ]);
 const signOutOption = computed(() => [
   {
     icon: "fa-solid fa-right-from-bracket",
-    text: "Sair",
+    text: t("config.signOut"),
     onClick: signout,
   },
 ]);

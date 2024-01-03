@@ -3,10 +3,12 @@
     <template #content>
       <div class="flex flex-col items-center px-2">
         <h1 class="text-primary dark:text-primary-dark text-xl font-bold mb-10">
-          Configurações
+          {{ $t("settingsModal.title") }}
         </h1>
         <div class="flex items-center justify-between w-full mb-6">
-          <p class="text-md text-text dark:text-text-dark">Tema</p>
+          <p class="text-md text-text dark:text-text-dark">
+            {{ $t("settingsModal.theme") }}
+          </p>
           <div class="flex items-center gap-4">
             <TheIcon
               fa-icon="fa-solid fa-sun"
@@ -20,7 +22,9 @@
           </div>
         </div>
         <div class="flex items-center justify-between w-full mb-6">
-          <p class="text-md text-text dark:text-text-dark">Língua</p>
+          <p class="text-md text-text dark:text-text-dark">
+            {{ $t("settingsModal.language") }}
+          </p>
           <div class="flex items-center gap-4">
             <p
               class="text-sm text-secondary dark:text-secondary-dark font-bold"
@@ -36,12 +40,13 @@
           </div>
         </div>
         <div class="flex items-center justify-between w-full">
-          <p class="text-md text-text dark:text-text-dark">Som</p>
+          <p class="text-md text-text dark:text-text-dark">
+            {{ $t("settingsModal.sound") }}
+          </p>
           <div class="flex items-center pr-7">
             <TheToggle v-model="enableSound" />
           </div>
         </div>
-        {{ $t("welcome") }}
       </div>
     </template>
   </TheModal>
@@ -50,6 +55,7 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 const darkMode = useDarkMode();
+//Refatorar pra salvar "en" nos cookies ao inves de true e ajeitar o toggle
 const isEnglish = useEnglish();
 const enableSound = ref(true);
 

@@ -8,22 +8,30 @@
   >
     <div class="p-1">
       <SidebarRouteOption
-        title="Classificação"
+        :title="$t('leftSidebar.standings')"
         icon="fa-bars"
         to-route="/standings"
       />
       <SidebarRouteOption
-        title="Artilharia"
+        :title="$t('leftSidebar.ranking')"
         icon="fa-ranking-star"
         to-route="/ranking"
       />
       <SidebarRouteOption
-        title="Niveis"
+        :title="$t('leftSidebar.levels')"
         icon="fa-arrow-up-wide-short"
         to-route="/levels"
       />
-      <SidebarRouteOption title="Loja" icon="fa-store" to-route="/market" />
-      <SidebarRouteOption title="FAQ" icon="fa-comments" to-route="/faq" />
+      <SidebarRouteOption
+        :title="$t('leftSidebar.store')"
+        icon="fa-store"
+        to-route="/market"
+      />
+      <SidebarRouteOption
+        :title="$t('leftSidebar.faq')"
+        icon="fa-comments"
+        to-route="/faq"
+      />
     </div>
     <ClientOnly>
       <TheIcon

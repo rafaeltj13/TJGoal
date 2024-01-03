@@ -21,8 +21,6 @@ import { useUserApi } from "~/composables/api/useUser";
 
 const route = useRoute();
 const darkMode = useDarkMode();
-const openRightSidebar = useRightSidebar();
-const openLeftSidebar = useLeftSidebar();
 const auth = useAuthCookie();
 
 const supabase = useSupabaseClient();

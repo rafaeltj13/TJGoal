@@ -45,6 +45,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
 const emit = defineEmits(["shoot"]);
 const props = defineProps({
   type: {
@@ -58,13 +59,13 @@ const shoot = ref(false);
 const title = computed(() => {
   switch (props.type) {
     case "penalty":
-      return "Pênalti";
+      return t("rightSidebar.penalty");
     case "fault":
-      return "Bola Parada";
+      return t("rightSidebar.freeKick");
     case "counterAttack":
-      return "Contra Ataque";
+      return t("rightSidebar.counterAttack");
     default:
-      return "Chute";
+      return t("rightSidebar.shoot");
   }
 });
 
