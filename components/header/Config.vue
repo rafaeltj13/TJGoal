@@ -17,6 +17,7 @@ const showSettings = ref(false);
 const { t } = useI18n();
 
 const { currentUser } = useCurrentUser();
+const supabase = useSupabaseClient();
 
 const signout = async () => {
   await supabase.auth.signOut();

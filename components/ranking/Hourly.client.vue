@@ -7,7 +7,7 @@
         <h1
           class="text-primary dark:text-primary-dark text-center text-2xl pb-4 font-bold"
         >
-          Hora
+          {{ $t("ranking.hourly") }}
         </h1>
         <TheIcon
           customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer text-lg"

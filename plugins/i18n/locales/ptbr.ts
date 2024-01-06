@@ -1,0 +1,78 @@
+import { AttributesAttributeBuilder } from "./../../../.nuxt/components.d";
+export default {
+  config: {
+    profile: "Meu Perfil",
+    team: "Meu time",
+    settings: "Configurações",
+    signOut: "Sair",
+  },
+  settingsModal: {
+    title: "Configurações",
+    theme: "Tema",
+    language: "Língua",
+    sound: "Som",
+  },
+  leftSidebar: {
+    standings: "Classificação",
+    ranking: "Artilharia",
+    levels: "Níveis",
+    store: "Loja",
+    faq: "FAQ",
+  },
+  rightSidebar: {
+    shoot: "Chutar",
+    penalty: "Pênalti",
+    freeKick: "Bola Parada",
+    counterAttack: "Contra-ataque",
+  },
+  ranking: {
+    title: "Artilharia Geral",
+    goals: "Gols",
+    player: "Jogador",
+    daily: "Dia",
+    hourly: "Hora",
+    team: "Time",
+  },
+  standings: {
+    title: "Classificação",
+    team: "Time",
+    goals: "Gols",
+  },
+  levels: {
+    title: "Níveis",
+    level: "Nivel",
+    goals: "Gols",
+  },
+  market: {
+    title: "Loja",
+    description: "Procurando por um verdinho? Você está no lugar certo...",
+    content:
+      "Na nossa loja, temos uma variedade de verdinho para você escolher!",
+    myGreens: "Meus verdinhos:",
+    50: "50 verdinhos",
+    100: "100 verdinhos",
+    250: "250 verdinhos",
+  },
+  profile: {
+    goals: "Gols",
+    shoot: "Chute",
+    penalty: "Pênalti",
+    freeKick: "Falta",
+    counterAttack: "Contra Ataque",
+    attributes: "Atributos",
+    remaining: "Pontos restantes:",
+    pace: "RIT",
+    shooting: "CHU",
+    passing: "PAS",
+    dribbling: "DRI",
+    defending: "DEF",
+    physical: "FIS",
+    edit: "Editar Atributos",
+    save: "Salvar",
+  },
+  team: {
+    president: "Presidente",
+    vips: "VIPs",
+    players: "Jogadores",
+  },
+};

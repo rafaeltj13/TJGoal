@@ -1,9 +1,13 @@
 <template>
   <div class="p-8 max-w-[800px] mx-auto min-h-[100vh]">
-    <ThePageTitle title="Classificação" />
+    <ThePageTitle :title="$t('standings.title')" />
     <div class="flex items-center justify-between mb-2 px-5">
-      <p class="text-primary dark:text-primary-dark text-lg">Time</p>
-      <p class="text-primary dark:text-primary-dark text-lg">Gols</p>
+      <p class="text-primary dark:text-primary-dark text-lg">
+        {{ $t("standings.team") }}
+      </p>
+      <p class="text-primary dark:text-primary-dark text-lg">
+        {{ $t("standings.goals") }}
+      </p>
     </div>
     <div class="flex justify-center">
       <div

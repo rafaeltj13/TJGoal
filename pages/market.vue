@@ -1,11 +1,11 @@
 <template>
   <div class="p-8 max-w-[800px] mx-auto min-h-[100vh]">
-    <ThePageTitle title="Loja" />
+    <ThePageTitle :title="$t('market.title')" />
     <p class="text-secondary dark:text-secondary-dark text-lg">
-      Procurando por um verdinho? Você está no lugar certo...
+      {{ $t("market.description") }}
     </p>
     <p class="text-secondary dark:text-secondary-dark text-lg pb-8">
-      Na nossa loja, temos uma variedade de verdinho para você escolher!
+      {{ $t("market.content") }}
     </p>
     <div
       class="flex items-center mb-2 text-primary dark:text-primary-dark text-lg"
@@ -14,8 +14,8 @@
         customClass="text-primary dark:text-primary-dark text-xl mr-4"
         faIcon="fa-solid fa-money-bill"
       />
-      <p class="">Meus verdinhos:</p>
-      <p class="ml-4">{{ currentUser.greens }}</p>
+      <p>{{ $t("market.myGreens") }}</p>
+      <p class="ml-2">{{ currentUser.greens }}</p>
     </div>
     <MarketOffers />
   </div>

@@ -7,7 +7,7 @@
         <h1
           class="text-primary dark:text-primary-dark text-center text-2xl pb-4 font-bold"
         >
-          Jogador
+          {{ $t("ranking.player") }}
         </h1>
         <TheIcon
           customClass="text-primary dark:text-primary-dark hover:scale-125 transition-transform cursor-pointer text-lg"
@@ -41,7 +41,7 @@ const isLoading = ref(false);
 
 const fetchCurrentRanking = async () => {
   isLoading.value = true;
-  const { data, pending } = await useFetch(`/api/user/ranking`);
+  const { data } = await useFetch(`/api/user/ranking`);
   const mappedData = data.value
     .map((e: any) => {
       return {

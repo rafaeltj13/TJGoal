@@ -25,16 +25,16 @@
     >
       <div class="flex flex-col items-center justify-center w-20 mr-2">
         <h1 class="text-3xl font-bold">TJ-</h1>
-        <p class="text-center text-sm font-bold">Presidente</p>
+        <p class="text-center text-sm font-bold">{{ $t("team.president") }}</p>
       </div>
       <div class="flex items-center gap-4">
         <div class="flex flex-col items-center justify-center w-20 mr-2">
           <h1 class="text-3xl font-bold">3248</h1>
-          <p class="text-center text-sm font-bold">VIPs</p>
+          <p class="text-center text-sm font-bold">{{ $t("team.vips") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center w-20 mr-2">
           <h1 class="text-3xl">123123</h1>
-          <p class="text-center text-sm">Jogadores</p>
+          <p class="text-center text-sm">{{ $t("team.players") }}</p>
         </div>
       </div>
     </div>

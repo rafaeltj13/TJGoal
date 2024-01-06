@@ -2,20 +2,22 @@
   <h1
     class="text-center py-4 text-2xl text-primary dark:text-primary-dark font-bold"
   >
-    Attributos
+    {{ $t("profile.attributes") }}
   </h1>
   <h4
     v-if="isEdit"
     class="py-4 text-lg text-secondary dark:text-secondary-dark font-bold text-center"
   >
-    Pontos de atributo restantes:
+    {{ $t("profile.remaining") }}
     <span class="font-bold text-primary dark:text-primary-dark">{{
       props.modelValue.points
     }}</span>
   </h4>
   <div class="flex flex-wrap items-center justify-between pt-2 gap-8">
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">PAC</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.pace") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -48,7 +50,9 @@
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">SHO</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.shooting") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -81,7 +85,9 @@
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">PAS</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.passing") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -114,7 +120,9 @@
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">DRI</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.dribbling") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -147,7 +155,9 @@
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">DEF</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.defending") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -180,7 +190,9 @@
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">PHY</p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.physical") }}
+      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -218,7 +230,7 @@
     <TheButton
       v-if="props.isEdit"
       classType="default"
-      content="Salvar"
+      :content="$t('profile.save')"
       @click="() => emit('save')"
     />
   </div>

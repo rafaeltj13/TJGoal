@@ -34,8 +34,8 @@ export const useLeftSidebar = () => {
 export const useDarkMode = () => {
   return useStatefulCookie<boolean>("darkMode");
 };
-export const useEnglish = () => {
-  return useStatefulCookie<boolean>("isEnglish", { default: () => true });
+export const useLanguage = () => {
+  return useStatefulCookie<string>("languague", { default: () => "en-US" });
 };
 export const useAuthCookie = () => {
   return useStatefulCookie("auth");

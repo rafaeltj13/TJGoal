@@ -55,8 +55,8 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 const darkMode = useDarkMode();
-//Refatorar pra salvar "en" nos cookies ao inves de true e ajeitar o toggle
-const isEnglish = useEnglish();
+const language = useLanguage();
+const isEnglish = ref(language.value === "en-US");
 const enableSound = ref(true);
 
 const props = defineProps({
@@ -85,7 +85,8 @@ watch(showModal, (value) => {
 });
 
 watch(isEnglish, (value) => {
-  locale.value = value ? "en" : "pt";
+  language.value = value ? "en-US" : "pt-BR";
+  locale.value = language.value;
 });
 </script>
 

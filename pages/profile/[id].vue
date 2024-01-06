@@ -48,23 +48,23 @@
           class="flex flex-col items-center justify-center md:w-20 w-16 mr-2"
         >
           <h1 class="text-3xl font-bold">{{ user?.goals }}</h1>
-          <p class="text-center text-sm font-bold">Gols</p>
+          <p class="text-center text-sm font-bold">{{ $t("profile.goals") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
           <p class="text-2xl">{{ goalsByCategory.default }}</p>
-          <p class="text-center text-xs">Chute</p>
+          <p class="text-center text-xs">{{ $t("profile.shoot") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
           <p class="text-2xl">{{ goalsByCategory.penalty }}</p>
-          <p class="text-center text-xs">Penalti</p>
+          <p class="text-center text-xs">{{ $t("profile.penalty") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
           <p class="text-2xl">{{ goalsByCategory.fault }}</p>
-          <p class="text-center text-xs">Bola Parada</p>
+          <p class="text-center text-xs">{{ $t("profile.freeKick") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
           <p class="text-2xl">{{ goalsByCategory.counterAttack }}</p>
-          <p class="text-center text-xs">Contra Ataque</p>
+          <p class="text-center text-xs">{{ $t("profile.counterAttack") }}</p>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@
       <TheButton
         v-if="ownProfile && !editMode"
         classType="outlined"
-        content="Editar Atributos"
+        :content="$t('profile.edit')"
         @click="editMode = true"
       />
     </div>

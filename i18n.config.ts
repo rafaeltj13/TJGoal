@@ -1,15 +1,17 @@
-import en from "./public/locales/en";
-import pt from "./public/locales/ptbr";
+import en from "./plugins/i18n/locales/en";
+import pt from "./plugins/i18n/locales/ptbr";
 
 export default defineI18nConfig(() => ({
   legacy: false,
+  locales: ["en-US", "pt-BR"],
+  defaultLocale: "en-US",
   detectBrowserLanguage: {
     useCookie: true,
-    cookieKey: "isEnglish",
+    cookieKey: "languague",
     redirectOn: "root",
   },
   messages: {
-    en,
-    pt,
+    "en-US": en,
+    "pt-BR": pt,
   },
 }));
