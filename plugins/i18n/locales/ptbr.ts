@@ -75,4 +75,31 @@ export default {
     vips: "VIPs",
     players: "Jogadores",
   },
+  faq: {
+    title: "FAQ",
+    question1: "O que é o TJGoal?",
+    answer11: `Sou Rafael Maciel, o criador e único desenvolvedor por trás desta
+          jornada de paixão e nostalgia futebolística. Se você já se encantou
+          com o clássico "Brgol", prepare-se para uma experiência que traz o
+          melhor do passado e adiciona uma pitada de inovação.`,
+    answer12: ` TJGoal é mais do que um jogo. é uma homenagem aos jogadores, fãs e
+          amantes do futebol que cresceram com o espírito do esporte correndo em
+          suas veias. Inspirado por memórias de partidas intensas e rivalidades
+          eletrizantes, este jogo é minha maneira de compartilhar a paixão e a
+          alegria do futebol com você.`,
+    answer13: `Estou extremamente grato por você se juntar a mim nesta jornada.
+          TJGoal é um projeto de amor, criado por um único desenvolvedor com uma
+          missão: criar um jogo de futebol que una gerações e inspire novas
+          rivalidades.`,
+    answer14: `Espero que vocês gostem do jogo tanto quanto eu gostei de criá-lo.`,
+    question2: "Como jogar?",
+    answer2: `TJGoal é um jogo de futebol que você pode jogar no seu navegador. Você ajuda sua equipe a fazer o máximo de gols possível. Você também pode aumentar o nível do seu jogador e comprar novos atributos para melhorar seu desempenho.`,
+    question3: "Próximos passos",
+    answer3:
+      "O próximo passo será a criação e manutenção de um servidor no Discord. A ideia seria ter um local centralizado em que os jogadores consigam entrar com contato fácilmente com os desenvolvedores. Criar votações para novas funcionalidades a serem desenvolvidas e moldar o jogo de acordo com os próprios jogadores.",
+    question4: "Como entro em contato com o desenvolvedor do jogo",
+    answer4: `Você pode entrar em contato comigo através de qualquer rede social abaixo`,
+    question5: "Como contribuir (para desenvolvedores)",
+    answer5: `O TJGoal é um projeto de código aberto, então qualquer um pode contribuir. Se você quiser contribuir, basta criar um novo PR no repositório do GitHub.`,
+  },
 };

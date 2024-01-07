@@ -25,7 +25,6 @@
 const { currentUser } = useCurrentUser();
 
 const openStripeLink = (url: string) => {
-  console.log(currentUser.value.id);
   window.open(url + `?client_reference_id=${currentUser.value.id}`);
 };
 </script>

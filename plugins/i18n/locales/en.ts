@@ -73,4 +73,33 @@ export default {
     vips: "VIPs",
     players: "Players",
   },
+  faq: {
+    title: "FAQ",
+    question1: "What is TJGoal?",
+    answer11: `I'm Rafael Maciel, the creator and sole developer behind this
+          journey of football passion and nostalgia. If you've ever been enchanted
+          with the classic "Brgol", get ready for an experience that brings the
+          best of the past and adds a dash of innovation.`,
+    answer12: `TJGoal is more than a game. is a tribute to the players, fans and
+          football lovers who grew up with the spirit of the sport running through
+          your veins. Inspired by memories of intense matches and rivalries
+          electrifying games, this game is my way of sharing the passion and
+          football joy with you.`,
+    answer13: `I am incredibly grateful for you joining me on this journey.
+          TJGoal is a project of love, created by a single developer with a
+          mission: to create a football game that unites generations and inspires new ones
+          rivalries.`,
+    answer14: `I hope you enjoy the game as much as I enjoyed creating it.`,
+    question2: "How do I play?",
+    answer2: `TJGoal is a football game that you can play in your browser. 
+      You help your team making as much goals as possible. 
+      You can also level up your player and buy new attributes to improve your performance.`,
+    question3: "Next steps",
+    answer3:
+      "The next step will be to create and maintain a server on Discord. The idea would be to have a centralized place where players can easily contact the developers. Create votes for new features to be developed and shape the game according to the players themselves.",
+    question4: "How to contact the game developer?",
+    answer4: `You can contact me through any social network below`,
+    question5: "How to contribute (for developers)",
+    answer5: `TJGoal is an open source project, so anyone can contribute. If you want to contribute, simply create a new PR in the GitHub repository.`,
+  },
 };

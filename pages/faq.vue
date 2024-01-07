@@ -4,69 +4,95 @@
   >
     <ThePageTitle title="FAQ" />
 
-    <TheDisclosure title="O que é o TJGoal">
+    <TheDisclosure :title="$t('faq.question1')">
       <template #default>
-        <p class="mb-6">Bem-vindo ao universo empolgante de TJGoal!</p>
         <p class="mb-6">
-          Sou Rafael Maciel, o criador e único desenvolvedor por trás desta
-          jornada de paixão e nostalgia futebolística. Se você já se encantou
-          com o clássico "Brgol", prepare-se para uma experiência que traz o
-          melhor do passado e adiciona uma pitada de inovação.
+          {{ $t("faq.answer11") }}
         </p>
         <p class="mb-6">
-          TJGoal é mais do que um jogo. é uma homenagem aos jogadores, fãs e
-          amantes do futebol que cresceram com o espírito do esporte correndo em
-          suas veias. Inspirado por memórias de partidas intensas e rivalidades
-          eletrizantes, este jogo é minha maneira de compartilhar a paixão e a
-          alegria do futebol com você.
+          {{ $t("faq.answer12") }}
         </p>
         <p class="mb-6">
-          Estou extremamente grato por você se juntar a mim nesta jornada.
-          TJGoal é um projeto de amor, criado por um único desenvolvedor com uma
-          missão: criar um jogo de futebol que una gerações e inspire novas
-          rivalidades.
+          {{ $t("faq.answer13") }}
         </p>
-        <p class="mb-6">
-          Esta é apenas a primeira etapa de nossa jornada. Seu feedback,
-          sugestões e histórias sobre suas experiências com o jogo são
-          essenciais para o crescimento contínuo de TJGoal. Este jogo é para
-          todos os fanáticos por futebol e jogadores ávidos, e estou ansioso
-          para ver como ele trará alegria aos corações dos jogadores.
-        </p>
-        <p class="mb-6">
-          Aproveite ao máximo cada partida e cada momento dentro de TJGoal!
+        <p>
+          {{ $t("faq.answer14") }}
         </p>
       </template>
     </TheDisclosure>
-    <TheDisclosure title="Como jogar" class="mt-4">
+    <TheDisclosure :title="$t('faq.question2')" class="mt-4">
       <template #default>
-        <p>TODO</p>
+        <p>
+          {{ $t("faq.answer2") }}
+        </p>
       </template>
     </TheDisclosure>
-    <TheDisclosure title="Próximos passos" class="mt-4">
+    <TheDisclosure :title="$t('faq.question3')" class="mt-4">
       <template #default>
-        <p>TODO</p>
+        <p>
+          {{ $t("faq.answer3") }}
+        </p>
       </template>
     </TheDisclosure>
-    <TheDisclosure
-      title="Como dar suporte ao desenvolvimento do jogo"
-      class="mt-4"
-    >
+    <TheDisclosure :title="$t('faq.question4')" class="mt-4">
       <template #default>
-        <p>TODO</p>
+        <p class="mb-6">
+          {{ $t("faq.answer4") }}
+        </p>
+        <div class="flex items-center justify-center gap-8">
+          <a href="mailto:rafael.damaciel@gmail.com">
+            <TheIcon
+              customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+              faIcon="fa-solid fa-envelope"
+            />
+          </a>
+          <TheIcon
+            customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+            faIcon="fa-brands fa-github"
+            @click="() => openSocialMediaLink('https://github.com/rafaeltj13')"
+          />
+          <TheIcon
+            customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+            faIcon="fa-brands fa-linkedin"
+            @click="
+              () =>
+                openSocialMediaLink(
+                  'https://www.linkedin.com/in/rafael-de-ara%C3%BAjo-14b5b1117/'
+                )
+            "
+          />
+          <TheIcon
+            customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+            faIcon="fa-brands fa-instagram"
+            @click="
+              () =>
+                openSocialMediaLink(
+                  'https://www.instagram.com/rafaeldearaujo_/'
+                )
+            "
+          />
+          <TheIcon
+            customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+            faIcon="fa-brands fa-x-twitter"
+            @click="() => openSocialMediaLink('https://twitter.com/liltejota')"
+          />
+        </div>
       </template>
     </TheDisclosure>
-    <TheDisclosure
-      title="Como entro em contato com o desenvolvedor do jogo"
-      class="mt-4"
-    >
+    <TheDisclosure :title="$t('faq.question5')" class="mt-4">
       <template #default>
-        <p>TODO</p>
-      </template>
-    </TheDisclosure>
-    <TheDisclosure title="Como contribuir (para desenvolvedores)" class="mt-4">
-      <template #default>
-        <p>TODO</p>
+        <p class="mb-6">
+          {{ $t("faq.answer5") }}
+        </p>
+        <div class="flex items-center justify-center">
+          <TheIcon
+            customClass="text-accent dark:text-accent-dark text-xl cursor-pointer hover:scale-125 transition-all"
+            faIcon="fa-brands fa-github"
+            @click="
+              () => openSocialMediaLink('https://github.com/rafaeltj13/TJGoal')
+            "
+          />
+        </div>
       </template>
     </TheDisclosure>
   </div>
@@ -77,4 +103,8 @@ useDefaultHead("TJGoal - FAQ");
 definePageMeta({
   middleware: "registered",
 });
+
+const openSocialMediaLink = (link: string) => {
+  window.open(link, "_blank");
+};
 </script>
