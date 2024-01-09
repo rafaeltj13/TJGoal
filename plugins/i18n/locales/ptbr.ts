@@ -24,6 +24,7 @@ export default {
     penalty: "Pênalti",
     freeKick: "Bola Parada",
     counterAttack: "Contra-ataque",
+    vip: "VIP",
   },
   ranking: {
     title: "Artilharia Geral",
@@ -101,5 +102,8 @@ export default {
     answer4: `Você pode entrar em contato comigo através de qualquer rede social abaixo`,
     question5: "Como contribuir (para desenvolvedores)",
     answer5: `O TJGoal é um projeto de código aberto, então qualquer um pode contribuir. Se você quiser contribuir, basta criar um novo PR no repositório do GitHub.`,
+  },
+  vip: {
+    title: "VIP",
   },
 };

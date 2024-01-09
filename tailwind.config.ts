@@ -7,6 +7,9 @@ export default {
     "translate-y-[-258px]",
     "translate-y-[-344px]",
     "translate-y-[-430px]",
+    "text-emerald-800",
+    "text-orange-800",
+    "text-indigo-800",
   ],
   darkMode: "class",
   theme: {

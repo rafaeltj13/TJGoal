@@ -51,10 +51,11 @@
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
       <ShootContainer />
-      <!-- <hr
+      <hr
         class="bg-accent dark:bg-accent-dark border border-accent dark:border-accent-dark rounded-full"
       />
-      <div
+      <VipResumeModal />
+      <!-- <div
         class="mt-2"
         :class="{ 'flex items-center justify-between': openRightSidebar }"
       >

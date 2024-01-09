@@ -102,4 +102,7 @@ export default {
     question5: "How to contribute (for developers)",
     answer5: `TJGoal is an open source project, so anyone can contribute. If you want to contribute, simply create a new PR in the GitHub repository.`,
   },
+  vip: {
+    title: "VIP",
+  },
 };
