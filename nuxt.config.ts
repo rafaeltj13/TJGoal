@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "nuxt-headlessui",
     "@nuxtjs/i18n",
+    "dayjs-nuxt",
   ],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {

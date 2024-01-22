@@ -15,6 +15,7 @@ export type User = {
   defending: number;
   physical: number;
   points: number;
+  vip?: Vip;
 };
 
 export type Team = {
@@ -51,4 +52,11 @@ export type Goal = {
   userId: string;
   teamId: string;
   type: "default" | "penalty" | "fault" | "counterAttack";
+};
+
+export type Vip = {
+  id: number;
+  created_at?: string;
+  until: Date;
+  type: "normal" | "star" | "mythical";
 };

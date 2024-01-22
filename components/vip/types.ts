@@ -4,4 +4,5 @@ export type VipObject = {
   icon?: string;
   price?: number;
   durationDays?: number;
+  type?: "normal" | "star" | "mythical";
 };

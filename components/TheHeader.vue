@@ -23,7 +23,6 @@
             />
           </div>
         </div>
-        <!-- TODO Colocar o dropdown mesmo deslogado e so mostrar configuracoes -->
         <HeaderConfig />
       </ClientOnly>
     </div>
