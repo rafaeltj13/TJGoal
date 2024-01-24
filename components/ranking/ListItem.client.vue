@@ -7,7 +7,11 @@
       <p class="text-md text-primary dark:text-primary-dark w-10 font-bold">
         {{ props.position }} -
       </p>
-      <LevelIcon :current-level="props.item.level" class="mr-2" />
+      <LevelIcon
+        :current-level="props.item.level"
+        :vip-type="props.item.vipType"
+        class="mr-2"
+      />
       <TeamLogo :logo="props.item?.logo" />
       <p class="ml-2 text-text dark:text-text-dark font-bold">
         {{ props.item.username }}

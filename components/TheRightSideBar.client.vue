@@ -10,7 +10,11 @@
         :class="{ '!justify-center  ': !openRightSidebar }"
       >
         <div>
-          <LevelIcon :current-level="user.level?.id || 1" class="mb-2" />
+          <LevelIcon
+            :current-level="user.level?.id || 1"
+            :vip-type="user.vip?.type"
+            class="mb-2"
+          />
           <p
             class="text-text dark:text-text-dark text-center font-bold text-sm"
           >
@@ -37,6 +41,7 @@
           <div>
             <LevelIcon
               :current-level="user.level?.next_level?.id || 1"
+              :vip-type="user.vip?.type"
               class="mb-2"
             />
             <p

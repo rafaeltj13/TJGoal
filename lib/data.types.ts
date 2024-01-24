@@ -44,6 +44,7 @@ export type PlayerScoreDetails = {
   teamid: number;
   logo: string;
   level: string;
+  vipType?: "normal" | "star" | "mythical";
 };
 
 export type Goal = {
@@ -55,8 +56,9 @@ export type Goal = {
 };
 
 export type Vip = {
-  id: number;
+  id: string;
   created_at?: string;
+  updated_at?: string;
   until: Date;
   type: "normal" | "star" | "mythical";
 };

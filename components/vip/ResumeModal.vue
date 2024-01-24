@@ -4,7 +4,8 @@
       <div class="w-full flex items-center justify-center mt-4">
         <TheButton
           classType="default"
-          class="w-full md:w-[60%] !m-0"
+          class="w-full !m-0"
+          :class="{ '!px-2': !openRightSidebar }"
           :content="$t('vip.title')"
         />
       </div>
@@ -17,18 +18,27 @@
               <p
                 class="text-center text-xl font-bold text-primary dark:text-primary-dark"
               >
-                VIP Status
+                {{ $t("vip.status") }}
               </p>
-              <h1 class="text-2xl font-bold text-indigo-800">Mítico</h1>
+              <h1
+                class="text-2xl font-bold"
+                :class="{
+                  'text-orange-800': currentUser.vip?.type === 'normal',
+                  'text-emerald-800': currentUser.vip?.type === 'star',
+                  'text-indigo-800': currentUser.vip?.type === 'mythical',
+                }"
+              >
+                {{ $t(`vip.${currentUser.vip?.type}`) }}
+              </h1>
             </div>
             <div class="flex items-center justify-between mt-4">
               <p
                 class="text-center text-md font-bold text-primary dark:text-primary-dark"
               >
-                Vip Until
+                {{ $t("vip.duration") }}
               </p>
               <h2 class="text-lg font-bold text-text dark:text-text-dark">
-                22/07/2024
+                {{ currentUser.vip?.until }}
               </h2>
             </div>
             <div class="flex items-center justify-between mt-4">
@@ -50,8 +60,12 @@
 </template>
 
 <script setup lang="ts">
+import { useUserApi } from "~/composables/api/useUser";
 import type { VipObject } from "./types";
+const openRightSidebar = useRightSidebar();
 
+const { setNotification } = useNotification();
+const { currentUser, setCurrentUser } = useCurrentUser();
 const showModal = ref(false);
 
 const selectedVip = ref<VipObject>({});
@@ -60,11 +74,26 @@ const handleDetails = (vip: VipObject) => {
   selectedVip.value = vip;
 };
 
-const handleVip = () => {
+const handleVip = async () => {
   try {
-    
+    await useUserApi().updateUserVip(currentUser.value.id, selectedVip.value);
+    const userResponse = await useUserApi().getUser(currentUser.value.id);
+    setCurrentUser(userResponse);
     showModal.value = false;
-  } catch (error) {}
+    setNotification({
+      title: "Nice!",
+      content: "Vip adicionado com sucesso",
+      type: "success",
+    });
+  } catch (error) {
+    setNotification({
+      title: "Opa!",
+      content: "Algo deu errado",
+      type: "error",
+    });
+  } finally {
+    selectedVip.value = {};
+  }
 };
 </script>
 

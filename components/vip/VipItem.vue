@@ -8,7 +8,7 @@
       :faIcon="config.icon"
     />
     <p class="text-center text-primary dark:text-primary-dark text-md">
-      {{ config.title }}
+      {{ $t(`vip.${config.type}`) }}
     </p>
     <p
       class="text-center text-secondary dark:text-secondary-dark text-md flex items-center"

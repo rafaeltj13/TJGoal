@@ -1,8 +1,7 @@
-import { Vip } from "./../../lib/data.types";
 import { type VipObject } from "./../../components/vip/types";
 import { useSupabase } from "~/composables/api/useSupabase";
 import type { User } from "~/lib/data.types";
-import { useDayjs } from "#dayjs";
+import { useVipApi } from "./useVip";
 
 export const useUserApi = () => {
   const getUser = async (userId: string | undefined) => {
@@ -26,7 +25,12 @@ export const useUserApi = () => {
             next_level(
               id
             )
-          )
+          ),
+        vip (
+          id,
+          until,
+          type
+        )
         `
         )
         .eq("id", userId)
@@ -53,6 +57,11 @@ export const useUserApi = () => {
         ),
         level (
           id
+        ),
+        vip (
+          id,
+          until,
+          type
         )
       `
       )
@@ -138,44 +147,25 @@ export const useUserApi = () => {
     return data;
   };
 
-  const updateVip = async (userId: string, vip: VipObject) => {
-    const dayjs = useDayjs();
-
+  const updateUserVip = async (userId: string, vipObject: VipObject) => {
     try {
       const user = await getUser(userId);
       let currentVip = user?.vip || null;
 
-      if (!currentVip) {
-        const { data, error } = await useSupabase()
-          .from("vips")
-          .insert({
-            until: dayjs(new Date())
-              .add(vip.durationDays || 0, "day")
-              .toDate(),
-            type: vip.type,
-          });
+      console.log({ currentVip });
 
-        if (error) {
-          throw error;
-        }
+      if (!currentVip?.id) {
+        const newVip = await useVipApi().create(vipObject);
 
         await useSupabase()
           .from("users")
           .update({
-            vip: data?.id,
+            vip: newVip?.id,
             updated_at: new Date(),
           })
           .eq("id", userId);
       } else {
-        await useSupabase()
-          .from("vips")
-          .update({
-            until: dayjs(new Date())
-              .add(vip.durationDays || 0, "day")
-              .toDate(),
-            updated_at: new Date(),
-          })
-          .eq("id", currentVip.id);
+        useVipApi().update(currentVip, vipObject);
       }
     } catch (error) {
       return null;
@@ -190,6 +180,6 @@ export const useUserApi = () => {
     shoot,
     updateAttributes,
     updateGreens,
-    updateVip,
+    updateUserVip,
   };
 };

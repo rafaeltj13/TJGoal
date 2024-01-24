@@ -3,9 +3,12 @@
     <div
       class="rounded-xl bg-gray-300 w-8 h-8 flex items-center justify-center animate-pulse"
       :class="{
-        'shadow-[0px_0px_14px_0px] shadow-orange-800': a > 0.75,
-        'shadow-[0px_0px_14px_0px] shadow-indigo-800': a < 0.25,
-        'shadow-[0px_0px_14px_0px] shadow-emerald-800': a >= 0.25 && a <= 0.5,
+        'shadow-[0px_0px_14px_0px] shadow-orange-800':
+          vipType && vipType === 'normal',
+        'shadow-[0px_0px_14px_0px] shadow-indigo-800':
+          vipType && vipType === 'star',
+        'shadow-[0px_0px_14px_0px] shadow-emerald-800':
+          vipType && vipType === 'mythical',
       }"
     ></div>
     <img
@@ -22,7 +25,9 @@ const props = defineProps({
     type: [Number, String],
     required: true,
   },
+  vipType: {
+    type: String as PropType<"normal" | "star" | "mythical">,
+    required: false,
+  },
 });
-
-const a = Math.random();
 </script>

@@ -24,7 +24,11 @@
         <p class="text-lg text-primary dark:text-primary-dark w-10">
           {{ index + 1 }} -
         </p>
-        <LevelIcon :current-level="currentUser.level?.id || 1" class="mr-4" />
+        <LevelIcon
+          :current-level="currentUser.level?.id || 1"
+          :vip-type="currentUser.vip?.type"
+          class="mr-4"
+        />
         <TeamLogo :logo="currentUser.team?.logo || ''" />
         <p class="text-text dark:text-text-dark ml-3">
           {{ currentUser.username }}

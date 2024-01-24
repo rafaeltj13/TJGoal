@@ -1,5 +1,5 @@
 import { SupabaseClient, createClient } from "@supabase/supabase-js";
-import type { Database } from "~/lib/database.types";
+import type { Database } from "~/lib/supabase";
 
 export const useSupabase = () => {
   const config = useRuntimeConfig();

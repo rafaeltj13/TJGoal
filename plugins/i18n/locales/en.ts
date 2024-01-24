@@ -104,5 +104,17 @@ export default {
   },
   vip: {
     title: "VIP",
+    status: "Vip Status",
+    duration: "Vip until",
+    normal: "Normal",
+    star: "Star",
+    mythical: "Mythical",
+    price: "Price",
+    durationDays: "Duration",
+    days: "days",
+    description:
+      "Any purchase will be added to the current duration of your VIP.",
+    buy: "Buy",
+    back: "Back",
   },
 };
