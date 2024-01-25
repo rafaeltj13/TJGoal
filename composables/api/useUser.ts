@@ -149,7 +149,7 @@ export const useUserApi = () => {
 
   const updateUserVip = async (userId: string, vipObject: VipObject) => {
     const user = await getUser(userId);
-    const updateUserObject = {
+    let updateUserObject = {
       updated_at: new Date(),
       greens: user?.greens - vipObject.price,
     };

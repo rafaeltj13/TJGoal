@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {
     families: {
-      Comfortaa: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+      "Ropa Sans": [400],
     },
   },
   runtimeConfig: {

@@ -35,7 +35,7 @@ export default {
         88: "22rem",
       },
       fontFamily: {
-        sans: ["Comfortaa", "system-ui", "sans-serif"],
+        sans: ["Ropa Sans", "system-ui", "sans-serif"],
       },
     },
   },
