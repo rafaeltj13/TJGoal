@@ -116,5 +116,6 @@ export default {
       "Any purchase will be added to the current duration of your VIP.",
     buy: "Buy",
     back: "Back",
+    getVip: "Get VIP",
   },
 };

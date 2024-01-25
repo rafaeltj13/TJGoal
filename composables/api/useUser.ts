@@ -148,27 +148,31 @@ export const useUserApi = () => {
   };
 
   const updateUserVip = async (userId: string, vipObject: VipObject) => {
+    const user = await getUser(userId);
+    const updateUserObject = {
+      updated_at: new Date(),
+      greens: user?.greens - vipObject.price,
+    };
+    let currentVip = user?.vip || null;
+
     try {
-      const user = await getUser(userId);
-      let currentVip = user?.vip || null;
-
-      console.log({ currentVip });
-
       if (!currentVip?.id) {
         const newVip = await useVipApi().create(vipObject);
-
-        await useSupabase()
-          .from("users")
-          .update({
-            vip: newVip?.id,
-            updated_at: new Date(),
-          })
-          .eq("id", userId);
+        updateUserObject = {
+          ...updateUserObject,
+          vip: newVip?.id,
+        };
       } else {
-        useVipApi().update(currentVip, vipObject);
+        await useVipApi().update(currentVip, vipObject);
       }
     } catch (error) {
+      console.log(error);
       return null;
+    } finally {
+      await useSupabase()
+        .from("users")
+        .update(updateUserObject)
+        .eq("id", userId);
     }
   };
 

@@ -5,9 +5,9 @@
       :class="{
         'shadow-[0px_0px_14px_0px] shadow-orange-800':
           vipType && vipType === 'normal',
-        'shadow-[0px_0px_14px_0px] shadow-indigo-800':
-          vipType && vipType === 'star',
         'shadow-[0px_0px_14px_0px] shadow-emerald-800':
+          vipType && vipType === 'star',
+        'shadow-[0px_0px_14px_0px] shadow-indigo-800':
           vipType && vipType === 'mythical',
       }"
     ></div>

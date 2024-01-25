@@ -117,5 +117,6 @@ export default {
       "Qualquer compra será somada ao tempo de duração atual do seu VIP.",
     buy: "Comprar",
     back: "Voltar",
+    getVip: "Obter VIP",
   },
 };

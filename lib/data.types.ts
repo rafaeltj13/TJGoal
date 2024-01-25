@@ -44,7 +44,7 @@ export type PlayerScoreDetails = {
   teamid: number;
   logo: string;
   level: string;
-  vipType?: "normal" | "star" | "mythical";
+  // vipType?: "normal" | "star" | "mythical";
 };
 
 export type Goal = {

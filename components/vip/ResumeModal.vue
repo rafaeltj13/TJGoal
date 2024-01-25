@@ -13,34 +13,48 @@
     <template #content>
       <ClientOnly>
         <Transition mode="out-in" name="fade">
-          <div v-if="!selectedVip.title">
-            <div class="flex items-center justify-between">
-              <p
-                class="text-center text-xl font-bold text-primary dark:text-primary-dark"
-              >
-                {{ $t("vip.status") }}
-              </p>
-              <h1
-                class="text-2xl font-bold"
-                :class="{
-                  'text-orange-800': currentUser.vip?.type === 'normal',
-                  'text-emerald-800': currentUser.vip?.type === 'star',
-                  'text-indigo-800': currentUser.vip?.type === 'mythical',
-                }"
-              >
-                {{ $t(`vip.${currentUser.vip?.type}`) }}
-              </h1>
+          <div
+            v-if="loadingPurchase"
+            class="w-full h-[264px] flex items-center justify-center"
+          >
+            <TheLoadingSpinner />
+          </div>
+          <div v-else-if="!selectedVip.title">
+            <div v-if="currentUser.vip?.id">
+              <div class="flex items-center justify-between">
+                <p
+                  class="text-center text-xl font-bold text-primary dark:text-primary-dark"
+                >
+                  {{ $t("vip.status") }}
+                </p>
+                <h1
+                  class="text-2xl font-bold"
+                  :class="{
+                    'text-orange-800': currentUser.vip?.type === 'normal',
+                    'text-emerald-800': currentUser.vip?.type === 'star',
+                    'text-indigo-800': currentUser.vip?.type === 'mythical',
+                  }"
+                >
+                  {{ $t(`vip.${currentUser.vip?.type}`) }}
+                </h1>
+              </div>
+              <div class="flex items-center justify-between mt-4">
+                <p
+                  class="text-center text-md font-bold text-primary dark:text-primary-dark"
+                >
+                  {{ $t("vip.duration") }}
+                </p>
+                <h2 class="text-lg font-bold text-text dark:text-text-dark">
+                  {{ currentUser.vip?.until }}
+                </h2>
+              </div>
             </div>
-            <div class="flex items-center justify-between mt-4">
-              <p
-                class="text-center text-md font-bold text-primary dark:text-primary-dark"
-              >
-                {{ $t("vip.duration") }}
-              </p>
-              <h2 class="text-lg font-bold text-text dark:text-text-dark">
-                {{ currentUser.vip?.until }}
-              </h2>
-            </div>
+            <h1
+              v-else
+              class="text-2xl text-center text-primary dark:text-primary-dark"
+            >
+              {{ $t("vip.getVip") }}
+            </h1>
             <div class="flex items-center justify-between mt-4">
               <VipItem type="normal" @display-details="handleDetails" />
               <VipItem type="star" @display-details="handleDetails" />
@@ -67,6 +81,7 @@ const openRightSidebar = useRightSidebar();
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
 const showModal = ref(false);
+const loadingPurchase = ref(false);
 
 const selectedVip = ref<VipObject>({});
 
@@ -75,6 +90,19 @@ const handleDetails = (vip: VipObject) => {
 };
 
 const handleVip = async () => {
+  if (
+    selectedVip.value.price &&
+    currentUser.value.greens < selectedVip.value.price
+  ) {
+    setNotification({
+      title: "Opa!",
+      content: "Você não tem greens suficientes",
+      type: "error",
+    });
+    return;
+  }
+
+  loadingPurchase.value = true;
   try {
     await useUserApi().updateUserVip(currentUser.value.id, selectedVip.value);
     const userResponse = await useUserApi().getUser(currentUser.value.id);
@@ -85,6 +113,7 @@ const handleVip = async () => {
       content: "Vip adicionado com sucesso",
       type: "success",
     });
+    selectedVip.value = {};
   } catch (error) {
     setNotification({
       title: "Opa!",
@@ -92,7 +121,7 @@ const handleVip = async () => {
       type: "error",
     });
   } finally {
-    selectedVip.value = {};
+    loadingPurchase.value = true;
   }
 };
 </script>
@@ -100,7 +129,7 @@ const handleVip = async () => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.25s ease;
 }
 
 .fade-enter-from,
@@ -112,7 +141,7 @@ const handleVip = async () => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.25s ease;
 }
 
 .fade-enter-from,
