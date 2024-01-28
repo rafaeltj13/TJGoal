@@ -17,11 +17,11 @@
         {{ $t("vip.price") }}
       </p>
       <h2
-        class="text-xl font-bold text-text dark:text-text-dark flex items-center"
+        class="text-xl font-bold text-tertiary dark:text-tertiary-dark flex items-center"
       >
         {{ props.vipConfig.price }}
         <TheIcon
-          customClass="text-text dark:text-text-dark cursor-pointer text-xl ml-2"
+          customClass="text-tertiary dark:text-tertiary-dark cursor-pointer text-xl ml-2"
           faIcon="fa-solid fa-money-bill"
         />
       </h2>
@@ -33,7 +33,7 @@
         {{ $t("vip.durationDays") }}
       </p>
       <h2
-        class="text-xl font-bold text-text dark:text-text-dark flex items-center"
+        class="text-xl font-bold text-tertiary dark:text-tertiary-dark flex items-center"
       >
         {{ props.vipConfig.durationDays }} {{ $t("vip.days") }}
       </h2>

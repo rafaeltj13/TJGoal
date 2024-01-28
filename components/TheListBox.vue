@@ -6,7 +6,7 @@
           <HeadlessListboxButton
             class="relative w-full cursor-´pointer rounded-lg bg-background dark:bg-background-dark border-[1px] border-secondary dark:border-secondary-dark py-2 pl-3 pr-10 text-left shadow-md"
           >
-            <span class="text-text dark:text-text-dark text-sm">
+            <span class="text-tertiary dark:text-tertiary-dark text-sm">
               {{ props.modelValue?.text || props.placeholder }}
             </span>
             <span
@@ -14,7 +14,7 @@
             >
               <TheIcon
                 fa-icon="fa-solid fa-angle-down"
-                custom-class="text-text dark:text-text-dark"
+                custom-class="text-tertiary dark:text-tertiary-dark"
               />
             </span>
           </HeadlessListboxButton>
@@ -37,7 +37,7 @@
                 <li
                   :class="[
                     active
-                      ? 'bg-secondary text-text dark:bg-secondary-dark dark:text-text-dark'
+                      ? 'bg-secondary text-primary dark:bg-secondary-dark dark:text-primary-dark'
                       : 'text-secondary dark:text-secondary-dark',
                     'relative cursor-default select-none py-2 px-4',
                   ]"

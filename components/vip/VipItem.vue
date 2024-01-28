@@ -15,7 +15,7 @@
     >
       {{ config.price }}
       <TheIcon
-        customClass="text-text dark:text-text-dark cursor-pointer text-xl ml-2"
+        customClass="text-tertiary dark:text-tertiary-dark cursor-pointer text-xl ml-2"
         faIcon="fa-solid fa-money-bill"
       />
     </p>

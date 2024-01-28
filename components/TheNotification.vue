@@ -11,7 +11,7 @@
             <p class="text-primary dark:text-primary-dark">
               {{ notification?.title }}
             </p>
-            <p class="text-text dark:text-text-dark">
+            <p class="text-tertiary dark:text-tertiary-dark">
               {{ notification?.content }}
             </p>
           </div>

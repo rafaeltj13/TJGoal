@@ -16,7 +16,7 @@
             class="mb-2"
           />
           <p
-            class="text-text dark:text-text-dark text-center font-bold text-sm"
+            class="text-tertiary dark:text-tertiary-dark text-center font-bold text-sm"
           >
             {{ user.goals }}
           </p>
@@ -25,7 +25,9 @@
           v-if="openRightSidebar"
           class="flex flex-col items-center w-20 pb-4"
         >
-          <p class="text-text dark:text-text-dark text-xs mb-2 text-center">
+          <p
+            class="text-tertiary dark:text-tertiary-dark text-xs mb-2 text-center"
+          >
             {{ user.level?.name || "" }}
           </p>
           <div
@@ -45,7 +47,7 @@
               class="mb-2"
             />
             <p
-              class="text-text dark:text-text-dark text-center font-bold text-sm"
+              class="text-tertiary dark:text-tertiary-dark text-center font-bold text-sm"
             >
               {{ user.level?.max_goals }}
             </p>
@@ -70,7 +72,7 @@
             :logo="user.team.logo"
             class="hover:scale-125 transition-transform cursor-pointer"
           />
-          <p class="text- lg text-text dark:text-text-dark text-center mt-1">
+          <p class="text- lg text-tertiary dark:text-tertiary-dark text-center mt-1">
             13661
           </p>
         </div>
@@ -83,7 +85,7 @@
           :class="{ 'flex items-center flex-col-reverse': openRightSidebar }"
           class="flex flex-col items-center"
         >
-          <p class="text- lg text-text dark:text-text-dark text-center mt-1">
+          <p class="text- lg text-tertiary dark:text-tertiary-dark text-center mt-1">
             4829
           </p>
           <TeamLogo

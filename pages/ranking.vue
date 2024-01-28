@@ -30,11 +30,11 @@
           class="mr-4"
         />
         <TeamLogo :logo="currentUser.team?.logo || ''" />
-        <p class="text-text dark:text-text-dark ml-3">
+        <p class="text-tertiary dark:text-tertiary-dark ml-3">
           {{ currentUser.username }}
         </p>
       </div>
-      <p class="text-text dark:text-text-dark">
+      <p class="text-tertiary dark:text-tertiary-dark">
         {{ currentUser.goals }}
       </p>
     </div>

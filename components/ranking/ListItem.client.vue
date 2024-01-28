@@ -13,11 +13,11 @@
         class="mr-2"
       />
       <TeamLogo :logo="props.item?.logo" />
-      <p class="ml-2 text-text dark:text-text-dark font-bold">
+      <p class="ml-2 text-tertiary dark:text-tertiary-dark font-bold">
         {{ props.item.username }}
       </p>
     </div>
-    <p class="text-text dark:text-text-dark font-bold">
+    <p class="text-tertiary dark:text-tertiary-dark font-bold">
       {{ props.item.goalcount }}
     </p>
   </div>
@@ -36,5 +36,4 @@ const props = defineProps({
     required: true,
   },
 });
-console.log(props.item);
 </script>

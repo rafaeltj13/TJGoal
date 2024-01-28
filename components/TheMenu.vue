@@ -22,7 +22,7 @@
           <HeadlessMenuItem v-for="option of section">
             <button
               @click="() => option.onClick()"
-              class="group flex w-full items-center justify- rounded-md px-2 py-2 text-xs text-secondary hover:bg-secondary hover:dark:bg-secondary-dark hover:text-text hover:dark:text-text-dark"
+              class="group flex w-full items-center justify- rounded-md px-2 py-2 text-xs text-secondary hover:bg-secondary hover:dark:bg-secondary-dark hover:text-tertiary hover:dark:text-tertiary-dark"
             >
               <TheIcon :fa-icon="option.icon" custom-class="w-4" />
               <span class="ml-4">

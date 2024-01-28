@@ -5,7 +5,7 @@
       v-else
       class="flex items-center justify-center rounded-full w-28 h-28 bg-accent dark:bg-accent-dark shadow-xl"
     >
-      <p class="text-2xl text-text dark:text-text-dark">
+      <p class="text-2xl text-tertiary dark:text-tertiary-dark">
         {{ props.username ? props.username.charAt(0).toUpperCase() : "?" }}
       </p>
     </div>

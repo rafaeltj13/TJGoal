@@ -6,9 +6,9 @@
     v-slot="{ open }"
   >
     <HeadlessDisclosureButton
-      class="flex w-full items-center justify-between rounded-xl bg-background dark:bg-background-dark dark:border-primary-dark p-4 text-left text-md font-medium text-text dark:text-text-dark hover:bg-secondary hover:dark:bg-secondary-dark"
+      class="flex w-full items-center justify-between rounded-xl bg-background dark:bg-background-dark dark:border-primary-dark p-4 text-left text-md font-medium text-tertiary dark:text-tertiary-dark hover:bg-secondary hover:dark:bg-secondary-dark"
     >
-      <p class="text-text dark:text-text-dark">
+      <p class="text-tertiary dark:text-tertiary-dark">
         {{ props.title }}
       </p>
       <TheIcon
@@ -16,7 +16,9 @@
         :faIcon="`fa-solid fa-chevron-${open ? 'up' : 'down'}`"
       />
     </HeadlessDisclosureButton>
-    <HeadlessDisclosurePanel class="p-4 text-sm text-text dark:text-text-dark">
+    <HeadlessDisclosurePanel
+      class="p-4 text-sm text-tertiary dark:text-tertiary-dark"
+    >
       <slot />
     </HeadlessDisclosurePanel>
   </HeadlessDisclosure>

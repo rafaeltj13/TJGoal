@@ -16,20 +16,20 @@ export default {
     extend: {
       colors: {
         // Light theme
-        primary: "#159895",
-        secondary: "#618264",
-        text: "#7DB9B6",
-        background: "#f1f3f5",
-        sidebar: "#f0f1f3",
-        accent: "#7e6752",
+        primary: "#1F8A70",
+        secondary: "#99BC85",
+        tertiary: "#4FA095",
+        background: "#F3F3F3",
+        sidebar: "#EEEEEE",
+        accent: "#555843",
 
         //Dark Theme
-        "primary-dark": "#044343",
-        "secondary-dark": "#2E4F4F",
-        "text-dark": "#0E8388",
-        "background-dark": "#03001C",
-        "sidebar-dark": "#1B2430",
-        "accent-dark": "#3C2A21",
+        "primary-dark": "#495E57",
+        "secondary-dark": "#1B4242",
+        "tertiary-dark": "#0E8388",
+        "background-dark": "#092635",
+        "sidebar-dark": "#1B4242",
+        "accent-dark": "#776B5D",
       },
       spacing: {
         88: "22rem",

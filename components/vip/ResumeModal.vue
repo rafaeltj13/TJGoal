@@ -44,7 +44,9 @@
                 >
                   {{ $t("vip.duration") }}
                 </p>
-                <h2 class="text-lg font-bold text-text dark:text-text-dark">
+                <h2
+                  class="text-lg font-bold text-tertiary dark:text-tertiary-dark"
+                >
                   {{ currentUser.vip?.until }}
                 </h2>
               </div>

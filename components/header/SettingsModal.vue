@@ -6,7 +6,7 @@
           {{ $t("settingsModal.title") }}
         </h1>
         <div class="flex items-center justify-between w-full mb-6">
-          <p class="text-md text-text dark:text-text-dark">
+          <p class="text-md text-tertiary dark:text-tertiary-dark">
             {{ $t("settingsModal.theme") }}
           </p>
           <div class="flex items-center gap-4">
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between w-full mb-6">
-          <p class="text-md text-text dark:text-text-dark">
+          <p class="text-md text-tertiary dark:text-tertiary-dark">
             {{ $t("settingsModal.language") }}
           </p>
           <div class="flex items-center gap-4">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between w-full">
-          <p class="text-md text-text dark:text-text-dark">
+          <p class="text-md text-tertiary dark:text-tertiary-dark">
             {{ $t("settingsModal.sound") }}
           </p>
           <div class="flex items-center pr-7">

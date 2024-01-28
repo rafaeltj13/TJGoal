@@ -8,11 +8,11 @@
         {{ props.position }} -
       </p>
       <TeamLogo :logo="props.team?.logo" />
-      <p class="ml-2 text-text dark:text-text-dark font-bold">
+      <p class="ml-2 text-tertiary dark:text-tertiary-dark font-bold">
         {{ props.team.name }}
       </p>
     </div>
-    <p class="text-text dark:text-text-dark font-bold">
+    <p class="text-tertiary dark:text-tertiary-dark font-bold">
       {{ props.team.team_goals }}
     </p>
   </div>
