@@ -9,7 +9,7 @@
       </p>
       <LevelIcon
         :current-level="props.item.level"
-        :vip-type="props.item.vipType"
+        :vip-type="props.item.viptype"
         class="mr-2"
       />
       <TeamLogo :logo="props.item?.logo" />
@@ -36,4 +36,5 @@ const props = defineProps({
     required: true,
   },
 });
+console.log(props.item);
 </script>

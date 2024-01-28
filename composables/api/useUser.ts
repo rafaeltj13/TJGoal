@@ -149,7 +149,7 @@ export const useUserApi = () => {
 
   const updateUserVip = async (userId: string, vipObject: VipObject) => {
     const user = await getUser(userId);
-    let updateUserObject = {
+    const updateUserObject = {
       updated_at: new Date(),
       greens: user?.greens - vipObject.price,
     };
@@ -166,7 +166,6 @@ export const useUserApi = () => {
         await useVipApi().update(currentVip, vipObject);
       }
     } catch (error) {
-      console.log(error);
       return null;
     } finally {
       await useSupabase()
