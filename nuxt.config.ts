@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   googleFonts: {
     families: {
-      "Ropa Sans": [400],
+      "Chakra Petch": [300, 400, 500, 600, 700],
     },
   },
   runtimeConfig: {

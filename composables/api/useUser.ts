@@ -149,19 +149,21 @@ export const useUserApi = () => {
 
   const updateUserVip = async (userId: string, vipObject: VipObject) => {
     const user = await getUser(userId);
-    const updateUserObject = {
+    let updateUserObject = {
       updated_at: new Date(),
-      greens: user?.greens - vipObject.price,
+      greens: (user?.greens || 0) - (vipObject.price || 0),
+      vip: "",
     };
     let currentVip = user?.vip || null;
 
     try {
       if (!currentVip?.id) {
         const newVip = await useVipApi().create(vipObject);
-        updateUserObject = {
-          ...updateUserObject,
-          vip: newVip?.id,
-        };
+        if (newVip?.id)
+          updateUserObject = {
+            ...updateUserObject,
+            vip: newVip?.id,
+          };
       } else {
         await useVipApi().update(currentVip, vipObject);
       }

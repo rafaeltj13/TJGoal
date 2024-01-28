@@ -35,7 +35,7 @@ export default {
         88: "22rem",
       },
       fontFamily: {
-        sans: ["Ropa Sans", "system-ui", "sans-serif"],
+        sans: ["Chakra Petch", "system-ui", "sans-serif"],
       },
     },
   },
