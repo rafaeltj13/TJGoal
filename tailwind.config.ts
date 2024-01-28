@@ -27,7 +27,7 @@ export default {
         "primary-dark": "#495E57",
         "secondary-dark": "#1B4242",
         "tertiary-dark": "#0E8388",
-        "background-dark": "#092635",
+        "background-dark": "#0F0E0E",
         "sidebar-dark": "#1B4242",
         "accent-dark": "#776B5D",
       },

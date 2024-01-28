@@ -35,15 +35,15 @@
               'bg-rose-200 dark:bg-rose-400': index > currentRanking.length - 5,
             }"
           ></div>
-          <p class="text-lg text-primary dark:text-primary-dark w-10">
+          <p class="text-lg text-tertiary dark:text-tertiary-dark w-10">
             {{ index + 1 }} -
           </p>
           <TeamLogo :logo="team.logo" />
-          <p class="ml-2 text-primary dark:text-primary-dark">
+          <p class="ml-2 text-tertiary dark:text-tertiary-dark">
             {{ team.name }}
           </p>
         </div>
-        <p class="text-primary dark:text-primary-dark">
+        <p class="text-tertiary dark:text-tertiary-dark">
           {{ team.team_goals }}
         </p>
       </div>
