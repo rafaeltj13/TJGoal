@@ -1,8 +1,13 @@
 <template>
-  <ShootOption type="default" @shoot="handleShoot" />
-  <ShootOption type="penalty" @shoot="handleShoot" />
-  <ShootOption type="fault" @shoot="handleShoot" />
-  <ShootOption type="counterAttack" @shoot="handleShoot" />
+  <ShootOption type="default" @shoot="handleShooting" />
+  <ShootOption type="penalty" @shoot="handleShooting" />
+  <ShootOption type="fault" @shoot="handleShooting" />
+  <ShootOption type="counterAttack" @shoot="handleShooting" />
+  <ShootModal
+    v-if="shooting"
+    v-model="shooting"
+    :shoot-type="currentShootType"
+  />
 </template>
 <script setup lang="ts">
 import { useLevelApi } from "~/composables/api/useLevels";
@@ -11,6 +16,22 @@ import { useUserApi } from "~/composables/api/useUser";
 
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
+
+const shooting = ref(false);
+const currentShootType = ref<"default" | "penalty" | "fault" | "counterAttack">(
+  "default"
+);
+
+const handleShooting = async (
+  type: "default" | "penalty" | "fault" | "counterAttack"
+) => {
+  shooting.value = true;
+  currentShootType.value = type;
+
+  // await handleShoot(type);
+
+  // shooting.value = false;
+};
 
 const handleShoot = async (type: string) => {
   await useShootApi().shoot(

@@ -1,13 +1,13 @@
 <template>
   <div class="relative">
     <div
-      class="rounded-xl bg-gray-300 w-8 h-8 flex items-center justify-center animate-pulse"
+      class="rounded-xl bg-gray-300 w-8 h-8 flex items-center justify-center animate-pulse duration-1000"
       :class="{
-        'shadow-[0px_0px_14px_0px] shadow-orange-800':
+        'shadow-[0px_0px_12px_2px] shadow-orange-800':
           vipType && vipType === 'normal',
-        'shadow-[0px_0px_14px_0px] shadow-emerald-800':
+        'shadow-[0px_0px_12px_2px] shadow-emerald-800':
           vipType && vipType === 'star',
-        'shadow-[0px_0px_14px_0px] shadow-indigo-800':
+        'shadow-[0px_0px_12px_2px] shadow-indigo-800':
           vipType && vipType === 'mythical',
       }"
     ></div>

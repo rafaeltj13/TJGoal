@@ -1,12 +1,13 @@
 <template>
   <div
     v-if="!openRightSidebar"
-    class="flex items-center justify-between"
+    class="flex items-center justify-between py-1"
     @click="tryToShoot()"
   >
     <div
       :class="{
-        ' !shadow-primary dark:shadow-primary-dark drop-shadow-sm': shoot,
+        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
+          shoot,
       }"
       class="flex items-center justify-center h-12 w-12 my-2 mx-auto bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
     >
@@ -23,13 +24,14 @@
       </span>
     </div>
   </div>
-  <div v-else class="flex items-center justify-between">
+  <div v-else class="flex items-center justify-between py-1">
     <span class="text-primary dark:text-primary-dark text-xs font-bold">
       {{ title }}
     </span>
     <div
       :class="{
-        ' !shadow-primary dark:shadow-primary-dark drop-shadow-sm': shoot,
+        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
+          shoot,
       }"
       @click="tryToShoot()"
       class="flex items-center justify-center h-12 w-12 my-2 bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
@@ -46,6 +48,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+
 const emit = defineEmits(["shoot"]);
 const props = defineProps({
   type: {
@@ -53,6 +56,7 @@ const props = defineProps({
     required: true,
   },
 });
+
 const openRightSidebar = useRightSidebar();
 
 const shoot = ref(false);
@@ -69,7 +73,7 @@ const title = computed(() => {
   }
 });
 
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 2;
 const timePassed = ref(0);
 const timerInterval: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);
