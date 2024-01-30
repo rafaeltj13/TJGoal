@@ -1,23 +1,12 @@
 <template>
   <h1
-    class="text-center py-4 text-2xl text-primary dark:text-primary-dark font-bold"
+    class="text-center py-4 text-3xl text-primary dark:text-primary-dark font-bold"
   >
     {{ $t("profile.attributes") }}
   </h1>
-  <h4
-    v-if="isEdit"
-    class="py-4 text-lg text-secondary dark:text-secondary-dark font-bold text-center"
-  >
-    {{ $t("profile.remaining") }}
-    <span class="font-bold text-primary dark:text-primary-dark">{{
-      props.modelValue.points
-    }}</span>
-  </h4>
+
   <div class="flex flex-wrap items-center justify-between pt-2 gap-8">
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.pace") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -30,7 +19,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('pace', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.pace }}
         </p>
         <TheIcon
@@ -45,14 +37,18 @@
           @click="() => updateAttribute('pace', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.pace }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.pace") }}
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.shooting") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -65,7 +61,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('shooting', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.shooting }}
         </p>
         <TheIcon
@@ -80,14 +79,18 @@
           @click="() => updateAttribute('shooting', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.shooting }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.shooting") }}
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.passing") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -100,7 +103,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('passing', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.passing }}
         </p>
         <TheIcon
@@ -115,14 +121,18 @@
           @click="() => updateAttribute('passing', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.passing }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.passing") }}
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.dribbling") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -135,7 +145,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('dribbling', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.dribbling }}
         </p>
         <TheIcon
@@ -150,14 +163,18 @@
           @click="() => updateAttribute('dribbling', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.dribbling }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.dribbling") }}
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.defending") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -170,7 +187,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('defending', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.defending }}
         </p>
         <TheIcon
@@ -185,14 +205,18 @@
           @click="() => updateAttribute('defending', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.defending }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.defending") }}
       </p>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 select-none">
-      <p class="text-accent dark:text-accent-dark text-lg">
-        {{ $t("profile.physical") }}
-      </p>
       <div v-if="props.isEdit" class="flex items-center">
         <TheIcon
           customClass="text-primary dark:text-primary-dark
@@ -205,7 +229,10 @@
           faIcon="fa-solid fa-angle-left"
           @click="() => updateAttribute('physical', -1)"
         />
-        <p class="text-secondary dark:text-secondary-dark text-lg mx-2">
+        <p
+          :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+          class="text-secondary dark:text-secondary-dark mx-2"
+        >
           {{ props.modelValue.physical }}
         </p>
         <TheIcon
@@ -221,11 +248,27 @@
           @click="() => updateAttribute('physical', 10)"
         />
       </div>
-      <p v-else class="text-secondary dark:text-secondary-dark text-lg mx-2">
+      <p
+        v-else
+        :class="{ 'text-3xl': !props.isEdit, 'text-lg': props.isEdit }"
+        class="text-secondary dark:text-secondary-dark mx-2"
+      >
         {{ props.modelValue.physical }}
+      </p>
+      <p class="text-accent dark:text-accent-dark text-lg">
+        {{ $t("profile.physical") }}
       </p>
     </div>
   </div>
+  <h4
+    v-if="isEdit"
+    class="py-4 text-lg text-secondary dark:text-secondary-dark font-bold text-center"
+  >
+    {{ $t("profile.remaining") }}
+    <span class="font-bold text-primary dark:text-primary-dark">{{
+      props.modelValue.points
+    }}</span>
+  </h4>
   <div class="flex justify-center items-center pt-8">
     <TheButton
       v-if="props.isEdit"

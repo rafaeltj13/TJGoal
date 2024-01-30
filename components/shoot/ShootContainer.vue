@@ -1,7 +1,7 @@
 <template>
   <ShootOption type="default" @shoot="handleShooting" />
   <ShootOption type="penalty" @shoot="handleShooting" />
-  <ShootOption type="fault" @shoot="handleShooting" />
+  <ShootOption type="freeKick" @shoot="handleShooting" />
   <ShootOption type="counterAttack" @shoot="handleShooting" />
   <ShootModal
     v-if="shooting"
@@ -18,17 +18,17 @@ const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
 
 const shooting = ref(false);
-const currentShootType = ref<"default" | "penalty" | "fault" | "counterAttack">(
-  "default"
-);
+const currentShootType = ref<
+  "default" | "penalty" | "freeKick" | "counterAttack"
+>("default");
 
 const handleShooting = async (
-  type: "default" | "penalty" | "fault" | "counterAttack"
+  type: "default" | "penalty" | "freeKick" | "counterAttack"
 ) => {
   shooting.value = true;
   currentShootType.value = type;
 
-  // await handleShoot(type);
+  await handleShoot(type);
 
   // shooting.value = false;
 };

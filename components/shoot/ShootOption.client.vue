@@ -52,7 +52,9 @@ const { t } = useI18n();
 const emit = defineEmits(["shoot"]);
 const props = defineProps({
   type: {
-    type: String as PropType<"default" | "penalty" | "fault" | "counterAttack">,
+    type: String as PropType<
+      "default" | "penalty" | "freeKick" | "counterAttack"
+    >,
     required: true,
   },
 });
@@ -64,7 +66,7 @@ const title = computed(() => {
   switch (props.type) {
     case "penalty":
       return t("rightSidebar.penalty");
-    case "fault":
+    case "freeKick":
       return t("rightSidebar.freeKick");
     case "counterAttack":
       return t("rightSidebar.counterAttack");

@@ -18,6 +18,7 @@ export const useGoalApi = () => {
     return data as PlayerScoreDetails[];
   };
 
+  //TODO I need to handle this in the database
   async function getGoalsByUser(userId: string) {
     let { data, error } = await useSupabase()
       .from("goals")
@@ -27,7 +28,7 @@ export const useGoalApi = () => {
     const defaultObject = {
       default: 0,
       penalty: 0,
-      fault: 0,
+      freeKick: 0,
       counterAttack: 0,
     };
 

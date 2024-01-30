@@ -1,22 +1,86 @@
 <template>
   <TheModal v-model="showModal">
     <template #content>
-      <div>{{ props.shootType }}</div>
-      colocar o titulo ne colocar os attributos que cada chute se prioriza
-      colocar as opções de chutar não colocar botão pra sair ver se rola deixar
-      o modal fixo
+      <div
+        class="text-center mb-4 text-primary dark:text-primary-dark text-2xl"
+      >
+        {{ $t(`shoot.${props.shootType}`) }}
+      </div>
+      <div class="text-center mb-4 text-tertiary dark:text-tertiary-dark">
+        Atributos bonus
+      </div>
+      <div class="flex items-center justify-between">
+        <p
+          :class="{
+            'text-primary dark:text-primary-dark':
+              mapShootToAttributes[props.shootType].includes('pace'),
+          }"
+          class="text-accent dark:text-accent-dark"
+        >
+          {{ $t("shoot.pace") }}
+        </p>
+        <p class="text-primary dark:text-primary-dark">
+          {{ $t("shoot.shooting") }}
+        </p>
+        <p
+          :class="{
+            'text-primary dark:text-primary-dark':
+              mapShootToAttributes[props.shootType].includes('passing'),
+          }"
+          class="text-accent dark:text-accent-dark"
+        >
+          {{ $t("shoot.passing") }}
+        </p>
+        <p
+          :class="{
+            'text-primary dark:text-primary-dark':
+              mapShootToAttributes[props.shootType].includes('dribbling'),
+          }"
+          class="text-accent dark:text-accent-dark"
+        >
+          {{ $t("shoot.dribbling") }}
+        </p>
+        <p
+          :class="{
+            'text-primary dark:text-primary-dark':
+              mapShootToAttributes[props.shootType].includes('defending'),
+          }"
+          class="text-accent dark:text-accent-dark"
+        >
+          {{ $t("shoot.defending") }}
+        </p>
+        <p
+          :class="{
+            'text-primary dark:text-primary-dark':
+              mapShootToAttributes[props.shootType].includes('physical'),
+          }"
+          class="text-accent dark:text-accent-dark"
+        >
+          {{ $t("shoot.physical") }}
+        </p>
+      </div>
+      <p class="text-tertiary dark:text-tertiary-dark"></p>
     </template>
   </TheModal>
 </template>
 
 <script setup lang="ts">
+const mapShootToAttributes = ref({
+  default: ["pace", "dribbling"],
+  penalty: ["pace", "physical"],
+  freeKick: ["passing", "dribbling"],
+  counterAttack: ["defending", "passing"],
+});
+
 const props = defineProps({
   modelValue: {
     type: Boolean,
     default: () => false,
   },
   shootType: {
-    type: String as PropType<"default" | "penalty" | "fault" | "counterAttack">,
+    type: String as PropType<
+      "default" | "penalty" | "freeKick" | "counterAttack"
+    >,
     required: true,
   },
 });

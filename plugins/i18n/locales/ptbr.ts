@@ -119,4 +119,16 @@ export default {
     back: "Voltar",
     getVip: "Obter VIP",
   },
+  shoot: {
+    default: "Chute Direto",
+    penalty: "Pênalti",
+    freeKick: "Falta",
+    counterAttack: "Contra Ataque",
+    pace: "RIT",
+    shooting: "CHU",
+    passing: "PAS",
+    dribbling: "DRI",
+    defending: "DEF",
+    physical: "FIS",
+  },
 };

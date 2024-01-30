@@ -59,7 +59,7 @@
           <p class="text-center text-xs">{{ $t("profile.penalty") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
-          <p class="text-2xl">{{ goalsByCategory.fault }}</p>
+          <p class="text-2xl">{{ goalsByCategory.freeKick }}</p>
           <p class="text-center text-xs">{{ $t("profile.freeKick") }}</p>
         </div>
         <div class="flex flex-col items-center justify-center md:w-20 w-16">
@@ -99,7 +99,7 @@ const ownProfile = user?.id === currentUser?.value.id;
 const goalsByCategory: {
   default: number;
   penalty: number;
-  fault: number;
+  freeKick: number;
   counterAttack: number;
 } = await getGoalsByUser((route.params?.id as string) || "");
 

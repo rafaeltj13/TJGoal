@@ -52,7 +52,7 @@ export type Goal = {
   created_at: string;
   userId: string;
   teamId: string;
-  type: "default" | "penalty" | "fault" | "counterAttack";
+  type: "default" | "penalty" | "freeKick" | "counterAttack";
 };
 
 export type Vip = {

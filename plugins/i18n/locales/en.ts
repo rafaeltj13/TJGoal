@@ -118,4 +118,16 @@ export default {
     back: "Back",
     getVip: "Get VIP",
   },
+  shoot: {
+    default: "Shoot",
+    penalty: "Penalty kick",
+    freeKick: "Free kick",
+    counterAttack: "Counter Attack",
+    pace: "PAC",
+    shooting: "SHO",
+    passing: "PAS",
+    dribbling: "DRI",
+    defending: "DEF",
+    physical: "PHY",
+  },
 };
