@@ -8,7 +8,7 @@
   >
     <div
       :style="`width: ${shootPercentage}%`"
-      class="h-full bg-tertiary dark:bg-tertiary-dark rounded-md transition-all ease-in-out"
+      class="h-full bg-tertiary dark:bg-tertiary-dark rounded-md transition-all"
     ></div>
     <div
       :style="`width: ${successPercentage}%`"
@@ -41,10 +41,9 @@ const successPercentage = ref(0);
 const shoot = () => {
   tryToShoot.value = true;
   successPercentage.value =
-    (Math.random() +
-      props.dribbling / 1000 +
-      props.pace / 1000 +
-      props.dribbling / 1000) *
+    ((props.shooting / 1000) * 3 +
+      (props.pace / 1000) * 1.5 +
+      (props.dribbling / 1000) * 2) *
     100;
 
   setTimeout(() => {

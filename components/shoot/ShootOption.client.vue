@@ -6,7 +6,7 @@
   >
     <div
       :class="{
-        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
+        'shadow-[0px_0px_14px_4px] !shadow-primary dark:shadow-primary-dark':
           shoot,
       }"
       class="flex items-center justify-center h-12 w-12 my-2 mx-auto bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
@@ -18,7 +18,7 @@
         faIcon="fa-solid fa-futbol"
       />
       <span
-        class="absolute w-auto p-2 m-2 min-w-max right-14 rounded-xl shadow-md text-background dark:text-background-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-right group-hover:scale-100"
+        class="absolute w-auto p-2 m-2 min-w-max right-14 rounded-xl text-background dark:text-background-dark dark:bg-primary-dark bg-primary text-xs font-bold transition-all duration-100 scale-0 origin-right group-hover:scale-100"
       >
         {{ title }}
       </span>
@@ -30,7 +30,7 @@
     </span>
     <div
       :class="{
-        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
+        'shadow-[0px_0px_14px_4px] !shadow-primary dark:shadow-primary-dark':
           shoot,
       }"
       @click="tryToShoot()"
