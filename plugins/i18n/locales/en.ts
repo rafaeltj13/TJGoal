@@ -120,6 +120,7 @@ export default {
   },
   shoot: {
     default: "Shoot",
+    bonusAttributes: "Bonus Attributes",
     penalty: "Penalty kick",
     freeKick: "Free kick",
     counterAttack: "Counter Attack",
@@ -129,5 +130,6 @@ export default {
     dribbling: "DRI",
     defending: "DEF",
     physical: "PHY",
+    shoot: "Shoot",
   },
 };

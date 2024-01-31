@@ -2,12 +2,12 @@
   <TheModal v-model="showModal">
     <template #content>
       <div
-        class="text-center mb-4 text-primary dark:text-primary-dark text-2xl"
+        class="text-center mb-4 text-primary dark:text-primary-dark text-3xl font-bold"
       >
         {{ $t(`shoot.${props.shootType}`) }}
       </div>
       <div class="text-center mb-4 text-tertiary dark:text-tertiary-dark">
-        Atributos bonus
+        {{ $t("shoot.bonusAttributes") }}
       </div>
       <div class="flex items-center justify-between">
         <p
@@ -59,7 +59,13 @@
           {{ $t("shoot.physical") }}
         </p>
       </div>
-      <p class="text-tertiary dark:text-tertiary-dark"></p>
+      <ShootDefault
+        :shooting="currentUser.shooting"
+        :pace="currentUser.pace"
+        :dribbling="currentUser.dribbling"
+        @goal="handleGoal"
+        @miss="handleMiss"
+      />
     </template>
   </TheModal>
 </template>
@@ -84,13 +90,25 @@ const props = defineProps({
     required: true,
   },
 });
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "goal", "miss"]);
 
 const updateValue = (value: boolean) => {
   emit("update:modelValue", value);
 };
 
 const showModal = ref(props.modelValue);
+
+const { currentUser } = useCurrentUser();
+
+const handleGoal = () => {
+  emit("goal", props.shootType);
+  updateValue(false);
+};
+
+const handleMiss = () => {
+  emit("miss");
+  updateValue(false);
+};
 
 watch(
   () => props.modelValue,

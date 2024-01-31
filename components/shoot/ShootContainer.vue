@@ -7,6 +7,8 @@
     v-if="shooting"
     v-model="shooting"
     :shoot-type="currentShootType"
+    @goal="handleGoal"
+    @miss="handleMiss"
   />
 </template>
 <script setup lang="ts">
@@ -27,13 +29,9 @@ const handleShooting = async (
 ) => {
   shooting.value = true;
   currentShootType.value = type;
-
-  await handleShoot(type);
-
-  // shooting.value = false;
 };
 
-const handleShoot = async (type: string) => {
+const handleGoal = async (type: string) => {
   await useShootApi().shoot(
     currentUser.value.id,
     type,
@@ -64,5 +62,12 @@ const handleShoot = async (type: string) => {
       type: "success",
     });
   }
+};
+
+const handleMiss = async () => {
+  setNotification({
+    title: "Missed",
+    type: "error",
+  });
 };
 </script>

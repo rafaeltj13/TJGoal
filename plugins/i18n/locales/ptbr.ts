@@ -121,6 +121,7 @@ export default {
   },
   shoot: {
     default: "Chute Direto",
+    bonusAttributes: "Atributos Bônus",
     penalty: "Pênalti",
     freeKick: "Falta",
     counterAttack: "Contra Ataque",
@@ -130,5 +131,6 @@ export default {
     dribbling: "DRI",
     defending: "DEF",
     physical: "FIS",
+    shoot: "Chutar",
   },
 };
