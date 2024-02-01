@@ -132,5 +132,8 @@ export default {
     defending: "DEF",
     physical: "FIS",
     shoot: "Chutar",
+    left: "Esquerda",
+    center: "Centro",
+    right: "Direita",
   },
 };

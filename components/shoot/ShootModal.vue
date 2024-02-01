@@ -60,9 +60,18 @@
         </p>
       </div>
       <ShootDefault
+        v-if="props.shootType === 'default'"
         :shooting="currentUser.shooting"
         :pace="currentUser.pace"
         :dribbling="currentUser.dribbling"
+        @goal="handleGoal"
+        @miss="handleMiss"
+      />
+      <ShootPenaulty
+        v-else-if="props.shootType === 'penalty'"
+        :shooting="currentUser.shooting"
+        :pace="currentUser.pace"
+        :physical="currentUser.physical"
         @goal="handleGoal"
         @miss="handleMiss"
       />

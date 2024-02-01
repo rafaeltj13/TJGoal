@@ -131,5 +131,8 @@ export default {
     defending: "DEF",
     physical: "PHY",
     shoot: "Shoot",
+    left: "Left",
+    center: "Center",
+    right: "Right",
   },
 };

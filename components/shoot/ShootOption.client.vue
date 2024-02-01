@@ -6,7 +6,7 @@
   >
     <div
       :class="{
-        'shadow-[0px_0px_14px_4px] !shadow-primary dark:shadow-primary-dark':
+        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
           shoot,
       }"
       class="flex items-center justify-center h-12 w-12 my-2 mx-auto bg-background hover:bg-primary dark:bg-background-dark dark:hover:bg-primary-dark text-primary dark:text-primary-dark hover:text-background dark:hover:text-background-dark hover:rounded-3xl rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
@@ -30,7 +30,7 @@
     </span>
     <div
       :class="{
-        'shadow-[0px_0px_14px_4px] !shadow-primary dark:shadow-primary-dark':
+        'shadow-[0px_0px_12px_4px] !shadow-primary dark:shadow-primary-dark':
           shoot,
       }"
       @click="tryToShoot()"

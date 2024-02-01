@@ -10,6 +10,7 @@ export default {
     "text-emerald-800",
     "text-orange-800",
     "text-indigo-800",
+    "shadow-[0px_0px_12px_4px]",
   ],
   darkMode: "class",
   theme: {

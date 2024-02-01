@@ -1,20 +1,12 @@
 <template>
   <div class="h-[68px] pt-6 flex items-center justify-center">
-    <div v-if="!tryToShoot" class="w-full flex items-center justify-center">
-      <TheButton :content="$t('shoot.shoot')" @click="shoot" />
+    <div v-if="!tryToShoot" class="w-full flex items-center justify-between">
+      <TheButton :content="$t('shoot.left')" @click="shoot" />
+      <TheButton :content="$t('shoot.center')" @click="shoot" />
+      <TheButton :content="$t('shoot.right')" @click="shoot" />
     </div>
-    <div
-      v-else
-      class="h-4 my-auto w-full rounded-md bg-sidebar dark:bg-sidebar-dark relative"
-    >
-      <div
-        :style="`width: ${shootPercentage}%`"
-        class="h-full bg-tertiary dark:bg-tertiary-dark rounded-md transition-all"
-      ></div>
-      <div
-        :style="`width: ${successPercentage}%`"
-        class="h-full bg-primary dark:bg-primary-dark rounded-md absolute opacity-50 top-0 right-0"
-      ></div>
+    <div v-else>
+      <TheLoadingSpinner />
     </div>
   </div>
 </template>
@@ -29,7 +21,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  dribbling: {
+  physical: {
     type: Number,
     required: true,
   },
@@ -43,10 +35,10 @@ const successPercentage = ref(0);
 const shoot = () => {
   tryToShoot.value = true;
   successPercentage.value =
-    (0.25 +
-      (props.shooting / 1000) * 3 +
-      (props.pace / 1000) * 1.5 +
-      (props.dribbling / 1000) * 2) *
+    (0.33 +
+      (props.shooting / 1000) * 2 +
+      props.pace / 1000 +
+      props.physical / 1000) *
     100;
 
   if (successPercentage.value > 100) successPercentage.value = 100;
