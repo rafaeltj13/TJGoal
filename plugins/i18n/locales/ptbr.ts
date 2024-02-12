@@ -135,5 +135,9 @@ export default {
     left: "Esquerda",
     center: "Centro",
     right: "Direita",
+    perfectPlaced: "Chute colocado",
+    power: "Chute com força",
+    setPiece: "Jogada ensaiada",
+    backFoot: "Chute no contrapé",
   },
 };

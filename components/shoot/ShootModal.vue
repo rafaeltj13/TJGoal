@@ -75,6 +75,14 @@
         @goal="handleGoal"
         @miss="handleMiss"
       />
+      <ShootFreekick
+        v-else-if="props.shootType === 'freeKick'"
+        :shooting="currentUser.shooting"
+        :passing="currentUser.passing"
+        :dribbling="currentUser.dribbling"
+        @goal="handleGoal"
+        @miss="handleMiss"
+      />
     </template>
   </TheModal>
 </template>

@@ -134,5 +134,9 @@ export default {
     left: "Left",
     center: "Center",
     right: "Right",
+    perfectPlaced: "Perfect placed",
+    power: "Power shoot",
+    setPiece: "Set piece",
+    backFoot: "Back foot",
   },
 };
