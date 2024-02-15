@@ -139,5 +139,11 @@ export default {
     power: "Chute com força",
     setPiece: "Jogada ensaiada",
     backFoot: "Chute no contrapé",
+    tackle: "Bote",
+    slideTackle: "Carrinho",
+    interception: "Interceptação",
+    pass: "Passar",
+    longPass: "Lançamento",
+    individual: "Jogada individual",
   },
 };

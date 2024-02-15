@@ -6,7 +6,7 @@
       >
         {{ $t(`shoot.${props.shootType}`) }}
       </div>
-      <div class="text-center mb-4 text-tertiary dark:text-tertiary-dark">
+      <div class="text-center mb-4 text-primary dark:text-primary-dark">
         {{ $t("shoot.bonusAttributes") }}
       </div>
       <div class="flex items-center justify-between">
@@ -80,6 +80,14 @@
         :shooting="currentUser.shooting"
         :passing="currentUser.passing"
         :dribbling="currentUser.dribbling"
+        @goal="handleGoal"
+        @miss="handleMiss"
+      />
+      <ShootCounterAttack
+        v-else-if="props.shootType === 'counterAttack'"
+        :shooting="currentUser.shooting"
+        :passing="currentUser.passing"
+        :defending="currentUser.defending"
         @goal="handleGoal"
         @miss="handleMiss"
       />

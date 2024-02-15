@@ -138,5 +138,11 @@ export default {
     power: "Power shoot",
     setPiece: "Set piece",
     backFoot: "Back foot",
+    tackle: "Tackle",
+    slideTackle: "Slide Tackle",
+    interception: "Interception",
+    pass: "Pass",
+    longPass: "Long Pass",
+    individual: "Dribble and shoot",
   },
 };
