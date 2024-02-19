@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const dayjs = useDayjs();
 
 const emit = defineEmits(["shoot"]);
 const props = defineProps({
@@ -75,7 +76,11 @@ const title = computed(() => {
   }
 });
 
-const TIME_LIMIT = 2;
+const { currentUser } = useCurrentUser();
+
+const TIME_LIMIT = dayjs(currentUser.value.vip?.until).isBefore(new Date())
+  ? 120
+  : 1;
 const timePassed = ref(0);
 const timerInterval: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);

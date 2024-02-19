@@ -20,8 +20,8 @@ export default {
         primary: "#1F8A70",
         secondary: "#99BC85",
         tertiary: "#4FA095",
-        background: "#f1f4fa",
-        sidebar: "#eaf0f8",
+        background: "#F3F3F3",
+        sidebar: "#EEEEEE",
         accent: "#555843",
 
         //Dark Theme

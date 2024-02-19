@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent="emailSignIn()" class="flex flex-col items-center py-2">
     <p class="text-2xl text-tertiary dark:text-tertiary-dark font-bold mb-8">
-      Sign in
+      {{ $t("signIn.title") }}
     </p>
-    <TheInput v-model="login" placeholder="Email" class="mb-4" />
+    <TheInput v-model="login" :placeholder="$t('signIn.email')" class="mb-4" />
     <TheInput
       v-model="pass"
-      placeholder="Password"
+      :placeholder="$t('signIn.password')"
       type="password"
       class="mb-8"
     />
@@ -20,7 +20,7 @@
     </div>
     <div class="mt-8">
       <h1 class="text-lg text-tertiary dark:text-tertiary-dark">
-        ou entre com
+        {{ $t("signIn.or") }}
       </h1>
       <div class="flex items-centes justify-center mt-4">
         <div
@@ -38,6 +38,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const emit = defineEmits(["signup"]);
 
 const supabase = useSupabaseClient();
@@ -54,7 +56,7 @@ const emailSignIn = async () => {
 
   if (error) {
     setNotification({
-      title: "Erro",
+      title: t("notification.signInError"),
       content: error.message,
       type: "error",
     });

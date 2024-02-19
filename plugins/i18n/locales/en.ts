@@ -1,4 +1,18 @@
 export default {
+  signIn: {
+    title: "Sign in",
+    email: "Email",
+    password: "Password",
+    or: "or sign in with",
+  },
+  signUp: {
+    title: "Sign up",
+    email: "Email",
+    password: "Password",
+    confirmPassword: "Confirm password",
+    back: "Back",
+    register: "Register",
+  },
   config: {
     profile: "Profile",
     team: "Team",
@@ -144,5 +158,20 @@ export default {
     pass: "Pass",
     longPass: "Long Pass",
     individual: "Dribble and shoot",
+  },
+  notification: {
+    signInError: "Error signing in",
+    signUpError: "Error signing up",
+    confirmPasswordError: "Passwords do not match",
+    confirmPasswordErrorDescription: "Please, make sure your passwords match",
+    goal: "Goooooooal!",
+    default: "The keeper unable to stop the ball!",
+    penalty: "What a penalty kick!",
+    freeKick: "The ball goes over the wall!",
+    counterAttack: "The counter attack is on!",
+    miss: "The ball goes wide!",
+    missTitle: "Missed!",
+    lvlUp: "Level up!",
+    lvlUpDescription: "Congratulations! You are now in the next level!",
   },
 };

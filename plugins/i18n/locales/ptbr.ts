@@ -1,5 +1,18 @@
-import { AttributesAttributeBuilder } from "./../../../.nuxt/components.d";
 export default {
+  signIn: {
+    title: "Entrar",
+    email: "Email",
+    password: "Senha",
+    or: "ou entre com",
+  },
+  signUp: {
+    title: "Cadqastro",
+    email: "Email",
+    password: "Senha",
+    confirmPassword: "Confirmar senha",
+    back: "Voltar",
+    register: "Registrar",
+  },
   config: {
     profile: "Meu Perfil",
     team: "Meu time",
@@ -145,5 +158,21 @@ export default {
     pass: "Passar",
     longPass: "Lançamento",
     individual: "Jogada individual",
+  },
+  notification: {
+    signInError: "Erro ao entrar",
+    signUpError: "Erro no cadastro",
+    confirmPasswordError: "Passwords não coincidem",
+    confirmPasswordErrorDescription:
+      "Por favor, verifique se as senhas coincidem",
+    goal: "Gooooooooooool!!",
+    default: "O goleiro não consegue defender a bola!",
+    penalty: "Que cobrança de pênalti!",
+    freeKick: "A bola passa por cima da barreira!",
+    counterAttack: "O contra ataque foi letal!",
+    miss: "A bola foi longe!",
+    missTitle: "Errou!",
+    lvlUp: "Level up!",
+    lvlUpDescription: "Parabéns! Você subiu de nível!",
   },
 };

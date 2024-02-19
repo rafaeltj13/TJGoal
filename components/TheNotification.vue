@@ -4,17 +4,23 @@
       <div
         v-for="(notification, index) in notifications"
         :key="index + notification.title"
-        class="w-[350px] translate-y-[12px] transition-transform duration-300 ease-in-out mx-auto bg-sidebar dark:bg-sidebar-dark dark:border dark:border-primary-dark shadow-lg rounded-2xl"
+        class="w-[350px] translate-y-[12px] transition-transform duration-300 ease-in-out mx-auto bg-sidebar dark:bg-sidebar-dark dark:border dark:border-primary-dark rounded-2xl"
       >
-        <div class="flex items-center justify-between p-4">
-          <div>
-            <p class="text-primary dark:text-primary-dark">
+        <div class="flex flex-col items-start justify-between p-4">
+          <div class="flex items-center gap-2">
+            <TheIcon
+              customClass="text-primary dark:text-primary-dark text-lg"
+              :faIcon="`fa-solid fa-circle-${
+                notification.type === 'success' ? 'check' : 'xmark'
+              }`"
+            />
+            <p class="text-primary dark:text-primary-dark text-lg">
               {{ notification?.title }}
             </p>
-            <p class="text-tertiary dark:text-tertiary-dark">
-              {{ notification?.content }}
-            </p>
           </div>
+          <p class="text-tertiary dark:text-tertiary-dark ml-[1.6rem]">
+            {{ notification?.content }}
+          </p>
         </div>
       </div>
     </transition-group>

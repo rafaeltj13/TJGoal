@@ -1,28 +1,34 @@
 <template>
   <form class="flex flex-col items-center py-2">
     <p class="text-2xl text-primary dark:text-primary-dark font-bold mb-8">
-      Sign up
+      {{ $t("signIn.title") }}
     </p>
-    <TheInput v-model="email" placeholder="Email" class="mb-4" />
+    <TheInput v-model="email" :placeholder="$t('signUp.email')" class="mb-4" />
     <TheInput
       v-model="pass"
-      placeholder="Password"
+      :placeholder="$t('signUp.password')"
       type="password"
       class="mb-4"
     />
     <TheInput
       v-model="confirmPass"
-      placeholder="Confirm Password"
+      :placeholder="$t('signUp.confirmPassword')"
       type="password"
     />
     <div class="flex gap-4 mt-8">
-      <TheButton content="Voltar" classType="outlined" @click="emit('back')" />
-      <TheButton content="Registrar" @click="signup" />
+      <TheButton
+        :content="$t('signUp.back')"
+        classType="outlined"
+        @click="emit('back')"
+      />
+      <TheButton :content="$t('signUp.register')" @click="signup" />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 import { useSupabase } from "~/composables/api/useSupabase";
 
 const emit = defineEmits(["back"]);
@@ -37,8 +43,8 @@ const { setNotification } = useNotification();
 const signup = async () => {
   if (pass.value !== confirmPass.value) {
     setNotification({
-      title: "Erro",
-      content: "Passwords diferentes",
+      title: t("notification.confirmPasswordError"),
+      content: t("notification.confirmPasswordErrorDescription"),
       type: "error",
     });
     return;
@@ -51,7 +57,7 @@ const signup = async () => {
 
   if (error) {
     setNotification({
-      title: "Erro",
+      title: t("notification.signUpError"),
       content: error.message,
       type: "error",
     });

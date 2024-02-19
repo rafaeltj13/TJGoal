@@ -16,6 +16,8 @@ import { useLevelApi } from "~/composables/api/useLevels";
 import { useShootApi } from "~/composables/api/useShoot";
 import { useUserApi } from "~/composables/api/useUser";
 
+const { t } = useI18n();
+
 const { setNotification } = useNotification();
 const { currentUser, setCurrentUser } = useCurrentUser();
 
@@ -41,7 +43,8 @@ const handleGoal = async (type: string) => {
   currentUser.value.goals = currentUser.value.goals + 1;
 
   setNotification({
-    title: "GOOOOOOOOOOOOL !!!",
+    title: t("notification.goal"),
+    content: t(`notification.${type}`),
     type: "success",
   });
 
@@ -58,7 +61,8 @@ const handleGoal = async (type: string) => {
     setCurrentUser(userResponse);
 
     setNotification({
-      title: "LVL UP!",
+      title: t("notification.lvlUp"),
+      content: t("notification.lvlUpDescription"),
       type: "success",
     });
   }
@@ -66,7 +70,8 @@ const handleGoal = async (type: string) => {
 
 const handleMiss = async () => {
   setNotification({
-    title: "Missed",
+    title: t("notification.missTitle"),
+    content: t("notification.miss"),
     type: "error",
   });
 };
