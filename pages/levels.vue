@@ -21,11 +21,11 @@
     >
       <div class="flex items-center">
         <LevelIcon :current-level="currentLevel.id" class="mr-4" />
-        <p class="text-tertiary dark:text-tertiary-dark font-bold">
-          {{ currentLevel.name }}
+        <p class="text-tertiary dark:text-tertiary-dark">
+          {{ $t(`level.${currentLevel.id}`) }}
         </p>
       </div>
-      <p class="text-tertiary dark:text-tertiary-dark font-bold">
+      <p class="text-tertiary dark:text-tertiary-dark">
         {{ currentLevel.min_goals }}
       </p>
     </div>

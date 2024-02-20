@@ -80,7 +80,7 @@ const { currentUser } = useCurrentUser();
 
 const TIME_LIMIT = dayjs(currentUser.value.vip?.until).isBefore(new Date())
   ? 120
-  : 1;
+  : 90;
 const timePassed = ref(0);
 const timerInterval: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);

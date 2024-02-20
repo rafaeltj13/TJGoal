@@ -31,7 +31,6 @@ export type Team = {
 export type Level = {
   id: number;
   created_at?: string;
-  name: string;
   min_goals: number;
   max_goals: number;
   next_level?: Level;

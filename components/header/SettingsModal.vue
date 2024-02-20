@@ -56,7 +56,7 @@
 const { locale } = useI18n();
 const darkMode = useDarkMode();
 const language = useLanguage();
-const isEnglish = ref(language.value === "en-US");
+const isEnglish = computed(() => language.value === "en-US");
 const enableSound = ref(true);
 
 const props = defineProps({
