@@ -45,6 +45,7 @@ export default {
     daily: "Day",
     hourly: "Hour",
     team: "Team",
+    scorer: "Scorers",
   },
   standings: {
     title: "Standings",

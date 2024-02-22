@@ -39,14 +39,15 @@
             </p>
           </div>
         </div>
-        <div class="flex items-center justify-between w-full">
+        <!-- TODO add sound to the game -->
+        <!-- <div class="flex items-center justify-between w-full">
           <p class="text-md text-tertiary dark:text-tertiary-dark">
             {{ $t("settingsModal.sound") }}
           </p>
           <div class="flex items-center pr-7">
             <TheToggle v-model="enableSound" />
           </div>
-        </div>
+        </div> -->
       </div>
     </template>
   </TheModal>
@@ -56,8 +57,8 @@
 const { locale } = useI18n();
 const darkMode = useDarkMode();
 const language = useLanguage();
-const isEnglish = computed(() => language.value === "en-US");
-const enableSound = ref(true);
+const isEnglish = ref(language.value === "en-US");
+// const enableSound = ref(true);
 
 const props = defineProps({
   modelValue: {

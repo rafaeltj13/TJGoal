@@ -19,7 +19,6 @@ export const useUserApi = () => {
           ),
           level (
             id,
-            name,
             max_goals,
             min_goals,
             next_level(
@@ -177,6 +176,33 @@ export const useUserApi = () => {
     }
   };
 
+  const getUsersFromTeam = async (teamId: string) => {
+    const { data, error } = await useSupabase()
+      .from("users")
+      .select(
+        `
+        *,
+        team (
+          id,
+          name,
+          logo
+        ),
+        level (
+          id
+        ),
+        vip (
+          id,
+          until,
+          type
+        )
+      `
+      )
+      .eq("team", teamId)
+      .order("goals", { ascending: false });
+    if (error) return [];
+    return data as User[];
+  };
+
   return {
     getUser,
     getUserRanking,
@@ -186,5 +212,6 @@ export const useUserApi = () => {
     updateAttributes,
     updateGreens,
     updateUserVip,
+    getUsersFromTeam,
   };
 };

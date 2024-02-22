@@ -21,14 +21,15 @@
           />
         </div>
         <p class="text-xl font-bold md:text-[46px]">{{ user?.username }}</p>
-        <img
+        <!-- <img
           class="w-10 md:w-12 md:h-12 rounded-lg"
           src="https://s.sde.globo.com/media/organizations/2019/07/16/Brasil_rgYHF6Z.svg"
           :alt="`nacional-flag`"
-        />
+        /> -->
       </div>
       <img
-        class="w-16 h-16 rounded-lg"
+        @click="() => navigateTo(`/team/${user?.team?.id}`)"
+        class="w-16 h-16 rounded-lg hover:scale-125 transition-transform cursor-pointer"
         :src="`/emblems/${user?.team?.logo}.png`"
         :alt="`${user?.team?.logo}-team-logo`"
       />
@@ -41,7 +42,7 @@
           :src="`/levels/${user?.level?.id}.png`"
           :alt="`${user?.level?.id}-level-icon`"
         />
-        <p class="text-xl">{{ user?.level?.name }}</p>
+        <p class="text-xl">{{ $t(`level.${user?.level?.id}`) }}</p>
       </div>
       <div class="flex flex-wrap items-start gap-2 justify-center">
         <div

@@ -46,6 +46,7 @@ export default {
     daily: "Dia",
     hourly: "Hora",
     team: "Time",
+    scorer: "Artilheiros",
   },
   standings: {
     title: "Classificação",
