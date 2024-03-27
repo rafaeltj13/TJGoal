@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-96 bg-background border-background dark:bg-background-dark shadow-xl border-2 dark:border-primary-dark rounded-xl p-4"
+    class="w-96 h-[600px] bg-background border-background dark:bg-background-dark shadow-xl border-2 dark:border-primary-dark rounded-xl p-4"
   >
     <div>
       <div class="flex items-center justify-between p-2">
